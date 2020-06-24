@@ -1,0 +1,9 @@
+{
+  "common": {
+    "name": "Purifier Card",
+    "description": "Purifier card allows you to control your smart purifier."
+  },
+  "error": {
+    "missing_entity": "Specifying entity is required!"
+  }
+}
