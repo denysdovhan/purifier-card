@@ -1,7 +1,11 @@
 {
   "common": {
     "name": "Purifier Card",
-    "description": "Purifier card allows you to control your smart purifier."
+    "description": "Purifier card allows you to control your smart purifier.",
+    "not_available": "Entity is not avaialable"
+  },
+  "speed": {
+
   },
   "error": {
     "missing_entity": "Specifying entity is required!"
