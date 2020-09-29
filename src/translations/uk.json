@@ -17,5 +17,21 @@
   },
   "error": {
     "missing_entity": "Сутність є обов’язковим полем!і"
+  },
+  "editor": {
+    "entity": "Об’єкт (Required)",
+    "compact_view": "Компактний перегляд",
+    "compact_view_aria_label_on": "Увімкнути компактний перегляд",
+    "compact_view_aria_label_off": "Вимкнути компактний перегляд",
+    "show_name": "Показувати ім’я?",
+    "show_name_aria_label_on": "Показати ім’я",
+    "show_name_aria_label_off": "Приховати ім’я",
+    "show_state": "Показувати стан?",
+    "show_state_aria_label_on": "Показати стан",
+    "show_state_aria_label_off": "Приховати стан",
+    "show_toolbar": "Показувати панель дій?",
+    "show_toolbar_aria_label_on": "Показати панель дій",
+    "show_toolbar_aria_label_off": "Приховати панель дій",
+    "code_only_note": "Увага: Опції actions та stats доступні виключно через редактор коду."
   }
 }

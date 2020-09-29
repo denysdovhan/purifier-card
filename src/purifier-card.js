@@ -1,6 +1,6 @@
 import {LitElement, html} from 'lit-element';
-import { hasConfigOrEntityChanged, fireEvent } from 'custom-card-helpers';
-
+import {hasConfigOrEntityChanged, fireEvent} from 'custom-card-helpers';
+import './purifier-card-editor';
 import localize from './localize';
 import styles from './styles';
 
@@ -24,9 +24,9 @@ class PurifierCard extends LitElement {
     return styles;
   }
 
-  // static async getConfigElement() {
-  //   return document.createElement('vacuum-card-editor');
-  // }
+  static async getConfigElement() {
+    return document.createElement('vacuum-card-editor');
+  }
 
   static getStubConfig(hass, entities) {
     const [purifierEntity] = entities.filter(
@@ -51,11 +51,11 @@ class PurifierCard extends LitElement {
   }
 
   get showState() {
-    if (this.config.show_status === undefined) {
+    if (this.config.show_state === undefined) {
       return true;
     }
 
-    return this.config.show_status;
+    return this.config.show_state;
   }
 
   get showToolbar() {
