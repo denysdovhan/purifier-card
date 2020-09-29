@@ -42,6 +42,38 @@ class PurifierCard extends LitElement {
     return this.hass.states[this.config.entity];
   }
 
+  get showName() {
+    if (this.config.show_name === undefined) {
+      return true;
+    }
+
+    return this.config.show_name;
+  }
+
+  get showState() {
+    if (this.config.show_status === undefined) {
+      return true;
+    }
+
+    return this.config.show_status;
+  }
+
+  get showToolbar() {
+    if (this.config.show_toolbar === undefined) {
+      return true;
+    }
+
+    return this.config.show_toolbar;
+  }
+
+  get compactView() {
+    if (this.config.compact_view === undefined) {
+      return false;
+    }
+
+    return this.config.compact_view;
+  }
+
   setConfig(config) {
     if (!config.entity) {
       throw new Error(localize('error.missing_entity'));
@@ -158,6 +190,41 @@ class PurifierCard extends LitElement {
     `
   }
 
+  renderName() {
+    const { attributes: {friendly_name} } = this.entity;
+
+    if (!this.showName) {
+      return html``;
+    }
+
+    return html`
+      <div class="friendly-name">
+        ${friendly_name}
+      </div>
+    `;
+  }
+
+  renderState() {
+    const { state } = this.entity;
+    const localizedState = localize(`state.${state}`) || state;
+
+    if (!this.showState) {
+      return html``;
+    }
+
+    return html`
+      <div class="state">
+        <span class="state-text" alt=${localizedState}>
+          ${localizedState}
+        </span>
+        <ha-circular-progress
+          .active=${this.requestInProgress}
+          size="small"
+        ></ha-circular-progress>
+      </div>
+    `;
+  }
+
   renderStats() {
     const { stats = {} } = this.config;
 
@@ -186,7 +253,9 @@ class PurifierCard extends LitElement {
     const { actions = [] } = this.config;
     const { state, attributes } = this.entity;
 
-    console.log(this.entity);
+    if (!this.showToolbar) {
+      return html``;
+    }
 
     const buttons = actions.map(({
       name,
@@ -236,8 +305,8 @@ class PurifierCard extends LitElement {
         <ha-icon-button
           icon="hass:power"
           class="${state === 'on' ? 'active' : ''}"
-          title="${localize('common.start')}"
-          @click="${() => this.callService('toggle')}"
+          title="${localize('common.toggle_power')}"
+          @click="${() => this.callService('fan.toggle')}"
         >
         </ha-icon-button>
 
@@ -253,17 +322,20 @@ class PurifierCard extends LitElement {
       return html`
         <ha-card>
           <div class="preview not-available">
-            <!-- <div class="metadata"> -->
-              <!-- <div class="not-available"> -->
+            <div class="metadata">
+              <div class="not-available">
                 ${localize('common.not_available')}
-              <!-- </div> -->
-            <!-- <div> -->
+              </div>
+            <div>
           </div>
         </ha-card>
       `;
     }
 
     const {state, ...entity} = this.entity;
+
+    const stateClass = state === 'on' ? 'working' : 'standby';
+    const className = !this.compactView ? stateClass : 'compact';
 
     return html`
       <ha-card>
@@ -278,8 +350,12 @@ class PurifierCard extends LitElement {
             </div>
           </div>
 
-          <div class="image ${state === 'on' ? 'working' : 'idle'}">
+          <div class="image ${className}">
             ${this.renderAQI()}
+          </div>
+
+          <div class="metadata">
+            ${this.renderName()} ${this.renderState()}
           </div>
 
           <div class="stats">

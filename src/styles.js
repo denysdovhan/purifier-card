@@ -1,6 +1,6 @@
 import {css, unsafeCSS} from 'lit-element';
-import workingImg from './purifier-upscaled.gif';
-import stillImg from './purifier-still-upscaled.png';
+import workingImg from './images/purifier-working.gif';
+import standbyImg from './images/purifier-standby.png';
 
 export default css`
   :host {
@@ -30,7 +30,7 @@ export default css`
   }
 
   .header {
-    height: 40px;
+    display: flex;
     color: var(--text-primary-color);
   }
 
@@ -46,8 +46,13 @@ export default css`
     background-image: url(${unsafeCSS(workingImg)});
   }
 
-  .image.idle {
-    background-image: url(${unsafeCSS(stillImg)});
+  .image.standby {
+    background-image: url(${unsafeCSS(standbyImg)});
+  }
+
+  .image.compact {
+    background-image: none;
+    height: auto;
   }
   
   .preview.not-available {
@@ -65,12 +70,54 @@ export default css`
     padding: 5px 10px;
     border-radius: 4px;
     background: rgba(0, 0, 0, 0.6);
+    color: var(--text-primary-color);
   }
 
   .current-aqi sup {
     font-size: 16px;
     line-height: 16px;
     font-weight: normal;
+  }
+
+  .state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .state-text {
+    color: var(--text-primary-color);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-left: calc(20px + 9px); /* size + margin of spinner */
+  }
+
+  .state ha-circular-progress {
+    --mdc-theme-primary: var(
+      --card-background-color
+    ); /* hack to override the color */
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+    margin-left: 9px;
+  }
+
+  .friendly-name {
+    text-align: center;
+    font-weight: bold;
+    color: var(--text-primary-color);
+    font-size: 16px;
+  }
+
+  .not-available {
+    text-align: center;
+    color: var(--text-primary-color);
+    font-size: 16px;
+  }
+
+  .metadata {
+    margin: 10px auto;
   }
 
   .stats {

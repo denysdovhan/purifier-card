@@ -2,10 +2,18 @@
   "common": {
     "name": "Purifier Card",
     "description": "Purifier card allows you to control your smart purifier.",
-    "not_available": "Entity is not avaialable"
+    "not_available": "Entity is not avaialable",
+    "toggle_power": "Turn on/off"
+  },
+  "state": {
+    "on": "On",
+    "off": "Off"
   },
   "speed": {
-
+    "Auto": "Auto",
+    "Silent": "Silent",
+    "Favorite": "Favorite",
+    "Fan": "Fan"
   },
   "error": {
     "missing_entity": "Specifying entity is required!"
