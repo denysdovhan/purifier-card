@@ -1,4 +1,4 @@
-import {css, unsafeCSS} from 'lit-element';
+import { css, unsafeCSS } from 'lit-element';
 import workingImg from './images/purifier-working.gif';
 import standbyImg from './images/purifier-standby.png';
 
@@ -54,7 +54,7 @@ export default css`
     background-image: none;
     height: auto;
   }
-  
+
   .preview.not-available {
     filter: grayscale(1);
   }

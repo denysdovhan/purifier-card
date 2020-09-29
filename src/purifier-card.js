@@ -1,5 +1,5 @@
-import {LitElement, html} from 'lit-element';
-import {hasConfigOrEntityChanged, fireEvent} from 'custom-card-helpers';
+import { LitElement, html } from 'lit-element';
+import { hasConfigOrEntityChanged, fireEvent } from 'custom-card-helpers';
 import './purifier-card-editor';
 import localize from './localize';
 import styles from './styles';
@@ -132,7 +132,9 @@ class PurifierCard extends LitElement {
   }
 
   renderSpeed() {
-    const {attributes:{ speed, speed_list }} = this.entity
+    const {
+      attributes: { speed, speed_list },
+    } = this.entity;
 
     if (!speed_list) {
       return html``;
@@ -172,26 +174,30 @@ class PurifierCard extends LitElement {
   }
 
   renderAQI() {
-    const {attributes: {aqi}} = this.entity;
+    const {
+      attributes: { aqi },
+    } = this.entity;
 
     let prefix = '';
 
     if (aqi < 10) {
-      prefix = html`<span class="number-off">00</span>`
+      prefix = html`<span class="number-off">00</span>`;
     } else if (aqi < 100) {
-      prefix = html`<span class="number-off">0</span>`
+      prefix = html`<span class="number-off">0</span>`;
     }
-    
+
     return html`
       <div class="current-aqi">
         ${prefix}<span class="number-on">${aqi}</span>
         <sup>AQI</sup>
       </div>
-    `
+    `;
   }
 
   renderName() {
-    const { attributes: {friendly_name} } = this.entity;
+    const {
+      attributes: { friendly_name },
+    } = this.entity;
 
     if (!this.showName) {
       return html``;
@@ -257,48 +263,52 @@ class PurifierCard extends LitElement {
       return html``;
     }
 
-    const buttons = actions.map(({
-      name,
-      icon,
-      service,
-      service_data,
-      speed,
-      xiaomi_miio_favorite_level
-    }) => {
-      const execute = () => {
-        if (service) {
-          this.callService(service, service_data);
-        }
+    const buttons = actions.map(
+      ({
+        name,
+        icon,
+        service,
+        service_data,
+        speed,
+        xiaomi_miio_favorite_level,
+      }) => {
+        const execute = () => {
+          if (service) {
+            this.callService(service, service_data);
+          }
 
-        if (speed) {
-          this.callService('fan.set_speed', { speed });
-        }
+          if (speed) {
+            this.callService('fan.set_speed', { speed });
+          }
 
-        if (xiaomi_miio_favorite_level) {
-          this.callService('fan.set_speed', { speed })
-          setTimeout(() => {
-            this.callService('xiaomi_miio.fan_set_favorite_level', {
-              level: xiaomi_miio_favorite_level
-            })
-          }, 500);
-        }
-      };
+          if (xiaomi_miio_favorite_level) {
+            this.callService('fan.set_speed', { speed });
+            setTimeout(() => {
+              this.callService('xiaomi_miio.fan_set_favorite_level', {
+                level: xiaomi_miio_favorite_level,
+              });
+            }, 500);
+          }
+        };
 
-      const isActive = service
-        // Speed with specific favorite level
-        || (speed === attributes.speed && xiaomi_miio_favorite_level === attributes.favorite_level)
-        // Specific speed with no specific favorite level
-        || (speed === attributes.speed && !xiaomi_miio_favorite_level);
+        const isActive =
+          service ||
+          // Speed with specific favorite level
+          (speed === attributes.speed &&
+            xiaomi_miio_favorite_level === attributes.favorite_level) ||
+          // Specific speed with no specific favorite level
+          (speed === attributes.speed && !xiaomi_miio_favorite_level);
 
-      return html`
-        <ha-icon-button
-          icon="${icon}"
-          title="${name}"
-          class="${isActive ? 'active' : ''}"
-          @click="${execute}"
-        ></ha-icon-button>
-      `;
-    });
+        return html`
+          <ha-icon-button
+            icon="${icon}"
+            title="${name}"
+            class="${isActive ? 'active' : ''}"
+            @click="${execute}"
+          ></ha-icon-button>
+        `;
+      }
+    );
 
     return html`
       <div class="toolbar">
@@ -332,7 +342,7 @@ class PurifierCard extends LitElement {
       `;
     }
 
-    const {state, ...entity} = this.entity;
+    const { state } = this.entity;
 
     const stateClass = state === 'on' ? 'working' : 'standby';
     const className = !this.compactView ? stateClass : 'compact';
