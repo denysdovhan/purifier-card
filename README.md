@@ -222,6 +222,6 @@ MIT © [Denys Dovhan][denysdovhan]
 [xiaomi-miio-favorite-levels]: https://www.home-assistant.io/integrations/xiaomi_miio/#service-xiaomi_miiofan_set_favorite_level-air-purifiers-only
 [original-gif]: https://github.com/macbury/SmartHouse/blob/master/home-assistant/www/custom-lovelace/air-purifier/standby.gif
 [edit-readme]: https://github.com/denysdovhan/purifier-card/edit/master/README.md
-[add-translation]: https://github.com/denysdovhan/purifier-card/tree/master/src/translations
+[add-translation]: https://github.com/denysdovhan/purifier-card/blob/master/CONTRIBUTING.md#how-to-add-translation
 [macbury-smart-house]: https://macbury.github.io/SmartHouse/HomeAssistant/Lovelace/#air-purifier
 [denysdovhan]: https://denysdovhan.com
