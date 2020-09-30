@@ -92,8 +92,8 @@ class PurifierCard extends LitElement {
   updated(changedProps) {
     if (
       changedProps.get('hass') &&
-      changedProps.get('hass').states[this.config.entity].state !==
-        this.hass.states[this.config.entity].state
+      changedProps.get('hass').states[this.config.entity] !==
+        this.hass.states[this.config.entity]
     ) {
       this.requestInProgress = false;
     }
@@ -281,13 +281,17 @@ class PurifierCard extends LitElement {
             this.callService('fan.set_speed', { speed });
           }
 
-          if (xiaomi_miio_favorite_level) {
+          if (speed && xiaomi_miio_favorite_level) {
             this.callService('fan.set_speed', { speed });
             setTimeout(() => {
               this.callService('xiaomi_miio.fan_set_favorite_level', {
                 level: xiaomi_miio_favorite_level,
               });
             }, 500);
+          }
+
+          if (!speed && xiaomi_miio_favorite_level) {
+            throw new Error(localize('error.xiaomi_miio_level_without_speed'));
           }
         };
 
@@ -298,12 +302,13 @@ class PurifierCard extends LitElement {
             xiaomi_miio_favorite_level === attributes.favorite_level) ||
           // Specific speed with no specific favorite level
           (speed === attributes.speed && !xiaomi_miio_favorite_level);
+        const className = isActive ? 'active' : '';
 
         return html`
           <ha-icon-button
             icon="${icon}"
             title="${name}"
-            class="${isActive ? 'active' : ''}"
+            class="${className}"
             @click="${execute}"
           ></ha-icon-button>
         `;

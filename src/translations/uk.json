@@ -16,7 +16,8 @@
     "Fan": "Вентилятор"
   },
   "error": {
-    "missing_entity": "Сутність є обов’язковим полем!і"
+    "missing_entity": "Сутність є обов’язковим полем!і",
+    "xiaomi_miio_level_without_speed": "Поле speed є обов’язковим разом з xiaomi_miio_favorite_level!"
   },
   "editor": {
     "entity": "Об’єкт (Required)",
