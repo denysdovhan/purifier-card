@@ -1,7 +1,7 @@
 {
   "name": "purifier-card",
   "version": "0.1.0",
-  "description": "Purifier card for Home Assistant Lovelace UI",
+  "description": "Air Purifier card for Home Assistant Lovelace UI",
   "main": "dist/purifier-card.js",
   "scripts": {
     "postpublish": "git push --follow-tags",
