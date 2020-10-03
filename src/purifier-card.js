@@ -25,7 +25,7 @@ class PurifierCard extends LitElement {
   }
 
   static async getConfigElement() {
-    return document.createElement('vacuum-card-editor');
+    return document.createElement('purifier-card-editor');
   }
 
   static getStubConfig(hass, entities) {

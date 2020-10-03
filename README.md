@@ -12,7 +12,7 @@ By default, the Home Assistant does not provide any card for controlling air pur
 
 <!-- FIXME: Replace image -->
 
-![Preview of vacuum-card][preview-image]
+![Preview of purifier-card][preview-image]
 
 ## Installing
 
@@ -119,12 +119,12 @@ Here is what every option means:
 
 You can use any attribute of purifier or even any entity by `entity_id` to display by stats section:
 
-| Name        |   Type   | Default  | Description                                        |
-| ----------- | :------: | -------- | -------------------------------------------------- |
-| `entity_id` | `string` | Optional | An entity_id with state, i.e. `sensor.vacuum_aqi`. |
-| `attribute` | `string` | Optional | Attribute name of the stat, i.e. `filter_left`.    |
-| `unit`      | `string` | Optional | Unit of measure, i.e. `hours`.                     |
-| `subtitle`  | `string` | Optional | Friendly name of the stat, i.e. `Filter`.          |
+| Name        |   Type   | Default  | Description                                          |
+| ----------- | :------: | -------- | ---------------------------------------------------- |
+| `entity_id` | `string` | Optional | An entity_id with state, i.e. `sensor.purifier_aqi`. |
+| `attribute` | `string` | Optional | Attribute name of the stat, i.e. `filter_left`.      |
+| `unit`      | `string` | Optional | Unit of measure, i.e. `hours`.                       |
+| `subtitle`  | `string` | Optional | Friendly name of the stat, i.e. `Filter`.            |
 
 ### `actions` object
 
@@ -174,7 +174,7 @@ This card supports translations. Please, help to add more translations and impro
 
 ## Supported models
 
-This card relies on basic fan services, like `toggle`, `turn_on`, `turn_off`, etc. It should work with any air purifier, however I can physically test it only with my own robot vacuum.
+This card relies on basic fan services, like `toggle`, `turn_on`, `turn_off`, etc. It should work with any air purifier, however I can physically test it only with my own purifier.
 
 If this card works with your air purifier, please open a PR and your model to the list.
 
