@@ -182,4 +182,4 @@ export class PurifierCardEditor extends LitElement {
   }
 }
 
-customElements.define('vacuum-card-editor', PurifierCardEditor);
+customElements.define('purifier-card-editor', PurifierCardEditor);
