@@ -1,0 +1,38 @@
+{
+  "common": {
+    "name": "Purifier Card",
+    "description": "Purifier kartı hava temizleyicinizi kontrol etmenize yardımcı olur.",
+    "not_available": "Varlık müsait değil",
+    "toggle_power": "Kapat/Aç"
+  },
+  "state": {
+    "on": "Açık",
+    "off": "Kapalı"
+  },
+  "speed": {
+    "Auto": "Otomatik",
+    "Silent": "Sessiz",
+    "Favorite": "Favori",
+    "Fan": "Fan"
+  },
+  "error": {
+    "missing_entity": "Varlığı belirtmeniz gereklidir!",
+    "xiaomi_miio_level_without_speed": "Hız xiaomi_miio_favorite_level için gereklidir!"
+  },
+  "editor": {
+    "entity": "Varlık (Gerekli)",
+    "compact_view": "Kompakt Görünüm",
+    "compact_view_aria_label_on": "Kompakt Görünümü aç",
+    "compact_view_aria_label_off": "Kompakt Görünümü kapat",
+    "show_name": "Show Name",
+    "show_name_aria_label_on": "İsim gösterimini aç",
+    "show_name_aria_label_off": "İsim gösterimini kapat",
+    "show_state": "Show State",
+    "show_state_aria_label_on": "Durum gösterimini aç",
+    "show_state_aria_label_off": "Durum gösterimini kapat",
+    "show_toolbar": "Show Toolbar",
+    "show_toolbar_aria_label_on": "Araç çubuğu gösterimini aç",
+    "show_toolbar_aria_label_off": "Araç çubuğu gösterimini kapat",
+    "code_only_note": "Not: Aksiyon ataması ve istatistik seçenekleri şu anda Kod Editörü kullanımı ile mümkündür."
+  }
+}
