@@ -170,7 +170,7 @@ This card supports translations. Please, help to add more translations and impro
 
 - English
 - Українська (Ukrainian)
-- Turkish
+- Türkçe (Turkish)
 - [_Your language?_][add-translation]
 
 ## Supported models
