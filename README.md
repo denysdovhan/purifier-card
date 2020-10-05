@@ -181,6 +181,7 @@ This card relies on basic fan services, like `toggle`, `turn_on`, `turn_off`, et
 If this card works with your air purifier, please open a PR and your model to the list.
 
 - Air Purifier 3/3H
+- Air Purifier 2/2H
 - [_Your purifier?_][edit-readme]
 
 ## Development
