@@ -1,0 +1,38 @@
+{
+  "common": {
+    "name": "Purifier Card",
+    "description": "Purifier-kortet lar deg kontrollere din smarte purifier.",
+    "not_available": "Enhet er ikke tilgjengelig",
+    "toggle_power": "Slå på/av"
+  },
+  "state": {
+    "on": "På",
+    "off": "Av"
+  },
+  "speed": {
+    "Auto": "Auto",
+    "Silent": "Stille",
+    "Favorite": "Favoritt",
+    "Fan": "Vifte"
+  },
+  "error": {
+    "missing_entity": "Spesifiserende enhet kreves!",
+    "xiaomi_miio_level_without_speed": "hastighet kreves sammen med eiendommen xiaomi_miio_favorite_level!"
+  },
+  "editor": {
+    "entity": "Enhet (påkrevd)",
+    "compact_view": "Kompakt visning",
+    "compact_view_aria_label_on": "Slå på kompakt visning",
+    "compact_view_aria_label_off": "Slå av kompakt visning",
+    "show_name": "Show Name",
+    "show_name_aria_label_on": "Slå visningsnavnet på",
+    "show_name_aria_label_off": "Slå visningsnavnet av",
+    "show_state": "Show State",
+    "show_state_aria_label_on": "Slå skjermstatus på",
+    "show_state_aria_label_off": "Slå skjermstatus av",
+    "show_toolbar": "Show Toolbar",
+    "show_toolbar_aria_label_on": "Slå skjermverktøylinjen på",
+    "show_toolbar_aria_label_off": "Slå skjermverktøylinjen av",
+    "code_only_note": "Merk: Innstillingshandlinger og statistikkalternativer er eksklusivt tilgjengelige ved hjelp av Code Editor."
+  }
+}
