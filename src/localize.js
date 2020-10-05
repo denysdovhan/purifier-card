@@ -12,7 +12,7 @@ var languages = {
   uk,
   fr,
   tr,
-  no,
+  nb,
 };
 
 const DEFAULT_LANG = 'en';
