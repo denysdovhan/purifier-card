@@ -232,7 +232,7 @@ class PurifierCard extends LitElement {
   }
 
   renderStats() {
-    const { stats = {} } = this.config;
+    const { stats = [] } = this.config;
 
     const statsList = stats || [];
 
