@@ -1,0 +1,38 @@
+{
+  "common": {
+    "name": "Carte purificateur",
+    "description": "La carte purificateur vous permet de contrôler votre purificateur d'air intelligent.",
+    "not_available": "Le purificateur n'est pas disponible",
+    "toggle_power": "Allumer/éteindre"
+  },
+  "state": {
+    "on": "Allumé",
+    "off": "Éteint"
+  },
+  "speed": {
+    "Auto": "Auto",
+    "Silent": "Nuit",
+    "Favorite": "Favori",
+    "Fan": "Manuel"
+  },
+  "error": {
+    "missing_entity": "Il est obligatoire de spécifier une entité!",
+    "xiaomi_miio_level_without_speed": "speed est obligatoire avec la propriété xiaomi_miio_favorite_level!"
+  },
+  "editor": {
+    "entity": "Entité (obligatoire)",
+    "compact_view": "Vue compacte",
+    "compact_view_aria_label_on": "Activer la vue compacte",
+    "compact_view_aria_label_off": "Désactiver la vue compacte",
+    "show_name": "Afficher le nom",
+    "show_name_aria_label_on": "Activer affichage du nom",
+    "show_name_aria_label_off": "Désactiver affichage du nom",
+    "show_state": "Afficher l'état",
+    "show_state_aria_label_on": "Activer l'affichage de l'état",
+    "show_state_aria_label_off": "Désactiver l'affichage de l'état",
+    "show_toolbar": "Afficher la barre d'outils",
+    "show_toolbar_aria_label_on": "Activer l'affichage de la barre d'outils",
+    "show_toolbar_aria_label_off": "Désactiver l'affichage de la barre d'outils",
+    "code_only_note": "Remarque: Les options de réglage des actions et statistiques sont disponibles exclusivement en utilisant l'éditeur de code."
+  }
+}
