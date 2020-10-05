@@ -5,7 +5,7 @@ import * as en from './translations/en.json';
 import * as uk from './translations/uk.json';
 import * as tr from './translations/tr.json';
 import * as fr from './translations/fr.json';
-import * as fr from './translations/nb.json';
+import * as nb from './translations/nb.json';
 
 var languages = {
   en,
