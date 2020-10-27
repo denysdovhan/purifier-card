@@ -24,15 +24,15 @@
     "compact_view": "Widok kompaktowy",
     "compact_view_aria_label_on": "Włącz widok kompaktowy",
     "compact_view_aria_label_off": "Wyłącz widok kompaktowy",
-    "show_name": "Show Name",
+    "show_name": "Pokaż nazwę",
     "show_name_aria_label_on": "Włącz wyświetlanie nazwy",
     "show_name_aria_label_off": "Wyłącz wyświetlanie nazwy",
-    "show_state": "Show State",
+    "show_state": "Pokaż stan",
     "show_state_aria_label_on": "Włącz wyświetlanie stanu",
     "show_state_aria_label_off": "Wyłącz wyświetlanie stanu",
-    "show_toolbar": "Show Toolbar",
+    "show_toolbar": "Pokaż pasek narzędzi",
     "show_toolbar_aria_label_on": "Włącz wyświetlanie paska narzędzi",
     "show_toolbar_aria_label_off": "Wyłącz wyświetlanie paska narzędzi",
-    "code_only_note": "Uwaga: Konfiguracja akcji i statystyk dostępna jest tylko w trybie edycji kodu karty."
+    "code_only_note": "Uwaga: Konfiguracja akcji i statystyk dostępna jest tylko w trybie edytora YAML karty."
   }
 }
