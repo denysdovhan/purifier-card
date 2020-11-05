@@ -1,0 +1,38 @@
+{
+  "common": {
+    "name": "Karta oczyszczacza powietrza",
+    "description": "Karta oczyszczacza powietrza pozwala na kontrolowanie Twojego urządzenia.",
+    "not_available": "Encja jest niedostępna",
+    "toggle_power": "Włącz/wyłącz"
+  },
+  "state": {
+    "on": "Włączony",
+    "off": "Wyłączony"
+  },
+  "speed": {
+    "Auto": "Auto",
+    "Silent": "Cichy",
+    "Favorite": "Ulubiony",
+    "Fan": "Wentylator"
+  },
+  "error": {
+    "missing_entity": "Wymagane jest zadeklarowanie encji!",
+    "xiaomi_miio_level_without_speed": "parametr speed jest wymagany w wywołaniu z xiaomi_miio_favorite_level!"
+  },
+  "editor": {
+    "entity": "Encja (wymagane)",
+    "compact_view": "Widok kompaktowy",
+    "compact_view_aria_label_on": "Włącz widok kompaktowy",
+    "compact_view_aria_label_off": "Wyłącz widok kompaktowy",
+    "show_name": "Pokaż nazwę",
+    "show_name_aria_label_on": "Włącz wyświetlanie nazwy",
+    "show_name_aria_label_off": "Wyłącz wyświetlanie nazwy",
+    "show_state": "Pokaż stan",
+    "show_state_aria_label_on": "Włącz wyświetlanie stanu",
+    "show_state_aria_label_off": "Wyłącz wyświetlanie stanu",
+    "show_toolbar": "Pokaż pasek narzędzi",
+    "show_toolbar_aria_label_on": "Włącz wyświetlanie paska narzędzi",
+    "show_toolbar_aria_label_off": "Wyłącz wyświetlanie paska narzędzi",
+    "code_only_note": "Uwaga: Konfiguracja akcji i statystyk dostępna jest tylko w edytorze YAML karty."
+  }
+}

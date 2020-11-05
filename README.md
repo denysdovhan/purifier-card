@@ -173,6 +173,7 @@ This card supports translations. Please, help to add more translations and impro
 - Türkçe (Turkish)
 - Français (French)
 - Norsk (Norwegian)
+- Polski (Polish)
 - [_Your language?_][add-translation]
 
 ## Supported models
