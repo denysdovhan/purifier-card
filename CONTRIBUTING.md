@@ -13,6 +13,8 @@ Only a native speaker can translate to a specific language.
 5. Open a PR.
 6. Find someone to check and approve your PR.
 
+**Do not open multiple PRs for a single translation**, this is just rude, they will be closed.
+
 ## How to run locally
 
 1. Clone this repo to wherever you want:
