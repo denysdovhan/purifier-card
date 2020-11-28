@@ -153,9 +153,7 @@ class PurifierCard extends LitElement {
       >
         <paper-button slot="dropdown-trigger">
           <ha-icon icon="mdi:fan"></ha-icon>
-          <span show=${true}>
-            ${localize(`speed.${speed}`) || speed}
-          </span>
+          <span show=${true}> ${localize(`speed.${speed}`) || speed} </span>
         </paper-button>
         <paper-listbox
           slot="dropdown-content"
@@ -174,22 +172,25 @@ class PurifierCard extends LitElement {
   }
 
   renderAQI() {
-    const {
-      attributes: { aqi },
-    } = this.entity;
+    const { aqi = {} } = this.config;
+    const { entity_id, attribute = 'aqi', unit = 'AQI' } = aqi;
+
+    const value = entity_id
+      ? this.hass.states[entity_id].state
+      : this.entity.attributes[attribute];
 
     let prefix = '';
 
-    if (aqi < 10) {
+    if (value < 10) {
       prefix = html`<span class="number-off">00</span>`;
-    } else if (aqi < 100) {
+    } else if (value < 100) {
       prefix = html`<span class="number-off">0</span>`;
     }
 
     return html`
       <div class="current-aqi">
-        ${prefix}<span class="number-on">${aqi}</span>
-        <sup>AQI</sup>
+        ${prefix}<span class="number-on">${value}</span>
+        <sup>${unit}</sup>
       </div>
     `;
   }
@@ -203,11 +204,7 @@ class PurifierCard extends LitElement {
       return html``;
     }
 
-    return html`
-      <div class="friendly-name">
-        ${friendly_name}
-      </div>
-    `;
+    return html` <div class="friendly-name">${friendly_name}</div> `;
   }
 
   renderState() {
@@ -360,22 +357,14 @@ class PurifierCard extends LitElement {
           ?more-info="true"
         >
           <div class="header">
-            <div class="speed">
-              ${this.renderSpeed()}
-            </div>
+            <div class="speed">${this.renderSpeed()}</div>
           </div>
 
-          <div class="image ${className}">
-            ${this.renderAQI()}
-          </div>
+          <div class="image ${className}">${this.renderAQI()}</div>
 
-          <div class="metadata">
-            ${this.renderName()} ${this.renderState()}
-          </div>
+          <div class="metadata">${this.renderName()} ${this.renderState()}</div>
 
-          <div class="stats">
-            ${this.renderStats()}
-          </div>
+          <div class="stats">${this.renderStats()}</div>
         </div>
 
         ${this.renderToolbar()}
