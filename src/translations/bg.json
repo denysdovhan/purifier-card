@@ -1,0 +1,38 @@
+{
+  "common": {
+    "name": "Карта Пречиствател за Въздух",
+    "description": "Картата Пречиствател за Въздух улеснява управлението на различни видове смарт пречистватели.",
+    "not_available": "Обектът не е наличен",
+    "toggle_power": "Включи/Изключи"
+  },
+  "state": {
+    "on": "Включен",
+    "off": "Изключен"
+  },
+  "speed": {
+    "Auto": "Автоматичен режим",
+    "Silent": "Тих режим",
+    "Favorite": "Любима",
+    "Fan": "Вентилатор"
+  },
+  "error": {
+    "missing_entity": "Избирането на обект е задължително!",
+    "xiaomi_miio_level_without_speed": "speed е задължителен параметър, когато се използва xiaomi_miio_favorite_level!"
+  },
+  "editor": {
+    "entity": "Обект (Задължително)",
+    "compact_view": "Компактен Изглед",
+    "compact_view_aria_label_on": "Включи компактен изглед",
+    "compact_view_aria_label_off": "Изключи компактен изглед",
+    "show_name": "Показване на името",
+    "show_name_aria_label_on": "Покажи името",
+    "show_name_aria_label_off": "Скрий името",
+    "show_state": "Показване на състоянието",
+    "show_state_aria_label_on": "Покажи състоянието",
+    "show_state_aria_label_off": "Скрий състоянието",
+    "show_toolbar": "Показване на лентата с инструменти",
+    "show_toolbar_aria_label_on": "Покажи лентата с инструменти",
+    "show_toolbar_aria_label_off": "Скрий лентата с инструменти",
+    "code_only_note": "Забележка: Настройването на  actions и stats е възможно единствено чрез Code Editor."
+  }
+}

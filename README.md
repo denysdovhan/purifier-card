@@ -174,6 +174,7 @@ This card supports translations. Please, help to add more translations and impro
 - Français (French)
 - Norsk (Norwegian)
 - Polski (Polish)
+- Български (Bulgarian)
 - [_Your language?_][add-translation]
 
 ## Supported models
