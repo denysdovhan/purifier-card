@@ -284,7 +284,7 @@ class PurifierCard extends LitElement {
           if (speed && xiaomi_miio_favorite_level) {
             this.callService('fan.set_speed', { speed });
             setTimeout(() => {
-              this.callService('xiaomi_miio.fan_set_favorite_level', {
+              this.callService('xiaomi_miio_airpurifier.fan_set_favorite_level', {
                 level: xiaomi_miio_favorite_level,
               });
             }, 500);
