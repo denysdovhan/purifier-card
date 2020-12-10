@@ -112,8 +112,17 @@ Here is what every option means:
 | `show_status`  | `boolean` | `true`       | Show status of the purifier.                     |
 | `show_toolbar` | `boolean` | `true`       | Show toolbar with actions.                       |
 | `compact_view` | `boolean` | `false`      | Compact view without image.                      |
+| `aqi`          | `object`  | Optional     | Custom entity or attribute for AQI value.        |
 | `stats`        | `object`  | Optional     | Custom per state stats for your purifier cleaner |
 | `actions`      | `object`  | Optional     | Custom actions for your purifier cleaner.        |
+
+### `aqi` object
+
+| Name        |   Type   | Default  | Description                                         |
+| ----------- | :------: | -------- | --------------------------------------------------- |
+| `entity_id` | `string` | Optional | An entity_id with state, i.e. `sensor.current_aqi`. |
+| `attribute` | `string` | Optional | An attribute which should be used to get AQI value. |
+| `unit`      | `string` | Optional | An unit of measurement to display.                  |
 
 ### `stats` object
 
