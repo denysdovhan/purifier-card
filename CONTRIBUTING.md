@@ -7,7 +7,7 @@ If you plan to contribute back to this repo, please fork & open a PR.
 Only a native speaker can translate to a specific language.
 
 1. Copy `src/translations/en.json` file and name it with an appropriate language code.
-2. Translate only keys in this file, not values.
+2. Translate only values in this file, not keys.
 3. Import your translation in `src/localize.js` file.
 4. Mention your translation in `README.md` file.
 5. Open a PR.
