@@ -194,6 +194,7 @@ If this card works with your air purifier, please open a PR and your model to th
 
 - Air Purifier 3/3H
 - Air Purifier 2/2H
+- Air Purifier Pro
 - Coway Airmega 300S/400S ([using IoCare custom component](https://github.com/sarahhenkens/home-assistant-iocare))
 - [_Your purifier?_][edit-readme]
 
