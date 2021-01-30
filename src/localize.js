@@ -8,7 +8,7 @@ import * as fr from './translations/fr.json';
 import * as nb from './translations/nb.json';
 import * as pl from './translations/pl.json';
 import * as bg from './translations/bg.json';
-import * as zh_cn from './translations/zh_cn.json';
+import * as zh from './translations/zh.json';
 
 var languages = {
   en,
@@ -18,7 +18,7 @@ var languages = {
   nb,
   pl,
   bg,
-  zh_cn
+  zh,
 };
 
 const DEFAULT_LANG = 'en';
