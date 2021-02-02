@@ -1,0 +1,38 @@
+{
+  "common": {
+    "name": "Purifier Card",
+    "description": "Purifier card 可以让你以更轻松的方式控制你的空气净化器",
+    "not_available": "实体不可用",
+    "toggle_power": "开/关"
+  },
+  "state": {
+    "on": "开",
+    "off": "关"
+  },
+  "speed": {
+    "Auto": "自动",
+    "Silent": "睡眠",
+    "Favorite": "最爱",
+    "Fan": "风扇"
+  },
+  "error": {
+    "missing_entity": "必须指定实体",
+    "xiaomi_miio_level_without_speed": "speed 和 xiaomi_miio_favorite_level 属性是必需的!"
+  },
+  "editor": {
+    "entity": "实体 (必填)",
+    "compact_view": "紧凑视图",
+    "compact_view_aria_label_on": "打开紧凑视图",
+    "compact_view_aria_label_off": "关闭紧凑视图",
+    "show_name": "显示名称",
+    "show_name_aria_label_on": "打开名称显示",
+    "show_name_aria_label_off": "关闭名称显示",
+    "show_state": "显示状态",
+    "show_state_aria_label_on": "打开状态显示",
+    "show_state_aria_label_off": "关闭状态显示",
+    "show_toolbar": "显示工具栏",
+    "show_toolbar_aria_label_on": "打开工具栏显示",
+    "show_toolbar_aria_label_off": "关闭工具栏显示",
+    "code_only_note": "注意: 只有使用代码编辑器才能设置操作和统计选项。"
+  }
+}
