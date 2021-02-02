@@ -8,6 +8,7 @@ import * as fr from './translations/fr.json';
 import * as nb from './translations/nb.json';
 import * as pl from './translations/pl.json';
 import * as bg from './translations/bg.json';
+import * as zh from './translations/zh.json';
 import * as de from './translations/de.json';
 
 var languages = {
@@ -18,6 +19,7 @@ var languages = {
   nb,
   pl,
   bg,
+  zh,
   de,
 };
 

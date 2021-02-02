@@ -184,6 +184,7 @@ This card supports translations. Please, help to add more translations and impro
 - Norsk (Norwegian)
 - Polski (Polish)
 - Български (Bulgarian)
+- 简体中文 (Simplified Chinese)
 - Deutsch (German)
 - [_Your language?_][add-translation]
 
@@ -197,6 +198,8 @@ If this card works with your air purifier, please open a PR and your model to th
 - Air Purifier 2/2H
 - Air Purifier Pro
 - Coway Airmega 300S/400S ([using IoCare custom component](https://github.com/sarahhenkens/home-assistant-iocare))
+- Dyson Pure Humidify+Cool ([using Dyson integration](https://www.home-assistant.io/integrations/dyson/))
+- Winix AM90 Wi-Fi Air Purifier
 - [_Your purifier?_][edit-readme]
 
 ## Development
