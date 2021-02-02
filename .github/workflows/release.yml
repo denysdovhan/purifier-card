@@ -9,23 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      # Build
-      - name: Build the file
+
+      - name: Build
         run: |
           cd /home/runner/work/purifier-card/purifier-card
           npm install
           npm run build
-      # Upload build file to the release as an asset
+
       - name: Release
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      # - name: Upload zip to release
-      #   uses: svenstaro/upload-release-action@v1-release
-      #   with:
-      #     repo_token: ${{ secrets.GITHUB_TOKEN }}
-      #     file: /home/runner/work/purifier-card/purifier-card/dist/purifier-card.js
-      #     asset_name: purifier-card.js
-      #     tag: ${{ github.ref }}
-      #     overwrite: true
