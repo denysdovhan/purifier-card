@@ -184,7 +184,7 @@ This card supports translations. Please, help to add more translations and impro
 - Norsk (Norwegian)
 - Polski (Polish)
 - Български (Bulgarian)
-- Deuytsch (German)
+- Deutsch (German)
 - [_Your language?_][add-translation]
 
 ## Supported models
