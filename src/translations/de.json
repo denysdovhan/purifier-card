@@ -1,0 +1,38 @@
+{
+  "common": {
+    "name": "Purifier Karte",
+    "description": "Die Purifier Karte steuert deinen smarten Luftreiniger.",
+    "not_available": "Entity nicht verfügbar",
+    "toggle_power": "an/aus"
+  },
+  "state": {
+    "on": "An",
+    "off": "Aus"
+  },
+  "speed": {
+    "Auto": "Auto",
+    "Silent": "Leise",
+    "Favorite": "Favorit",
+    "Fan": "Lüfter"
+  },
+  "error": {
+    "missing_entity": "Es muss eine Entity definiert werden!",
+    "xiaomi_miio_level_without_speed": "Geschwindigkeit ist zusammen mit der xiaomi_miio_favorite_level Eigenschaft erforderlich!"
+  },
+  "editor": {
+    "entity": "Entity (Erforderlich)",
+    "compact_view": "Kompakte Ansicht",
+    "compact_view_aria_label_on": "Komptaktansicht anschalten",
+    "compact_view_aria_label_off": "Kompaktansicht ausschalten",
+    "show_name": "Name anzeigen",
+    "show_name_aria_label_on": "Namen anzeigen anschalten",
+    "show_name_aria_label_off": "Namen anzeigen ausschalten",
+    "show_state": "Status anzeigen",
+    "show_state_aria_label_on": "Status anzeigen anschalten",
+    "show_state_aria_label_off": "Status anzeigen ausschalten",
+    "show_toolbar": "Symbolleiste anzeigen",
+    "show_toolbar_aria_label_on": "Symbolleiste anzeigen anschalten",
+    "show_toolbar_aria_label_off": "Symbolleiste anzeigen ausschalten",
+    "code_only_note": "Bitte beachten: Aktionen und Status Optionen sind nur im Code Editor verfügbar."
+  }
+}
