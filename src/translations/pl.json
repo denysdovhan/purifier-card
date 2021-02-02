@@ -13,7 +13,8 @@
     "Auto": "Auto",
     "Silent": "Cichy",
     "Favorite": "Ulubiony",
-    "Fan": "Wentylator"
+    "Fan": "Wentylator",
+    "Idle": "Bezczynny"
   },
   "error": {
     "missing_entity": "Wymagane jest zadeklarowanie encji!",
