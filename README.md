@@ -186,6 +186,7 @@ This card supports translations. Please, help to add more translations and impro
 - Български (Bulgarian)
 - 简体中文 (Simplified Chinese)
 - Deutsch (German)
+- Català (Catalan)
 - [_Your language?_][add-translation]
 
 ## Supported models
