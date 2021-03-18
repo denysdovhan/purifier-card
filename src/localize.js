@@ -47,11 +47,15 @@ export default function localize(string, search, replace) {
   try {
     tranlated = languages[lang][section][key];
   } catch (e) {
-    tranlated = languages[DEFAULT_LANG][section][key];
+    /**/
   }
 
   if (tranlated === undefined) {
-    tranlated = languages[DEFAULT_LANG][section][key];
+    try {
+      tranlated = languages[DEFAULT_LANG][section][key];
+    } catch (e) {
+      /**/
+    }
   }
 
   if (tranlated === undefined) {
