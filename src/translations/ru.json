@@ -1,0 +1,38 @@
+{
+  "common": {
+    "name": "Карточка очистителя воздуха",
+    "description": "Карточка очистителя вохдуха позволяет вам управлять своим умным очистителем.",
+    "not_available": "Сущность не доступна",
+    "toggle_power": "Включить/Выключить"
+  },
+  "state": {
+    "on": "Вкл.",
+    "off": "Выкл."
+  },
+  "speed": {
+    "Auto": "Автоматическая",
+    "Silent": "Тихая",
+    "Favorite": "Предпочтительная",
+    "Fan": "Максимальная"
+  },
+  "error": {
+    "missing_entity": "Требуется указать сущность!",
+    "xiaomi_miio_level_without_speed": "Требуется указать скорость вместе с свойством xiaomi_miio_favorite_level!"
+  },
+  "editor": {
+    "entity": "Сущность (Обязательно!)",
+    "compact_view": "Компактный вид",
+    "compact_view_aria_label_on": "Включить компактный вид",
+    "compact_view_aria_label_off": "Отключить компактный вид",
+    "show_name": "Показать название",
+    "show_name_aria_label_on": "Отобразить название",
+    "show_name_aria_label_off": "Скрыть название",
+    "show_state": "Показать статистику",
+    "show_state_aria_label_on": "Отобразить статистику",
+    "show_state_aria_label_off": "Скрыть статистику",
+    "show_toolbar": "Показать панель инструментов ",
+    "show_toolbar_aria_label_on": "Отобразить панель инструментов",
+    "show_toolbar_aria_label_off": "Скрыть панель инструментов",
+    "code_only_note": "Примечание: Настройки действий и параметров состояний доступны только в редакторе кода."
+  }
+}
