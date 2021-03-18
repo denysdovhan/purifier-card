@@ -42,29 +42,29 @@ export default function localize(string, search, replace) {
     .replace(/['"]+/g, '')
     .replace('-', '_');
 
-  let tranlated;
+  let translated;
 
   try {
-    tranlated = languages[lang][section][key];
+    translated = languages[lang][section][key];
   } catch (e) {
     /**/
   }
 
-  if (tranlated === undefined) {
+  if (translated === undefined) {
     try {
-      tranlated = languages[DEFAULT_LANG][section][key];
+      translated = languages[DEFAULT_LANG][section][key];
     } catch (e) {
       /**/
     }
   }
 
-  if (tranlated === undefined) {
+  if (translated === undefined) {
     return;
   }
 
   if (search !== '' && replace !== '') {
-    tranlated = tranlated.replace(search, replace);
+    translated = translated.replace(search, replace);
   }
 
-  return tranlated;
+  return translated;
 }
