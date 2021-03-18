@@ -11,6 +11,9 @@ if (!customElements.get('ha-icon-button')) {
   );
 }
 
+const SUPPORT_SET_SPEED = 1;
+const SUPPORT_PRESET_MODE = 8;
+
 class PurifierCard extends LitElement {
   static get properties() {
     return {
@@ -118,6 +121,11 @@ class PurifierCard extends LitElement {
     this.callService('fan.set_speed', { speed });
   }
 
+  handlePresetMode(e) {
+    const preset_mode = e.target.getAttribute('value');
+    this.callService('fan.set_preset_mode', { preset_mode });
+  }
+
   callService(service, options = {}, isRequest = true) {
     const [domain, name] = service.split('.');
     this.hass.callService(domain, name, {
@@ -133,10 +141,11 @@ class PurifierCard extends LitElement {
 
   renderSpeed() {
     const {
-      attributes: { speed, speed_list },
+      attributes: { speed, speed_list, supported_features },
     } = this.entity;
 
-    if (!speed_list) {
+    // TODO handle percentages
+    if (!speed_list || !(supported_features & SUPPORT_SET_SPEED)) {
       return html``;
     }
 
@@ -164,6 +173,48 @@ class PurifierCard extends LitElement {
             (item) =>
               html`<paper-item value=${item}
                 >${localize(`speed.${item}`) || item}</paper-item
+              >`
+          )}
+        </paper-listbox>
+      </paper-menu-button>
+    `;
+  }
+
+  renderPresetMode() {
+    const {
+      attributes: { preset_mode, preset_modes, supported_features },
+    } = this.entity;
+
+    if (!preset_modes || !(supported_features & SUPPORT_PRESET_MODE)) {
+      return html``;
+    }
+
+    const selected = preset_modes.indexOf(preset_mode);
+
+    return html`
+      <paper-menu-button
+        slot="dropdown-trigger"
+        .horizontalAlign=${'right'}
+        .verticalAlign=${'top'}
+        .verticalOffset=${40}
+        .noAnimations=${true}
+        @click="${(e) => e.stopPropagation()}"
+      >
+        <paper-button slot="dropdown-trigger">
+          <ha-icon icon="mdi:fan"></ha-icon>
+          <span show=${true}
+            >${localize(`preset_mode.${preset_mode}`) || preset_mode}
+          </span>
+        </paper-button>
+        <paper-listbox
+          slot="dropdown-content"
+          selected=${selected}
+          @click="${(e) => this.handlePresetMode(e)}"
+        >
+          ${preset_modes.map(
+            (item) =>
+              html`<paper-item value=${item}
+                >${localize(`preset_mode.${item}`) || item}</paper-item
               >`
           )}
         </paper-listbox>
@@ -267,11 +318,16 @@ class PurifierCard extends LitElement {
         service,
         service_data,
         speed,
+        preset_mode,
         xiaomi_miio_favorite_level,
       }) => {
         const execute = () => {
           if (service) {
             this.callService(service, service_data);
+          }
+
+          if (preset_mode) {
+            this.callService('fan.set_preset_mode', { preset_mode });
           }
 
           if (speed) {
@@ -294,6 +350,7 @@ class PurifierCard extends LitElement {
 
         const isActive =
           service ||
+          preset_mode === attributes.preset_mode ||
           // Speed with specific favorite level
           (speed === attributes.speed &&
             xiaomi_miio_favorite_level === attributes.favorite_level) ||
@@ -358,6 +415,7 @@ class PurifierCard extends LitElement {
         >
           <div class="header">
             <div class="speed">${this.renderSpeed()}</div>
+            <div class="preset-mode">${this.renderPresetMode()}</div>
           </div>
 
           <div class="image ${className}">${this.renderAQI()}</div>
