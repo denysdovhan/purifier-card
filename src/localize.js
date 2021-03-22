@@ -11,7 +11,7 @@ import * as bg from './translations/bg.json';
 import * as zh from './translations/zh.json';
 import * as de from './translations/de.json';
 import * as ca from './translations/ca.json';
-import * as ca from './translations/ru.json';
+import * as ru from './translations/ru.json';
 
 var languages = {
   en,
