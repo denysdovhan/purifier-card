@@ -201,6 +201,7 @@ If this card works with your air purifier, please open a PR and your model to th
 - Coway Airmega 300S/400S ([using IoCare custom component](https://github.com/sarahhenkens/home-assistant-iocare))
 - Dyson Pure Humidify+Cool ([using Dyson integration](https://www.home-assistant.io/integrations/dyson/))
 - Winix AM90 Wi-Fi Air Purifier
+- Philips AirPurifier AC3858/50 (partially) 
 - [_Your purifier?_][edit-readme]
 
 ## Development
