@@ -188,6 +188,7 @@ This card supports translations. Please, help to add more translations and impro
 - Deutsch (German)
 - Català (Catalan)
 - Русский (Russian)
+- Italiano (Italian)
 - [_Your language?_][add-translation]
 
 ## Supported models
