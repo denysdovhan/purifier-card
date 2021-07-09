@@ -1,0 +1,38 @@
+{
+  "common": {
+    "name": "Card del purificatore",
+    "description": "La card del purificatore ti permette di controllare il tuo purificatore intelligente.",
+    "not_available": "L'entità non è disponibile",
+    "toggle_power": "Accendi/Spegni"
+  },
+  "state": {
+    "on": "Acceso",
+    "off": "Spento"
+  },
+  "speed": {
+    "Auto": "Auto",
+    "Silent": "Silenzioso",
+    "Favorite": "Preferito",
+    "Fan": "Ventola"
+  },
+  "error": {
+    "missing_entity": "É necessario specificare l'entità",
+    "xiaomi_miio_level_without_speed": "É richiesto l'inserimento della velocità insieme alla proprietà xiaomi_miio_favorite_level!"
+  },
+  "editor": {
+    "entity": "Entità (richiesto)",
+    "compact_view": "Vista compatta",
+    "compact_view_aria_label_on": "Attiva la visualizzazione compatta",
+    "compact_view_aria_label_off": "Disattiva la visualizzazione compatta",
+    "show_name": "Mostra nome",
+    "show_name_aria_label_on": "Visualizza nome del purificatore",
+    "show_name_aria_label_off": "Non visualizzare il nome del purificatore",
+    "show_state": "Mostra stato",
+    "show_state_aria_label_on": "Visualizza lo stato del purificatore",
+    "show_state_aria_label_off": "Non visualizzarelo stato del purificatore",
+    "show_toolbar": "Mostra barra degli strumenti",
+    "show_toolbar_aria_label_on": "Visualizza barra degli strumenti",
+    "show_toolbar_aria_label_off": "Non visualizzare la barra degli strumenti",
+    "code_only_note": "Nota: le opzioni di impostazione delle azioni e delle statistiche sono disponibili esclusivamente utilizzando l'editor di codice."
+  }
+}
