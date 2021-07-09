@@ -10,8 +10,6 @@
 
 By default, the Home Assistant does not provide any card for controlling air purifiers. This card displays the state and allows to control your air purifier.
 
-<!-- FIXME: Replace image -->
-
 ![Preview of purifier-card][preview-image]
 
 ## Installing
@@ -201,6 +199,7 @@ If this card works with your air purifier, please open a PR and your model to th
 - Dyson Pure Humidify+Cool ([using Dyson integration](https://www.home-assistant.io/integrations/dyson/))
 - Winix AM90 Wi-Fi Air Purifier
 - [_Your purifier?_][edit-readme]
+- SmartMI Air Purifier
 
 ## Development
 
