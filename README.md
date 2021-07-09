@@ -184,6 +184,9 @@ This card supports translations. Please, help to add more translations and impro
 - Български (Bulgarian)
 - 简体中文 (Simplified Chinese)
 - Deutsch (German)
+- Català (Catalan)
+- Русский (Russian)
+- Italiano (Italian)
 - [_Your language?_][add-translation]
 
 ## Supported models
@@ -193,11 +196,12 @@ This card relies on basic fan services, like `toggle`, `turn_on`, `turn_off`, et
 If this card works with your air purifier, please open a PR and your model to the list.
 
 - Air Purifier 3/3H
-- Air Purifier 2/2H
+- Air Purifier 2/2H/2S
 - Air Purifier Pro
 - Coway Airmega 300S/400S ([using IoCare custom component](https://github.com/sarahhenkens/home-assistant-iocare))
 - Dyson Pure Humidify+Cool ([using Dyson integration](https://www.home-assistant.io/integrations/dyson/))
 - Winix AM90 Wi-Fi Air Purifier
+- Philips AirPurifier AC3858/50 (partially) 
 - [_Your purifier?_][edit-readme]
 - SmartMI Air Purifier
 

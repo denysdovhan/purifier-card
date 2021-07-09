@@ -10,6 +10,9 @@ import * as pl from './translations/pl.json';
 import * as bg from './translations/bg.json';
 import * as zh from './translations/zh.json';
 import * as de from './translations/de.json';
+import * as ca from './translations/ca.json';
+import * as ru from './translations/ru.json';
+import * as it from './translations/it.json';
 
 var languages = {
   en,
@@ -21,6 +24,9 @@ var languages = {
   bg,
   zh,
   de,
+  ca,
+  ru,
+  it,
 };
 
 const DEFAULT_LANG = 'en';
@@ -40,25 +46,29 @@ export default function localize(string, search, replace) {
     .replace(/['"]+/g, '')
     .replace('-', '_');
 
-  let tranlated;
+  let translated;
 
   try {
-    tranlated = languages[lang][section][key];
+    translated = languages[lang][section][key];
   } catch (e) {
-    tranlated = languages[DEFAULT_LANG][section][key];
+    /**/
   }
 
-  if (tranlated === undefined) {
-    tranlated = languages[DEFAULT_LANG][section][key];
+  if (translated === undefined) {
+    try {
+      translated = languages[DEFAULT_LANG][section][key];
+    } catch (e) {
+      /**/
+    }
   }
 
-  if (tranlated === undefined) {
+  if (translated === undefined) {
     return;
   }
 
   if (search !== '' && replace !== '') {
-    tranlated = tranlated.replace(search, replace);
+    translated = translated.replace(search, replace);
   }
 
-  return tranlated;
+  return translated;
 }
