@@ -102,17 +102,19 @@ compact_view: false
 
 Here is what every option means:
 
-| Name           |   Type    | Default      | Description                                      |
-| -------------- | :-------: | ------------ | ------------------------------------------------ |
-| `type`         | `string`  | **Required** | `custom:purifier-card`                           |
-| `entity`       | `string`  | **Required** | An entity_id within the `fan` domain.            |
-| `show_name`    | `boolean` | `true`       | Show friendly name of the purifier.              |
-| `show_status`  | `boolean` | `true`       | Show status of the purifier.                     |
-| `show_toolbar` | `boolean` | `true`       | Show toolbar with actions.                       |
-| `compact_view` | `boolean` | `false`      | Compact view without image.                      |
-| `aqi`          | `object`  | Optional     | Custom entity or attribute for AQI value.        |
-| `stats`        | `object`  | Optional     | Custom per state stats for your purifier cleaner |
-| `actions`      | `object`  | Optional     | Custom actions for your purifier cleaner.        |
+| Name              |   Type    | Default      | Description                                      |
+| ----------------- | :-------: | ------------ | ------------------------------------------------ |
+| `type`            | `string`  | **Required** | `custom:purifier-card`                           |
+| `entity`          | `string`  | **Required** | An entity_id within the `fan` domain.            |
+| `show_name`       | `boolean` | `true`       | Show friendly name of the purifier.              |
+| `show_status`     | `boolean` | `true`       | Show status of the purifier.                     |
+| `show_speed`      | `boolean` | `false`      | Show speed of the purifier in the header.        |
+| `show_preset_mode`| `boolean` | `true`       | Show preset mode of the purifier in the header.  |
+| `show_toolbar`    | `boolean` | `true`       | Show toolbar with actions.                       |
+| `compact_view`    | `boolean` | `false`      | Compact view without image.                      |
+| `aqi`             | `object`  | Optional     | Custom entity or attribute for AQI value.        |
+| `stats`           | `object`  | Optional     | Custom per state stats for your purifier cleaner |
+| `actions`         | `object`  | Optional     | Custom actions for your purifier cleaner.        |
 
 ### `aqi` object
 

@@ -44,7 +44,23 @@ class PurifierCard extends LitElement {
   get entity() {
     return this.hass.states[this.config.entity];
   }
+  
+  get showSpeed() {
+    if (this.config.show_speed === undefined) {
+      return false;
+    }
 
+    return this.config.show_speed;
+  }
+  
+  get showPresetMode() {
+    if (this.config.show_preset_mode === undefined) {
+      return true;
+    }
+
+    return this.config.show_preset_mode;
+  }
+  
   get showName() {
     if (this.config.show_name === undefined) {
       return true;
@@ -145,38 +161,40 @@ class PurifierCard extends LitElement {
     } = this.entity;
 
     // TODO handle percentages
-    if (!speed_list || !(supported_features & SUPPORT_SET_SPEED)) {
+    if (!this.showSpeed() || !speed_list || !(supported_features & SUPPORT_SET_SPEED)) {
       return html``;
     }
 
     const selected = speed_list.indexOf(speed);
 
     return html`
-      <paper-menu-button
-        slot="dropdown-trigger"
-        .horizontalAlign=${'right'}
-        .verticalAlign=${'top'}
-        .verticalOffset=${40}
-        .noAnimations=${true}
-        @click="${(e) => e.stopPropagation()}"
-      >
-        <paper-button slot="dropdown-trigger">
-          <ha-icon icon="mdi:fan"></ha-icon>
-          <span show=${true}> ${localize(`speed.${speed}`) || speed} </span>
-        </paper-button>
-        <paper-listbox
-          slot="dropdown-content"
-          selected=${selected}
-          @click="${(e) => this.handleSpeed(e)}"
+      <div class="speed>
+        <paper-menu-button
+          slot="dropdown-trigger"
+          .horizontalAlign=${'right'}
+          .verticalAlign=${'top'}
+          .verticalOffset=${40}
+          .noAnimations=${true}
+          @click="${(e) => e.stopPropagation()}"
         >
-          ${speed_list.map(
-            (item) =>
-              html`<paper-item value=${item}
-                >${localize(`speed.${item}`) || item}</paper-item
-              >`
-          )}
-        </paper-listbox>
-      </paper-menu-button>
+          <paper-button slot="dropdown-trigger">
+            <ha-icon icon="mdi:fan"></ha-icon>
+            <span show=${true}> ${localize(`speed.${speed}`) || speed} </span>
+          </paper-button>
+          <paper-listbox
+            slot="dropdown-content"
+            selected=${selected}
+            @click="${(e) => this.handleSpeed(e)}"
+          >
+            ${speed_list.map(
+              (item) =>
+                html`<paper-item value=${item}
+                  >${localize(`speed.${item}`) || item}</paper-item
+                >`
+            )}
+          </paper-listbox>
+        </paper-menu-button>
+      </div>
     `;
   }
 
@@ -185,40 +203,42 @@ class PurifierCard extends LitElement {
       attributes: { preset_mode, preset_modes, supported_features },
     } = this.entity;
 
-    if (!preset_modes || !(supported_features & SUPPORT_PRESET_MODE)) {
+    if (!this.showPresetMode() || !preset_modes || !(supported_features & SUPPORT_PRESET_MODE)) {
       return html``;
     }
 
     const selected = preset_modes.indexOf(preset_mode);
 
     return html`
-      <paper-menu-button
-        slot="dropdown-trigger"
-        .horizontalAlign=${'right'}
-        .verticalAlign=${'top'}
-        .verticalOffset=${40}
-        .noAnimations=${true}
-        @click="${(e) => e.stopPropagation()}"
-      >
-        <paper-button slot="dropdown-trigger">
-          <ha-icon icon="mdi:fan"></ha-icon>
-          <span show=${true}
-            >${localize(`preset_mode.${preset_mode}`) || preset_mode}
-          </span>
-        </paper-button>
-        <paper-listbox
-          slot="dropdown-content"
-          selected=${selected}
-          @click="${(e) => this.handlePresetMode(e)}"
+      <div class="preset-mode">
+        <paper-menu-button
+          slot="dropdown-trigger"
+          .horizontalAlign=${'right'}
+          .verticalAlign=${'top'}
+          .verticalOffset=${40}
+          .noAnimations=${true}
+          @click="${(e) => e.stopPropagation()}"
         >
-          ${preset_modes.map(
-            (item) =>
-              html`<paper-item value=${item}
-                >${localize(`preset_mode.${item}`) || item}</paper-item
-              >`
-          )}
-        </paper-listbox>
-      </paper-menu-button>
+          <paper-button slot="dropdown-trigger">
+            <ha-icon icon="mdi:fan"></ha-icon>
+            <span show=${true}
+              >${localize(`preset_mode.${preset_mode}`) || preset_mode}
+            </span>
+          </paper-button>
+          <paper-listbox
+            slot="dropdown-content"
+            selected=${selected}
+            @click="${(e) => this.handlePresetMode(e)}"
+          >
+            ${preset_modes.map(
+              (item) =>
+                html`<paper-item value=${item}
+                  >${localize(`preset_mode.${item}`) || item}</paper-item
+                >`
+            )}
+          </paper-listbox>
+        </paper-menu-button>
+      </div>
     `;
   }
 
@@ -414,8 +434,8 @@ class PurifierCard extends LitElement {
           ?more-info="true"
         >
           <div class="header">
-            <div class="speed">${this.renderSpeed()}</div>
-            <div class="preset-mode">${this.renderPresetMode()}</div>
+            ${this.renderSpeed()}
+            ${this.renderPresetMode()}
           </div>
 
           <div class="image ${className}">${this.renderAQI()}</div>
