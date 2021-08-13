@@ -161,7 +161,7 @@ class PurifierCard extends LitElement {
     } = this.entity;
 
     // TODO handle percentages
-    if (!this.showSpeed() || !speed_list || !(supported_features & SUPPORT_SET_SPEED)) {
+    if (!this.showSpeed || !speed_list || !(supported_features & SUPPORT_SET_SPEED)) {
       return html``;
     }
 
@@ -203,7 +203,7 @@ class PurifierCard extends LitElement {
       attributes: { preset_mode, preset_modes, supported_features },
     } = this.entity;
 
-    if (!this.showPresetMode() || !preset_modes || !(supported_features & SUPPORT_PRESET_MODE)) {
+    if (!this.showPresetMode || !preset_modes || !(supported_features & SUPPORT_PRESET_MODE)) {
       return html``;
     }
 
@@ -434,8 +434,8 @@ class PurifierCard extends LitElement {
           ?more-info="true"
         >
           <div class="header">
-            ${this.renderSpeed()}
-            ${this.renderPresetMode()}
+            <div class="speed">${this.renderSpeed()}</div>
+            <div class="preset-mode">${this.renderPresetMode()}</div>  
           </div>
 
           <div class="image ${className}">${this.renderAQI()}</div>
