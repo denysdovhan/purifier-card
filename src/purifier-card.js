@@ -168,31 +168,33 @@ class PurifierCard extends LitElement {
     const selected = speed_list.indexOf(speed);
 
     return html`
-      <paper-menu-button
-        slot="dropdown-trigger"
-        .horizontalAlign=${'right'}
-        .verticalAlign=${'top'}
-        .verticalOffset=${40}
-        .noAnimations=${true}
-        @click="${(e) => e.stopPropagation()}"
-      >
-        <paper-button slot="dropdown-trigger">
-          <ha-icon icon="mdi:fan"></ha-icon>
-          <span show=${true}> ${localize(`speed.${speed}`) || speed} </span>
-        </paper-button>
-        <paper-listbox
-          slot="dropdown-content"
-          selected=${selected}
-          @click="${(e) => this.handleSpeed(e)}"
+      <div class="speed>
+        <paper-menu-button
+          slot="dropdown-trigger"
+          .horizontalAlign=${'right'}
+          .verticalAlign=${'top'}
+          .verticalOffset=${40}
+          .noAnimations=${true}
+          @click="${(e) => e.stopPropagation()}"
         >
-          ${speed_list.map(
-            (item) =>
-              html`<paper-item value=${item}
-                >${localize(`speed.${item}`) || item}</paper-item
-              >`
-          )}
-        </paper-listbox>
-      </paper-menu-button>
+          <paper-button slot="dropdown-trigger">
+            <ha-icon icon="mdi:fan"></ha-icon>
+            <span show=${true}> ${localize(`speed.${speed}`) || speed} </span>
+          </paper-button>
+          <paper-listbox
+            slot="dropdown-content"
+            selected=${selected}
+            @click="${(e) => this.handleSpeed(e)}"
+          >
+            ${speed_list.map(
+              (item) =>
+                html`<paper-item value=${item}
+                  >${localize(`speed.${item}`) || item}</paper-item
+                >`
+            )}
+          </paper-listbox>
+        </paper-menu-button>
+      </div>
     `;
   }
 
@@ -208,33 +210,35 @@ class PurifierCard extends LitElement {
     const selected = preset_modes.indexOf(preset_mode);
 
     return html`
-      <paper-menu-button
-        slot="dropdown-trigger"
-        .horizontalAlign=${'right'}
-        .verticalAlign=${'top'}
-        .verticalOffset=${40}
-        .noAnimations=${true}
-        @click="${(e) => e.stopPropagation()}"
-      >
-        <paper-button slot="dropdown-trigger">
-          <ha-icon icon="mdi:fan"></ha-icon>
-          <span show=${true}
-            >${localize(`preset_mode.${preset_mode}`) || preset_mode}
-          </span>
-        </paper-button>
-        <paper-listbox
-          slot="dropdown-content"
-          selected=${selected}
-          @click="${(e) => this.handlePresetMode(e)}"
+      <div class="preset-mode">
+        <paper-menu-button
+          slot="dropdown-trigger"
+          .horizontalAlign=${'right'}
+          .verticalAlign=${'top'}
+          .verticalOffset=${40}
+          .noAnimations=${true}
+          @click="${(e) => e.stopPropagation()}"
         >
-          ${preset_modes.map(
-            (item) =>
-              html`<paper-item value=${item}
-                >${localize(`preset_mode.${item}`) || item}</paper-item
-              >`
-          )}
-        </paper-listbox>
-      </paper-menu-button>
+          <paper-button slot="dropdown-trigger">
+            <ha-icon icon="mdi:fan"></ha-icon>
+            <span show=${true}
+              >${localize(`preset_mode.${preset_mode}`) || preset_mode}
+            </span>
+          </paper-button>
+          <paper-listbox
+            slot="dropdown-content"
+            selected=${selected}
+            @click="${(e) => this.handlePresetMode(e)}"
+          >
+            ${preset_modes.map(
+              (item) =>
+                html`<paper-item value=${item}
+                  >${localize(`preset_mode.${item}`) || item}</paper-item
+                >`
+            )}
+          </paper-listbox>
+        </paper-menu-button>
+      </div>
     `;
   }
 
