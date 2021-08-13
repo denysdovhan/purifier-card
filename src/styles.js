@@ -32,6 +32,7 @@ export default css`
   .header {
     display: flex;
     color: var(--text-primary-color);
+    margin-top: 5px;
   }
 
   .image {
