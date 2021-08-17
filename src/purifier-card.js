@@ -3,6 +3,13 @@ import { hasConfigOrEntityChanged, fireEvent } from 'custom-card-helpers';
 import './purifier-card-editor';
 import localize from './localize';
 import styles from './styles';
+import { version } from '../package.json';
+
+console.info(
+  `%c PURIFIER-CARD %c ${version}`,
+  'color: white; background: blue; font-weight: 700;',
+  'color: blue; background: white; font-weight: 700;'
+);
 
 if (!customElements.get('ha-icon-button')) {
   customElements.define(
@@ -13,7 +20,6 @@ if (!customElements.get('ha-icon-button')) {
 
 const SUPPORT_SET_SPEED = 1;
 const SUPPORT_PRESET_MODE = 8;
-
 class PurifierCard extends LitElement {
   static get properties() {
     return {
