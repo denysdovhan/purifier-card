@@ -6,7 +6,7 @@ import styles from './styles';
 import { version } from '../package.json';
 
 console.info(
-  `%c PURIFIER-CARD %c ${version}`,
+  `%c PURIFIER-CARD %c ${version} `,
   'color: white; background: blue; font-weight: 700;',
   'color: blue; background: white; font-weight: 700;'
 );
@@ -50,7 +50,7 @@ class PurifierCard extends LitElement {
   get entity() {
     return this.hass.states[this.config.entity];
   }
-  
+
   get showSpeed() {
     if (this.config.show_speed === undefined) {
       return false;
@@ -58,7 +58,7 @@ class PurifierCard extends LitElement {
 
     return this.config.show_speed;
   }
-  
+
   get showPresetMode() {
     if (this.config.show_preset_mode === undefined) {
       return true;
@@ -66,7 +66,7 @@ class PurifierCard extends LitElement {
 
     return this.config.show_preset_mode;
   }
-  
+
   get showName() {
     if (this.config.show_name === undefined) {
       return true;
@@ -167,7 +167,11 @@ class PurifierCard extends LitElement {
     } = this.entity;
 
     // TODO handle percentages
-    if (!this.showSpeed || !speed_list || !(supported_features & SUPPORT_SET_SPEED)) {
+    if (
+      !this.showSpeed ||
+      !speed_list ||
+      !(supported_features & SUPPORT_SET_SPEED)
+    ) {
       return html``;
     }
 
@@ -209,7 +213,11 @@ class PurifierCard extends LitElement {
       attributes: { preset_mode, preset_modes, supported_features },
     } = this.entity;
 
-    if (!this.showPresetMode || !preset_modes || !(supported_features & SUPPORT_PRESET_MODE)) {
+    if (
+      !this.showPresetMode ||
+      !preset_modes ||
+      !(supported_features & SUPPORT_PRESET_MODE)
+    ) {
       return html``;
     }
 
@@ -441,7 +449,7 @@ class PurifierCard extends LitElement {
         >
           <div class="header">
             <div class="speed">${this.renderSpeed()}</div>
-            <div class="preset-mode">${this.renderPresetMode()}</div>  
+            <div class="preset-mode">${this.renderPresetMode()}</div>
           </div>
 
           <div class="image ${className}">${this.renderAQI()}</div>
