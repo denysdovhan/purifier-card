@@ -102,19 +102,19 @@ compact_view: false
 
 Here is what every option means:
 
-| Name              |   Type    | Default      | Description                                      |
-| ----------------- | :-------: | ------------ | ------------------------------------------------ |
-| `type`            | `string`  | **Required** | `custom:purifier-card`                           |
-| `entity`          | `string`  | **Required** | An entity_id within the `fan` domain.            |
-| `show_name`       | `boolean` | `true`       | Show friendly name of the purifier.              |
-| `show_status`     | `boolean` | `true`       | Show status of the purifier.                     |
-| `show_speed`      | `boolean` | `false`      | Show speed of the purifier in the header.        |
-| `show_preset_mode`| `boolean` | `true`       | Show preset mode of the purifier in the header.  |
-| `show_toolbar`    | `boolean` | `true`       | Show toolbar with actions.                       |
-| `compact_view`    | `boolean` | `false`      | Compact view without image.                      |
-| `aqi`             | `object`  | Optional     | Custom entity or attribute for AQI value.        |
-| `stats`           | `object`  | Optional     | Custom per state stats for your purifier cleaner |
-| `actions`         | `object`  | Optional     | Custom actions for your purifier cleaner.        |
+| Name               |   Type    | Default      | Description                                      |
+| ------------------ | :-------: | ------------ | ------------------------------------------------ |
+| `type`             | `string`  | **Required** | `custom:purifier-card`                           |
+| `entity`           | `string`  | **Required** | An entity_id within the `fan` domain.            |
+| `show_name`        | `boolean` | `true`       | Show friendly name of the purifier.              |
+| `show_status`      | `boolean` | `true`       | Show status of the purifier.                     |
+| `show_speed`       | `boolean` | `false`      | Show speed of the purifier in the header.        |
+| `show_preset_mode` | `boolean` | `true`       | Show preset mode of the purifier in the header.  |
+| `show_toolbar`     | `boolean` | `true`       | Show toolbar with actions.                       |
+| `compact_view`     | `boolean` | `false`      | Compact view without image.                      |
+| `aqi`              | `object`  | Optional     | Custom entity or attribute for AQI value.        |
+| `stats`            | `object`  | Optional     | Custom per state stats for your purifier cleaner |
+| `actions`          | `object`  | Optional     | Custom actions for your purifier cleaner.        |
 
 ### `aqi` object
 
@@ -189,6 +189,7 @@ This card supports translations. Please, help to add more translations and impro
 - Català (Catalan)
 - Русский (Russian)
 - Italiano (Italian)
+- 繁體中文 (Traditional Chinese)
 - [_Your language?_][add-translation]
 
 ## Supported models
@@ -203,7 +204,7 @@ If this card works with your air purifier, please open a PR and your model to th
 - Coway Airmega 300S/400S ([using IoCare custom component](https://github.com/sarahhenkens/home-assistant-iocare))
 - Dyson Pure Humidify+Cool ([using Dyson integration](https://www.home-assistant.io/integrations/dyson/))
 - Winix AM90 Wi-Fi Air Purifier
-- Philips AirPurifier AC3858/50 (partially) 
+- Philips AirPurifier AC3858/50 (partially)
 - [_Your purifier?_][edit-readme]
 - SmartMI Air Purifier
 
