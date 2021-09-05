@@ -1,0 +1,38 @@
+{
+  "common": {
+    "name": "Purifier Card",
+    "description": "讓您用更輕鬆的方式控制智慧空氣清淨機的卡片。",
+    "not_available": "實體無法使用",
+    "toggle_power": "開關"
+  },
+  "state": {
+    "on": "開",
+    "off": "關"
+  },
+  "speed": {
+    "Auto": "自動",
+    "Silent": "靜音",
+    "Favorite": "最愛",
+    "Fan": "送風"
+  },
+  "error": {
+    "missing_entity": "必須指定實體名稱！",
+    "xiaomi_miio_level_without_speed": "設定 xiaomi_miio_favorite_level 屬性時必須包含 speed 屬性！"
+  },
+  "editor": {
+    "entity": "實體名稱（必填）",
+    "compact_view": "精簡卡片",
+    "compact_view_aria_label_on": "開啟精簡卡片",
+    "compact_view_aria_label_off": "關閉精簡卡片",
+    "show_name": "顯示裝置名稱",
+    "show_name_aria_label_on": "顯示裝置名稱",
+    "show_name_aria_label_off": "隱藏裝置名稱",
+    "show_state": "顯示裝置狀態",
+    "show_state_aria_label_on": "顯示裝置狀態",
+    "show_state_aria_label_off": "隱藏裝置狀態",
+    "show_toolbar": "顯示工具列",
+    "show_toolbar_aria_label_on": "顯示工具列",
+    "show_toolbar_aria_label_off": "隱藏工具列",
+    "code_only_note": "註：必須使用編碼編輯器編輯 actions 與 stats 選項。"
+  }
+}
