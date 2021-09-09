@@ -115,7 +115,7 @@ Here is what every option means:
 | `aqi`              | `object`  | Optional     | Custom entity or attribute for AQI value.                                                                                                                                          |
 | `stats`            | `object`  | Optional     | Custom per state stats for your purifier cleaner                                                                                                                                   |
 | `actions`          | `object`  | Optional     | Custom actions for your purifier cleaner.                                                                                                                                          |
-| `platform`         | `string`  | Optional     | Default 'xiaomi_miio', dor [Xiaomi Mi Air Purifier & Xiaomi Mi Air Humidifier Integration](https://github.com/syssi/xiaomi_airpurifier) you must specify `xiaomi_miio_airpurifier` |
+| `platform`         | `string`  | Optional     | Default 'xiaomi_miio', for [Xiaomi Mi Air Purifier & Xiaomi Mi Air Humidifier Integration](https://github.com/syssi/xiaomi_airpurifier) you must specify `xiaomi_miio_airpurifier` |
 
 ### `aqi` object
 
