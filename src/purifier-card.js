@@ -47,6 +47,14 @@ class PurifierCard extends LitElement {
     };
   }
 
+  get platform() {
+    if (this.config.platform === undefined) {
+      return 'xiaomi_miio';
+    }
+
+    return this.config.platform;
+  }
+
   get entity() {
     return this.hass.states[this.config.entity];
   }
@@ -371,7 +379,7 @@ class PurifierCard extends LitElement {
           if (speed && xiaomi_miio_favorite_level) {
             this.callService('fan.set_speed', { speed });
             setTimeout(() => {
-              this.callService('xiaomi_miio.fan_set_favorite_level', {
+              this.callService(this.platform + '.fan_set_favorite_level', {
                 level: xiaomi_miio_favorite_level,
               });
             }, 500);
