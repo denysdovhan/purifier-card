@@ -398,6 +398,7 @@ class PurifierCard extends LitElement {
             title="${name}"
             class="${className}"
             @click="${execute}"
+            ><ha-icon icon="${icon}"></ha-icon
           ></ha-icon-button>
         `;
       }
@@ -410,7 +411,7 @@ class PurifierCard extends LitElement {
           class="${state === 'on' ? 'active' : ''}"
           title="${localize('common.toggle_power')}"
           @click="${() => this.callService('fan.toggle')}"
-        >
+          ><ha-icon icon="hass:power"></ha-icon>
         </ha-icon-button>
 
         <div class="fill-gap"></div>
