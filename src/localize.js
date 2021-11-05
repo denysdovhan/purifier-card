@@ -8,7 +8,8 @@ import * as fr from './translations/fr.json';
 import * as nb from './translations/nb.json';
 import * as pl from './translations/pl.json';
 import * as bg from './translations/bg.json';
-import * as zh from './translations/zh.json';
+import * as zh_CN from './translations/zh-CN.json';
+import * as zh_TW from './translations/zh-TW.json';
 import * as de from './translations/de.json';
 import * as ca from './translations/ca.json';
 import * as ru from './translations/ru.json';
@@ -22,7 +23,8 @@ var languages = {
   nb,
   pl,
   bg,
-  zh,
+  zh_CN,
+  zh_TW,
   de,
   ca,
   ru,
