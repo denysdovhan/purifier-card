@@ -200,6 +200,6 @@ export default css`
 
   .toolbar ha-icon {
     color: var(--primary-color);
-    padding-right: 15px;
+    display:flex;
   }
 `;
