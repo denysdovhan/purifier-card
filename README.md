@@ -57,7 +57,7 @@ This card can be configured using Lovelace UI editor.
 5. Choose `entity`.
 6. Now you should see the preview of the card!
 
-_Sorry, no support for `actions` and `stats` in visual config yet._
+_Sorry, no support for `shortcuts` and `stats` in visual config yet._
 
 Typical example of using this card in YAML config would look like this:
 
@@ -71,7 +71,7 @@ stats:
   - attribute: motor_speed
     unit: RPS
     subtitle: Motor Speed
-actions:
+shortcuts:
   - name: Silent
     icon: 'mdi:weather-night'
     speed: Silent
@@ -110,11 +110,11 @@ Here is what every option means:
 | `show_status`      | `boolean` | `true`       | Show status of the purifier.                                                                                                                                                       |
 | `show_speed`       | `boolean` | `false`      | Show speed of the purifier in the header.                                                                                                                                          |
 | `show_preset_mode` | `boolean` | `true`       | Show preset mode of the purifier in the header.                                                                                                                                    |
-| `show_toolbar`     | `boolean` | `true`       | Show toolbar with actions.                                                                                                                                                         |
+| `show_toolbar`     | `boolean` | `true`       | Show toolbar with shortcuts.                                                                                                                                                       |
 | `compact_view`     | `boolean` | `false`      | Compact view without image.                                                                                                                                                        |
 | `aqi`              | `object`  | Optional     | Custom entity or attribute for AQI value.                                                                                                                                          |
 | `stats`            | `object`  | Optional     | Custom per state stats for your purifier cleaner                                                                                                                                   |
-| `actions`          | `object`  | Optional     | Custom actions for your purifier cleaner.                                                                                                                                          |
+| `shortcuts`        | `object`  | Optional     | Custom shortcuts for your purifier cleaner.                                                                                                                                        |
 | `platform`         | `string`  | Optional     | Default 'xiaomi_miio', for [Xiaomi Mi Air Purifier & Xiaomi Mi Air Humidifier Integration](https://github.com/syssi/xiaomi_airpurifier) you must specify `xiaomi_miio_airpurifier` |
 
 ### `aqi` object
@@ -136,24 +136,24 @@ You can use any attribute of purifier or even any entity by `entity_id` to displ
 | `unit`      | `string` | Optional | Unit of measure, i.e. `hours`.                       |
 | `subtitle`  | `string` | Optional | Friendly name of the stat, i.e. `Filter`.            |
 
-### `actions` object
+### `shortcuts` object
 
-You can define [custom scripts][ha-scripts] for custom actions or add shortcuts for switching modes and speeds via `actions` option.
+You can define [custom scripts][ha-scripts] for custom actions or add shortcuts for switching modes and speeds via `shortcuts` option.
 
 | Name                         |   Type   | Default  | Description                                                                                                                                     |
 | ---------------------------- | :------: | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`                       | `string` | Optional | Friendly name of the action, i.e. `Switch to Auto`.                                                                                             |
-| `icon`                       | `string` | Optional | Any icon for action button.                                                                                                                     |
+| `name`                       | `string` | Optional | Friendly name of the shortcut, i.e. `Switch to Auto`.                                                                                           |
+| `icon`                       | `string` | Optional | Any icon for shortcut button.                                                                                                                   |
 | `service`                    | `string` | Optional | A service to call, i.e. `script.clean_air`.                                                                                                     |
 | `service_data`               | `object` | Optional | `service_data` for `service` call                                                                                                               |
 | `speed`                      | `object` | Optional | A `speed` to switch to, i.e. `Auto`, etc                                                                                                        |
 | `xiaomi_miio_favorite_level` | `object` | Optional | A [favorite level][xiaomi-miio-favorite-levels] of the operation mode `Favorite` for Xioami Air Purifiers. `speed` is required with this option |
 
-The card will automatically try to figure out which one of actions is currently active. The action will be highlighted when:
+The card will automatically try to figure out which one of shortcuts is currently active. The shortcut will be highlighted when:
 
 1. It's a service.
-2. `entity`'s `speed` attribute is equal to `action`'s `speed`.
-3. `entity`'s `speed` attribute and `favorite_level` is equal to `action`'s `speed` and `xiaomi_miio_favorite_level` correspondingly.
+2. `entity`'s `speed` attribute is equal to `shortcut`'s `speed`.
+3. `entity`'s `speed` attribute and `favorite_level` is equal to `shortcut`'s `speed` and `xiaomi_miio_favorite_level` correspondingly.
 
 ## Animations
 

@@ -111,6 +111,12 @@ class PurifierCard extends LitElement {
     if (!config.entity) {
       throw new Error(localize('error.missing_entity'));
     }
+
+    const actions = config.actions;
+    if (actions && Array.isArray(actions)) {
+      console.warn(localize('warning.actions_array'));
+    }
+
     this.config = config;
   }
 
@@ -346,14 +352,14 @@ class PurifierCard extends LitElement {
   }
 
   renderToolbar() {
-    const { actions = [] } = this.config;
+    const { shortcuts = [] } = this.config;
     const { state, attributes } = this.entity;
 
     if (!this.showToolbar) {
       return html``;
     }
 
-    const buttons = actions.map(
+    const buttons = shortcuts.map(
       ({
         name,
         icon,

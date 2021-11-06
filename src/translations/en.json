@@ -19,6 +19,9 @@
     "missing_entity": "Specifying entity is required!",
     "xiaomi_miio_level_without_speed": "speed is required along with xiaomi_miio_favorite_level property!"
   },
+  "warning": {
+    "actions_array": "WARNING: 'actions' is renamed to 'shortcuts'"
+  },
   "editor": {
     "entity": "Entity (Required)",
     "compact_view": "Compact View",
