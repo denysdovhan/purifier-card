@@ -18,7 +18,7 @@
   },
   "error": {
     "missing_entity": "Wymagane jest zadeklarowanie encji!",
-    "xiaomi_miio_level_without_speed": "parametr speed jest wymagany w wywołaniu z xiaomi_miio_favorite_level!"
+    "xiaomi_miio_level_without_preset_mode": "parametr preset_mode jest wymagany w wywołaniu z xiaomi_miio_favorite_level!"
   },
   "editor": {
     "entity": "Encja (wymagane)",

@@ -17,7 +17,7 @@
   },
   "error": {
     "missing_entity": "必須指定實體名稱！",
-    "xiaomi_miio_level_without_speed": "設定 xiaomi_miio_favorite_level 屬性時必須包含 speed 屬性！"
+    "xiaomi_miio_level_without_preset_mode": "設定 xiaomi_miio_favorite_level 屬性時必須包含 preset_mode 屬性！"
   },
   "editor": {
     "entity": "實體名稱（必填）",

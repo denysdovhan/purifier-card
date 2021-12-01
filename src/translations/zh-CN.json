@@ -17,7 +17,7 @@
   },
   "error": {
     "missing_entity": "必须指定实体",
-    "xiaomi_miio_level_without_speed": "speed 和 xiaomi_miio_favorite_level 属性是必需的!"
+    "xiaomi_miio_level_without_preset_mode": "preset_mode 和 xiaomi_miio_favorite_level 属性是必需的!"
   },
   "editor": {
     "entity": "实体 (必填)",

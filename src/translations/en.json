@@ -17,7 +17,7 @@
   },
   "error": {
     "missing_entity": "Specifying entity is required!",
-    "xiaomi_miio_level_without_speed": "speed is required along with xiaomi_miio_favorite_level property!"
+    "xiaomi_miio_level_without_preset_mode": "preset_mode is required along with xiaomi_miio_favorite_level property!"
   },
   "warning": {
     "actions_array": "WARNING: 'actions' is renamed to 'shortcuts'"

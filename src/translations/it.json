@@ -16,8 +16,7 @@
     "Fan": "Ventola"
   },
   "error": {
-    "missing_entity": "É necessario specificare l'entità",
-    "xiaomi_miio_level_without_speed": "É richiesto l'inserimento della velocità insieme alla proprietà xiaomi_miio_favorite_level!"
+    "missing_entity": "É necessario specificare l'entità"
   },
   "editor": {
     "entity": "Entità (richiesto)",

@@ -16,8 +16,7 @@
     "Fan": "Fan"
   },
   "error": {
-    "missing_entity": "Varlığı belirtmeniz gereklidir!",
-    "xiaomi_miio_level_without_speed": "Hız xiaomi_miio_favorite_level için gereklidir!"
+    "missing_entity": "Varlığı belirtmeniz gereklidir!"
   },
   "editor": {
     "entity": "Varlık (Gerekli)",

@@ -17,7 +17,7 @@
   },
   "error": {
     "missing_entity": "Il est obligatoire de spécifier une entité!",
-    "xiaomi_miio_level_without_speed": "speed est obligatoire avec la propriété xiaomi_miio_favorite_level!"
+    "xiaomi_miio_level_without_preset_mode": "preset_mode est obligatoire avec la propriété xiaomi_miio_favorite_level!"
   },
   "editor": {
     "entity": "Entité (obligatoire)",

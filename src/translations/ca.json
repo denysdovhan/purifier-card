@@ -16,8 +16,7 @@
     "Fan": "Ventilador"
   },
   "error": {
-    "missing_entity": "Cal especificar una entitat.",
-    "xiaomi_miio_level_without_speed": "es requereix la velocitat juntament amb la propietat xiaomi_miio_favorite_level."
+    "missing_entity": "Cal especificar una entitat."
   },
   "editor": {
     "entity": "Entitat (Requerit)",

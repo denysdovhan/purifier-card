@@ -16,8 +16,7 @@
     "Fan": "Lüfter"
   },
   "error": {
-    "missing_entity": "Es muss eine Entity definiert werden!",
-    "xiaomi_miio_level_without_speed": "Geschwindigkeit ist zusammen mit der xiaomi_miio_favorite_level Eigenschaft erforderlich!"
+    "missing_entity": "Es muss eine Entity definiert werden!"
   },
   "editor": {
     "entity": "Entity (Erforderlich)",

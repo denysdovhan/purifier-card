@@ -365,8 +365,8 @@ class PurifierCard extends LitElement {
         icon,
         service,
         service_data,
-        speed,
         preset_mode,
+        percentage,
         xiaomi_miio_favorite_level,
       }) => {
         const execute = () => {
@@ -378,12 +378,7 @@ class PurifierCard extends LitElement {
             this.callService('fan.set_preset_mode', { preset_mode });
           }
 
-          if (speed) {
-            this.callService('fan.set_speed', { speed });
-          }
-
-          if (speed && xiaomi_miio_favorite_level) {
-            this.callService('fan.set_speed', { speed });
+          if (preset_mode && xiaomi_miio_favorite_level) {
             setTimeout(() => {
               this.callService(this.platform + '.fan_set_favorite_level', {
                 level: xiaomi_miio_favorite_level,
@@ -391,19 +386,28 @@ class PurifierCard extends LitElement {
             }, 500);
           }
 
-          if (!speed && xiaomi_miio_favorite_level) {
-            throw new Error(localize('error.xiaomi_miio_level_without_speed'));
+          if (!preset_mode && xiaomi_miio_favorite_level) {
+            throw new Error(
+              localize('error.xiaomi_miio_level_without_preset_mode')
+            );
+          }
+
+          if (percentage) {
+            this.callService('fan.set_percentage', { percentage });
           }
         };
 
         const isActive =
           service ||
+          percentage === attributes.percentage ||
           preset_mode === attributes.preset_mode ||
-          // Speed with specific favorite level
-          (speed === attributes.speed &&
+          // preset_mode with specific favorite level
+          (preset_mode === attributes.preset_mode &&
             xiaomi_miio_favorite_level === attributes.favorite_level) ||
-          // Specific speed with no specific favorite level
-          (speed === attributes.speed && !xiaomi_miio_favorite_level);
+          // specific preset_mode with no specific favorite level
+          (preset_mode === attributes.preset_mode &&
+            !xiaomi_miio_favorite_level);
+
         const className = isActive ? 'active' : '';
 
         return html`

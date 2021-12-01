@@ -16,8 +16,7 @@
     "Fan": "Vifte"
   },
   "error": {
-    "missing_entity": "Spesifiserende enhet kreves!",
-    "xiaomi_miio_level_without_speed": "hastighet kreves sammen med eiendommen xiaomi_miio_favorite_level!"
+    "missing_entity": "Spesifiserende enhet kreves!"
   },
   "editor": {
     "entity": "Enhet (påkrevd)",
