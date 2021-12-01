@@ -18,7 +18,6 @@ if (!customElements.get('ha-icon-button')) {
   );
 }
 
-const SUPPORT_SET_SPEED = 1;
 const SUPPORT_PRESET_MODE = 8;
 class PurifierCard extends LitElement {
   static get properties() {
@@ -57,14 +56,6 @@ class PurifierCard extends LitElement {
 
   get entity() {
     return this.hass.states[this.config.entity];
-  }
-
-  get showSpeed() {
-    if (this.config.show_speed === undefined) {
-      return false;
-    }
-
-    return this.config.show_speed;
   }
 
   get showPresetMode() {
@@ -152,14 +143,14 @@ class PurifierCard extends LitElement {
     );
   }
 
-  handleSpeed(e) {
-    const speed = e.target.getAttribute('value');
-    this.callService('fan.set_speed', { speed });
-  }
-
   handlePresetMode(e) {
     const preset_mode = e.target.getAttribute('value');
     this.callService('fan.set_preset_mode', { preset_mode });
+  }
+
+  handlePercentage(e) {
+    const percentage = e.detail.value;
+    this.callService('fan.set_percentage', { percentage });
   }
 
   callService(service, options = {}, isRequest = true) {
@@ -173,53 +164,6 @@ class PurifierCard extends LitElement {
       this.requestInProgress = true;
       this.requestUpdate();
     }
-  }
-
-  renderSpeed() {
-    const {
-      attributes: { speed, speed_list, supported_features },
-    } = this.entity;
-
-    // TODO handle percentages
-    if (
-      !this.showSpeed ||
-      !speed_list ||
-      !(supported_features & SUPPORT_SET_SPEED)
-    ) {
-      return html``;
-    }
-
-    const selected = speed_list.indexOf(speed);
-
-    return html`
-      <div class="speed>
-        <paper-menu-button
-          slot="dropdown-trigger"
-          .horizontalAlign=${'right'}
-          .verticalAlign=${'top'}
-          .verticalOffset=${40}
-          .noAnimations=${true}
-          @click="${(e) => e.stopPropagation()}"
-        >
-          <paper-button slot="dropdown-trigger">
-            <ha-icon icon="mdi:fan"></ha-icon>
-            <span show=${true}> ${localize(`speed.${speed}`) || speed} </span>
-          </paper-button>
-          <paper-listbox
-            slot="dropdown-content"
-            selected=${selected}
-            @click="${(e) => this.handleSpeed(e)}"
-          >
-            ${speed_list.map(
-              (item) =>
-                html`<paper-item value=${item}
-                  >${localize(`speed.${item}`) || item}</paper-item
-                >`
-            )}
-          </paper-listbox>
-        </paper-menu-button>
-      </div>
-    `;
   }
 
   renderPresetMode() {
@@ -290,6 +234,36 @@ class PurifierCard extends LitElement {
       <div class="current-aqi">
         ${prefix}<span class="number-on">${value}</span>
         <sup>${unit}</sup>
+      </div>
+    `;
+  }
+
+  renderSlider() {
+    const {
+      state,
+      attributes: { percentage, percentage_step },
+    } = this.entity;
+
+    const disabled = state !== 'on';
+    const stateClass = !disabled ? 'working' : 'standby';
+
+    return html`
+      <div class="slider">
+        <round-slider
+          value=${percentage}
+          step=${percentage_step}
+          ?disabled="${disabled}"
+          @value-changed=${(e) => this.handlePercentage(e)}
+        >
+        </round-slider>
+        <div class="slider-center image ${stateClass}">
+          <div class="slider-content">
+            ${this.renderAQI()}
+          </div>
+          <div class="slider-value">
+            ${percentage}%
+          </div>
+        </div>
       </div>
     `;
   }
@@ -426,11 +400,6 @@ class PurifierCard extends LitElement {
       `;
     }
 
-    const { state } = this.entity;
-
-    const stateClass = state === 'on' ? 'working' : 'standby';
-    const className = !this.compactView ? stateClass : 'compact';
-
     return html`
       <ha-card>
         <div
@@ -439,11 +408,10 @@ class PurifierCard extends LitElement {
           ?more-info="true"
         >
           <div class="header">
-            <div class="speed">${this.renderSpeed()}</div>
             <div class="preset-mode">${this.renderPresetMode()}</div>
           </div>
 
-          <div class="image ${className}">${this.renderAQI()}</div>
+          <div class="controls">${this.renderSlider()}</div>
 
           <div class="metadata">${this.renderName()} ${this.renderState()}</div>
 

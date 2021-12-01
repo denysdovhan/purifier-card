@@ -35,12 +35,51 @@ export default css`
     margin-top: 5px;
   }
 
-  .image {
-    background: center / contain no-repeat;
-    height: 250px;
+  .controls {
     display: flex;
     justify-content: center;
-    align-items: center;
+  }
+
+  .slider {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    max-width: 250px;
+    min-width: 100px;
+  }
+
+  .slider-center {
+    position: absolute;
+    width: calc(100% - 90px);
+    height: calc(100% - 10px);
+    box-sizing: border-box;
+    border-radius: 100%;
+    left: 45px;
+    top: 20px;
+    text-align: center;
+    overflow-wrap: break-word;
+    pointer-events: none;
+  }
+
+  .slider-content {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    top: 50%;
+    left: 50%;
+  }
+
+  .slider-value {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    font-size: 16px;
+  }
+
+  .image {
+    background: center / contain no-repeat;
   }
 
   .image.working {
@@ -135,9 +174,11 @@ export default css`
     border-right: 1px solid rgba(255, 255, 255, 0.2);
     flex-grow: 1;
   }
+
   .stats-block:last-child {
     border: 0px;
   }
+
   .stats-value {
     font-size: 20px;
     font-weight: bold;
@@ -200,6 +241,6 @@ export default css`
 
   .toolbar ha-icon {
     color: var(--primary-color);
-    display:flex;
+    display: flex;
   }
 `;
