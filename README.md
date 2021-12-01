@@ -111,6 +111,7 @@ Here is what every option means:
 | `aqi`              | `object`  | Optional     | Custom entity or attribute for AQI value.        |
 | `stats`            | `object`  | Optional     | Custom per state stats for your purifier cleaner |
 | `shortcuts`        | `object`  | Optional     | Custom shortcuts for your purifier cleaner.      |
+| `platform`         | `string`  | Optional     | Default `xiaomi_miio_airpurifier`                |
 
 ### `aqi` object
 

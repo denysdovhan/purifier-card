@@ -49,7 +49,7 @@ class PurifierCard extends LitElement {
 
   get platform() {
     if (this.config.platform === undefined) {
-      return 'xiaomi_miio';
+      return 'xiaomi_miio_airpurifier';
     }
 
     return this.config.platform;
