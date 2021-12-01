@@ -360,15 +360,7 @@ class PurifierCard extends LitElement {
     }
 
     const buttons = shortcuts.map(
-      ({
-        name,
-        icon,
-        service,
-        service_data,
-        preset_mode,
-        percentage,
-        xiaomi_miio_favorite_level,
-      }) => {
+      ({ name, icon, service, service_data, preset_mode, percentage }) => {
         const execute = () => {
           if (service) {
             this.callService(service, service_data);
@@ -376,20 +368,6 @@ class PurifierCard extends LitElement {
 
           if (preset_mode) {
             this.callService('fan.set_preset_mode', { preset_mode });
-          }
-
-          if (preset_mode && xiaomi_miio_favorite_level) {
-            setTimeout(() => {
-              this.callService(this.platform + '.fan_set_favorite_level', {
-                level: xiaomi_miio_favorite_level,
-              });
-            }, 500);
-          }
-
-          if (!preset_mode && xiaomi_miio_favorite_level) {
-            throw new Error(
-              localize('error.xiaomi_miio_level_without_preset_mode')
-            );
           }
 
           if (percentage) {
@@ -400,13 +378,7 @@ class PurifierCard extends LitElement {
         const isActive =
           service ||
           percentage === attributes.percentage ||
-          preset_mode === attributes.preset_mode ||
-          // preset_mode with specific favorite level
-          (preset_mode === attributes.preset_mode &&
-            xiaomi_miio_favorite_level === attributes.favorite_level) ||
-          // specific preset_mode with no specific favorite level
-          (preset_mode === attributes.preset_mode &&
-            !xiaomi_miio_favorite_level);
+          preset_mode === attributes.preset_mode;
 
         const className = isActive ? 'active' : '';
 

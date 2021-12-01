@@ -136,22 +136,20 @@ You can use any attribute of purifier or even any entity by `entity_id` to displ
 
 You can define [custom scripts][ha-scripts] for custom actions or add shortcuts for switching presets and speeds via `shortcuts` option.
 
-| Name                         |   Type   | Default  | Description                                                                                                                                           |
-| ---------------------------- | :------: | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`                       | `string` | Optional | Friendly name of the shortcut, i.e. `Switch to Auto`.                                                                                                 |
-| `icon`                       | `string` | Optional | Any icon for shortcut button.                                                                                                                         |
-| `service`                    | `string` | Optional | A service to call, i.e. `script.clean_air`.                                                                                                           |
-| `service_data`               | `object` | Optional | `service_data` for `service` call                                                                                                                     |
-| `percentage`                 | `object` | Optional | A `percentage` to switch to, i.e. `27`, etc. See `entity`'s `percentage_step` for valid values.                                                       |
-| `preset_mode`                | `object` | Optional | A `speed` to switch to, i.e. `Auto`, etc                                                                                                              |
-| `xiaomi_miio_favorite_level` | `object` | Optional | A [favorite level][xiaomi-miio-favorite-levels] of the operation mode `Favorite` for Xioami Air Purifiers. `preset_mode` is required with this option |
+| Name           |   Type   | Default  | Description                                                                                     |
+| -------------- | :------: | -------- | ----------------------------------------------------------------------------------------------- |
+| `name`         | `string` | Optional | Friendly name of the shortcut, i.e. `Switch to Auto`.                                           |
+| `icon`         | `string` | Optional | Any icon for shortcut button.                                                                   |
+| `service`      | `string` | Optional | A service to call, i.e. `script.clean_air`.                                                     |
+| `service_data` | `object` | Optional | `service_data` for `service` call                                                               |
+| `percentage`   | `object` | Optional | A `percentage` to switch to, i.e. `27`, etc. See `entity`'s `percentage_step` for valid values. |
+| `preset_mode`  | `object` | Optional | A `speed` to switch to, i.e. `Auto`, etc                                                        |
 
 The card will automatically try to figure out which one of shortcuts is currently active. The shortcut will be highlighted when:
 
 1. It's a service.
 2. `entity`'s `percentage` attribute is equal to `shortcut`'s `percentage`.
 3. `entity`'s `preset_mode` attribute is equal to `shortcut`'s `preset_mode`.
-4. `entity`'s `preset_mode` attribute and `favorite_level` is equal to `shortcut`'s `preset_mode` and `xiaomi_miio_favorite_level` correspondingly.
 
 ## Animations
 
