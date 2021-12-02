@@ -93,6 +93,21 @@ export class PurifierCardEditor extends LitElement {
         <p class="option">
           <ha-switch
             aria-label=${localize(
+              this._compact_view
+                ? 'editor.compact_view_aria_label_off'
+                : 'editor.compact_view_aria_label_on'
+            )}
+            .checked=${this._compact_view !== false}
+            .configValue=${'compact_view'}
+            @change=${this._valueChanged}
+          >
+          </ha-switch>
+          ${localize('editor.compact_view')}
+        </p>
+
+        <p class="option">
+          <ha-switch
+            aria-label=${localize(
               this._show_name
                 ? 'editor.show_name_aria_label_off'
                 : 'editor.show_name_aria_label_on'
