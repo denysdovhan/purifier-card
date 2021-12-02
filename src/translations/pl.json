@@ -9,7 +9,7 @@
     "on": "Włączony",
     "off": "Wyłączony"
   },
-  "speed": {
+  "preset_mode": {
     "Auto": "Auto",
     "Silent": "Cichy",
     "Favorite": "Ulubiony",

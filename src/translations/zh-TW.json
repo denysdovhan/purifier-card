@@ -9,7 +9,7 @@
     "on": "開",
     "off": "關"
   },
-  "speed": {
+  "preset_mode": {
     "Auto": "自動",
     "Silent": "靜音",
     "Favorite": "最愛",

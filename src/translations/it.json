@@ -9,7 +9,7 @@
     "on": "Acceso",
     "off": "Spento"
   },
-  "speed": {
+  "preset_mode": {
     "Auto": "Auto",
     "Silent": "Silenzioso",
     "Favorite": "Preferito",

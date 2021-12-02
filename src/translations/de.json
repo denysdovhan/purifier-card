@@ -9,7 +9,7 @@
     "on": "An",
     "off": "Aus"
   },
-  "speed": {
+  "preset_mode": {
     "Auto": "Auto",
     "Silent": "Leise",
     "Favorite": "Favorit",

@@ -9,7 +9,7 @@
     "on": "Encès",
     "off": "Apagat"
   },
-  "speed": {
+  "preset_mode": {
     "Auto": "Auto",
     "Silent": "Silenciós",
     "Favorite": "Favorit",

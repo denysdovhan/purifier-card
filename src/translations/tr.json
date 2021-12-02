@@ -9,7 +9,7 @@
     "on": "Açık",
     "off": "Kapalı"
   },
-  "speed": {
+  "preset_mode": {
     "Auto": "Otomatik",
     "Silent": "Sessiz",
     "Favorite": "Favori",

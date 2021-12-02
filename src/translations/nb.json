@@ -9,7 +9,7 @@
     "on": "På",
     "off": "Av"
   },
-  "speed": {
+  "preset_mode": {
     "Auto": "Auto",
     "Silent": "Stille",
     "Favorite": "Favoritt",

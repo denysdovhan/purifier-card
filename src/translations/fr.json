@@ -9,7 +9,7 @@
     "on": "Allumé",
     "off": "Éteint"
   },
-  "speed": {
+  "preset_mode": {
     "Auto": "Auto",
     "Silent": "Nuit",
     "Favorite": "Favori",
