@@ -69,7 +69,7 @@ stats:
     unit: '%'
     subtitle: Filter Remaining
   - attribute: motor_speed
-    unit: RPS
+    unit: RPM
     subtitle: Motor Speed
 shortcuts:
   - name: Silent
@@ -104,7 +104,6 @@ Here is what every option means:
 | `entity`           | `string`  | **Required** | An entity_id within the `fan` domain.            |
 | `show_name`        | `boolean` | `true`       | Show friendly name of the purifier.              |
 | `show_status`      | `boolean` | `true`       | Show status of the purifier.                     |
-| `show_speed`       | `boolean` | `false`      | Show speed of the purifier in the header.        |
 | `show_preset_mode` | `boolean` | `true`       | Show preset mode of the purifier in the header.  |
 | `show_toolbar`     | `boolean` | `true`       | Show toolbar with shortcuts.                     |
 | `compact_view`     | `boolean` | `false`      | Compact view without image.                      |
@@ -134,7 +133,7 @@ You can use any attribute of purifier or even any entity by `entity_id` to displ
 
 ### `shortcuts` object
 
-You can define [custom scripts][ha-scripts] for custom actions or add shortcuts for switching presets and speeds via `shortcuts` option.
+You can define [custom scripts][ha-scripts] for custom actions or add shortcuts for switching presets and percentages via `shortcuts` option.
 
 | Name           |   Type   | Default  | Description                                                                                     |
 | -------------- | :------: | -------- | ----------------------------------------------------------------------------------------------- |
@@ -155,7 +154,7 @@ The card will automatically try to figure out which one of shortcuts is currentl
 
 I've added an animation for this card to make it alive:
 
-<img src="https://user-images.githubusercontent.com/3459374/94728037-48ee7000-0368-11eb-8637-c8bbc5ffaf99.gif" width="500px">
+<img src="https://raw.githubusercontent.com/denysdovhan/purifier-card/master/src/images/purifier-working.gif" width="300px">
 
 How did I make this animation? It's a long story…
 
@@ -202,8 +201,8 @@ If this card works with your air purifier, please open a PR and your model to th
 - Dyson Pure Humidify+Cool ([using Dyson integration](https://www.home-assistant.io/integrations/dyson/))
 - Winix AM90 Wi-Fi Air Purifier
 - Philips AirPurifier AC3858/50 (partially)
-- [_Your purifier?_][edit-readme]
 - SmartMI Air Purifier
+- [_Your purifier?_][edit-readme]
 
 ## Development
 
@@ -240,7 +239,7 @@ MIT © [Denys Dovhan][denysdovhan]
 
 [home-assistant]: https://www.home-assistant.io/
 [hacs]: https://hacs.xyz
-[preview-image]: https://user-images.githubusercontent.com/3459374/94727372-4ccdc280-0367-11eb-8294-1e5c06a1fe93.png
+[preview-image]: https://user-images.githubusercontent.com/3459374/144429511-23d91a48-e296-4d68-a46c-48f3649bdcda.png
 [latest-release]: https://github.com/denysdovhan/purifier-card/releases/latest
 [ha-scripts]: https://www.home-assistant.io/docs/scripts/
 [xiaomi-miio-favorite-levels]: https://www.home-assistant.io/integrations/xiaomi_miio/#service-xiaomi_miiofan_set_favorite_level-air-purifiers-only
