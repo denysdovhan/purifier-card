@@ -24,15 +24,22 @@ export default css`
 
   .preview {
     background-color: var(--primary-color);
-    cursor: pointer;
     overflow: hidden;
     position: relative;
   }
 
   .header {
     display: flex;
+    justify-content: space-between;
     color: var(--text-primary-color);
-    margin-top: 5px;
+  }
+
+  .preset-mode ha-icon {
+    display: inline-block;
+  }
+
+  .more-info {
+    color: var(--text-primary-color);
   }
 
   .controls {
@@ -76,6 +83,7 @@ export default css`
     width: 100%;
     transform: translateY(-50%);
     font-size: 16px;
+    color: var(--text-primary-color);
   }
 
   .image {
@@ -185,6 +193,7 @@ export default css`
   }
 
   ha-icon {
+    display: flex;
     color: #fff;
   }
 
@@ -241,6 +250,5 @@ export default css`
 
   .toolbar ha-icon {
     color: var(--primary-color);
-    display: flex;
   }
 `;

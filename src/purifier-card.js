@@ -406,13 +406,16 @@ class PurifierCard extends LitElement {
 
     return html`
       <ha-card>
-        <div
-          class="preview"
-          @click="${() => this.handleMore()}"
-          ?more-info="true"
-        >
+        <div class="preview">
           <div class="header">
-            <div class="preset-mode">${this.renderPresetMode()}</div>
+            ${this.renderPresetMode()}
+            <ha-icon-button
+              class="more-info"
+              icon="mdi:dots-vertical"
+              ?more-info="true"
+              @click="${() => this.handleMore()}"
+              ><ha-icon icon="mdi:dots-vertical"></ha-icon
+            ></ha-icon-button>
           </div>
 
           <div class="controls">${this.renderControls()}</div>
