@@ -17,8 +17,7 @@
     "Idle": "Bezczynny"
   },
   "error": {
-    "missing_entity": "Wymagane jest zadeklarowanie encji!",
-    "xiaomi_miio_level_without_preset_mode": "parametr preset_mode jest wymagany w wywołaniu z xiaomi_miio_favorite_level!"
+    "missing_entity": "Wymagane jest zadeklarowanie encji!"
   },
   "editor": {
     "entity": "Encja (wymagane)",

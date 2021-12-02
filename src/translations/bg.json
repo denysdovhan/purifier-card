@@ -16,8 +16,7 @@
     "Fan": "Вентилатор"
   },
   "error": {
-    "missing_entity": "Избирането на обект е задължително!",
-    "xiaomi_miio_level_without_preset_mode": "preset_mode е задължителен параметър, когато се използва xiaomi_miio_favorite_level!"
+    "missing_entity": "Избирането на обект е задължително!"
   },
   "editor": {
     "entity": "Обект (Задължително)",

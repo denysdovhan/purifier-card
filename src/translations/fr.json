@@ -16,8 +16,7 @@
     "Fan": "Manuel"
   },
   "error": {
-    "missing_entity": "Il est obligatoire de spécifier une entité!",
-    "xiaomi_miio_level_without_preset_mode": "preset_mode est obligatoire avec la propriété xiaomi_miio_favorite_level!"
+    "missing_entity": "Il est obligatoire de spécifier une entité!"
   },
   "editor": {
     "entity": "Entité (obligatoire)",

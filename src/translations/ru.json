@@ -16,8 +16,7 @@
     "Fan": "Максимальная"
   },
   "error": {
-    "missing_entity": "Требуется указать сущность!",
-    "xiaomi_miio_level_without_preset_mode": "Требуется указать preset_mode вместе с свойством xiaomi_miio_favorite_level!"
+    "missing_entity": "Требуется указать сущность!"
   },
   "editor": {
     "entity": "Сущность (Обязательно!)",
