@@ -268,6 +268,10 @@ class PurifierCard extends LitElement {
     `;
   }
 
+  renderControls() {
+    return this.compactView ? this.renderAQI() : this.renderSlider();
+  }
+
   renderName() {
     const {
       attributes: { friendly_name },
@@ -411,7 +415,7 @@ class PurifierCard extends LitElement {
             <div class="preset-mode">${this.renderPresetMode()}</div>
           </div>
 
-          <div class="controls">${this.renderSlider()}</div>
+          <div class="controls">${this.renderControls()}</div>
 
           <div class="metadata">${this.renderName()} ${this.renderState()}</div>
 
