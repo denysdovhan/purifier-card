@@ -105,7 +105,7 @@ Here is what every option means:
 | `type`             | `string`  | **Required** | `custom:purifier-card`                           |
 | `entity`           | `string`  | **Required** | An entity_id within the `fan` domain.            |
 | `show_name`        | `boolean` | `true`       | Show friendly name of the purifier.              |
-| `show_status`      | `boolean` | `true`       | Show status of the purifier.                     |
+| `show_state`       | `boolean` | `true`       | Show state of the purifier.                      |
 | `show_preset_mode` | `boolean` | `true`       | Show preset mode of the purifier in the header.  |
 | `show_toolbar`     | `boolean` | `true`       | Show toolbar with shortcuts.                     |
 | `compact_view`     | `boolean` | `false`      | Compact view without image.                      |
