@@ -182,35 +182,25 @@ class PurifierCard extends LitElement {
     const selected = preset_modes.indexOf(preset_mode);
 
     return html`
-      <div class="preset-mode">
-        <paper-menu-button
-          slot="dropdown-trigger"
-          .horizontalAlign=${'right'}
-          .verticalAlign=${'top'}
-          .verticalOffset=${40}
-          .noAnimations=${true}
-          @click="${(e) => e.stopPropagation()}"
-        >
-          <paper-button slot="dropdown-trigger">
-            <ha-icon icon="mdi:fan"></ha-icon>
-            <span show=${true}
-              >${localize(`preset_mode.${preset_mode}`) || preset_mode}
-            </span>
-          </paper-button>
-          <paper-listbox
-            slot="dropdown-content"
-            selected=${selected}
-            @click="${(e) => this.handlePresetMode(e)}"
-          >
-            ${preset_modes.map(
-              (item) =>
-                html`<paper-item value=${item}
-                  >${localize(`preset_mode.${item}`) || item}</paper-item
-                >`
-            )}
-          </paper-listbox>
-        </paper-menu-button>
-      </div>
+      <ha-button-menu @click="${(e) => e.stopPropagation()}">
+        <mmp-icon-button slot="trigger">
+          <ha-icon icon="mdi:fan"></ha-icon>
+          <span>
+            ${localize(`preset_mode.${preset_mode}`) || preset_mode}
+          </span>
+        </mmp-icon-button>
+
+        ${preset_modes.map(
+          (item, index) =>
+            html`<mwc-list-item
+              ?activated=${selected === index}
+              value=${item}
+              @click=${(e) => this.handlePresetMode(e)}
+            >
+              ${localize(`preset_mode.${item}`) || item}
+            </mwc-list-item>`
+        )}
+      </ha-button-menu>
     `;
   }
 
@@ -408,7 +398,9 @@ class PurifierCard extends LitElement {
       <ha-card>
         <div class="preview">
           <div class="header">
-            ${this.renderPresetMode()}
+            <div class="preset-mode">
+              ${this.renderPresetMode()}
+            </div>
             <ha-icon-button
               class="more-info"
               icon="mdi:dots-vertical"

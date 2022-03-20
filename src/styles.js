@@ -34,6 +34,10 @@ export default css`
     color: var(--text-primary-color);
   }
 
+  .preset-mode {
+    padding: 7px;
+  }
+
   .preset-mode ha-icon {
     display: inline-block;
   }
