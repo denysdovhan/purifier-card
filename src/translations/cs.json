@@ -1,0 +1,40 @@
+{
+  "common": {
+    "name": "Karta čističky",
+    "description": "Karta čističky Vám umožní ovládat Vaši chytrou čističku.",
+    "not_available": "Entita je nedostupná",
+    "toggle_power": "Zapnout/vypnout"
+  },
+  "state": {
+    "on": "Zapnuto",
+    "off": "Vypnuto"
+  },
+  "preset_mode": {
+    "Auto": "Automatický",
+    "Silent": "Noční",
+    "Favorite": "Manuální",
+    "Fan": "Větrák"
+  },
+  "error": {
+    "missing_entity": "Je vyžadováno specifikování entity!"
+  },
+  "warning": {
+    "actions_array": "VAROVÁNÍ: 'actions' je přejmenováno na 'shortcuts'"
+  },
+  "editor": {
+    "entity": "Entity (povinné)",
+    "compact_view": "Kompaktní zobrazení",
+    "compact_view_aria_label_on": "Zapnout kompaktní zobrazení",
+    "compact_view_aria_label_off": "Vypnout kompaktní zobrazení",
+    "show_name": "Zobrazit název",
+    "show_name_aria_label_on": "Zapnout zobrazení názvu",
+    "show_name_aria_label_off": "Vypnout zobrazení názvu",
+    "show_state": "Zobrazit stav",
+    "show_state_aria_label_on": "Zapnout zobrazení stavu",
+    "show_state_aria_label_off": "Vypnout zobrazení stavu",
+    "show_toolbar": "Zobrazit lištu",
+    "show_toolbar_aria_label_on": "Zapnout zobrazení lišty",
+    "show_toolbar_aria_label_off": "Vypnout zobrazení lišty",
+    "code_only_note": "Poznámka: Nastavení akcí a statistik je dostupné pouze v editoru kódu."
+  }
+}

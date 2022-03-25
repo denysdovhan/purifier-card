@@ -14,6 +14,7 @@ import * as de from './translations/de.json';
 import * as ca from './translations/ca.json';
 import * as ru from './translations/ru.json';
 import * as it from './translations/it.json';
+import * as cs from './translations/cs.json';
 
 var languages = {
   en,
@@ -29,6 +30,7 @@ var languages = {
   ca,
   ru,
   it,
+  cs,
 };
 
 const DEFAULT_LANG = 'en';
