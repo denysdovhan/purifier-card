@@ -149,8 +149,16 @@ class PurifierCard extends LitElement {
   }
 
   handlePercentage(e) {
+    const speed = e.detail.value * 19 + 300;
+    this.callService('number.set_value', {
+      entity_id: 'number.mi_air_purifier_3c_favorite_motor_speed',
+      value: speed,
+    });
+
+    /*
     const percentage = e.detail.value;
     this.callService('fan.set_percentage', { percentage });
+    */
   }
 
   callService(service, options = {}, isRequest = true) {
@@ -231,8 +239,16 @@ class PurifierCard extends LitElement {
   renderSlider() {
     const {
       state,
-      attributes: { percentage, percentage_step },
+      //attributes: { percentage, percentage_step },
     } = this.entity;
+
+    const percentage = Math.round(
+      (this.hass.states['number.mi_air_purifier_3c_favorite_motor_speed']
+        .state -
+        300) /
+        19
+    );
+    const percentage_step = 1;
 
     const disabled = state !== 'on';
     const stateClass = !disabled ? 'working' : 'standby';
