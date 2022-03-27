@@ -85,7 +85,7 @@ shortcuts:
     percentage: 50
   - name: 75%
     icon: 'mdi:circle-slice-6'
-    percentage: 50
+    percentage: 75
   - name: 100%
     icon: 'mdi:circle-slice-8'
     percentage: 100
