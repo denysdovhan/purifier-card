@@ -274,7 +274,7 @@ class PurifierCard extends LitElement {
             ${this.renderAQI()}
           </div>
           <div class="slider-value">
-            ${percentage}%<!-- @todo hide if perecentage is undefined --?
+            ${percentage}%<!-- @todo hide if perecentage is undefined -->
           </div>
         </div>
       </div>
