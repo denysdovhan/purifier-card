@@ -151,18 +151,20 @@ class PurifierCard extends LitElement {
   }
 
   handlePercentage(e) {
+    this.setPercentage(e.detail.value);
+  }
+
+  setPercentage(percentage) {
     if (this.config.speed_entity !== undefined) {
       const entity_id = this.config.speed_entity;
       const {
         attributes: { min, max, step },
       } = this.hass.states[entity_id];
-      const value =
-        Math.round((e.detail.value * max * 0.01 + min) / step) * step;
+      const value = Math.round((percentage * max * 0.01 + min) / step) * step;
       this.callService('number.set_value', { entity_id, value });
       return;
     }
 
-    const percentage = e.detail.value;
     this.callService('fan.set_percentage', { percentage });
   }
 
@@ -177,6 +179,16 @@ class PurifierCard extends LitElement {
       this.requestInProgress = true;
       this.requestUpdate();
     }
+  }
+
+  getPercentageFromRPM() {
+    if (this.config.speed_entity === undefined) return undefined;
+
+    const {
+      attributes: { min, max },
+    } = this.hass.states[this.config.speed_entity];
+    const rpm_state = this.hass.states[this.config.speed_entity].state;
+    return ((rpm_state - min) / max) * 100;
   }
 
   renderPresetMode() {
@@ -249,8 +261,7 @@ class PurifierCard extends LitElement {
       const {
         attributes: { min, max, step },
       } = this.hass.states[this.config.speed_entity];
-      const rpm_state = this.hass.states[this.config.speed_entity].state;
-      percentage = Math.round(((rpm_state - min) / max) * 100);
+      percentage = Math.round(this.getPercentageFromRPM());
       percentage_step = ((max - min) / step) * 0.01;
     } else {
       percentage = this.entity.percentage;
@@ -362,13 +373,16 @@ class PurifierCard extends LitElement {
           }
 
           if (percentage) {
-            this.callService('fan.set_percentage', { percentage });
+            this.setPercentage(percentage);
           }
         };
 
         const isActive =
           service ||
-          percentage === attributes.percentage ||
+          percentage ===
+            (attributes.percentage !== undefined
+              ? attributes.percentage
+              : this.getPercentageFromRPM()) ||
           preset_mode === attributes.preset_mode;
 
         const className = isActive ? 'active' : '';
