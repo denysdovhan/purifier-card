@@ -160,7 +160,8 @@ class PurifierCard extends LitElement {
       const {
         attributes: { min, max, step },
       } = this.hass.states[entity_id];
-      const value = Math.round((percentage * max * 0.01 + min) / step) * step;
+      const value =
+        Math.round((percentage * (max - min) * 0.01 + min) / step) * step;
       this.callService('number.set_value', { entity_id, value });
       return;
     }
@@ -188,7 +189,7 @@ class PurifierCard extends LitElement {
       attributes: { min, max },
     } = this.hass.states[this.config.speed_entity];
     const rpm_state = this.hass.states[this.config.speed_entity].state;
-    return ((rpm_state - min) / max) * 100;
+    return ((rpm_state - min) / (max - min)) * 100;
   }
 
   renderPresetMode() {
