@@ -116,6 +116,7 @@ class PurifierCard extends LitElement {
   }
 
   shouldUpdate(changedProps) {
+    // @todo add check of this.config.speed_entity
     return hasConfigOrEntityChanged(this, changedProps);
   }
 
@@ -124,6 +125,7 @@ class PurifierCard extends LitElement {
       changedProps.get('hass') &&
       changedProps.get('hass').states[this.config.entity] !==
         this.hass.states[this.config.entity]
+      // @todo add check of this.config.speed_entity
     ) {
       this.requestInProgress = false;
     }
@@ -149,16 +151,19 @@ class PurifierCard extends LitElement {
   }
 
   handlePercentage(e) {
-    const speed = e.detail.value * 19 + 300;
-    this.callService('number.set_value', {
-      entity_id: 'number.mi_air_purifier_3c_favorite_motor_speed',
-      value: speed,
-    });
+    if (this.config.speed_entity !== undefined) {
+      const entity_id = this.config.speed_entity;
+      const {
+        attributes: { min, max, step },
+      } = this.hass.states[entity_id];
+      const value =
+        Math.round((e.detail.value * max * 0.01 + min) / step) * step;
+      this.callService('number.set_value', { entity_id, value });
+      return;
+    }
 
-    /*
     const percentage = e.detail.value;
     this.callService('fan.set_percentage', { percentage });
-    */
   }
 
   callService(service, options = {}, isRequest = true) {
@@ -237,18 +242,20 @@ class PurifierCard extends LitElement {
   }
 
   renderSlider() {
-    const {
-      state,
-      //attributes: { percentage, percentage_step },
-    } = this.entity;
+    const { state } = this.entity;
 
-    const percentage = Math.round(
-      (this.hass.states['number.mi_air_purifier_3c_favorite_motor_speed']
-        .state -
-        300) /
-        19
-    );
-    const percentage_step = 1;
+    let percentage, percentage_step;
+    if (this.config.speed_entity !== undefined) {
+      const {
+        attributes: { min, max, step },
+      } = this.hass.states[this.config.speed_entity];
+      const rpm_state = this.hass.states[this.config.speed_entity].state;
+      percentage = Math.round(((rpm_state - min) / max) * 100);
+      percentage_step = ((max - min) / step) * 0.01;
+    } else {
+      percentage = this.entity.percentage;
+      percentage_step = this.entity.percentage_step;
+    }
 
     const disabled = state !== 'on';
     const stateClass = !disabled ? 'working' : 'standby';
@@ -267,7 +274,7 @@ class PurifierCard extends LitElement {
             ${this.renderAQI()}
           </div>
           <div class="slider-value">
-            ${percentage}%
+            ${percentage}%<!-- @todo hide if perecentage is undefined --?
           </div>
         </div>
       </div>
