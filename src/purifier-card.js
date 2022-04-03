@@ -272,22 +272,26 @@ class PurifierCard extends LitElement {
     const disabled = state !== 'on';
     const stateClass = !disabled ? 'working' : 'standby';
 
+    const sliderHtml = html` <round-slider
+      value=${percentage}
+      step=${percentage_step}
+      ?disabled="${disabled}"
+      @value-changed=${(e) => this.handlePercentage(e)}
+    >
+    </round-slider>`;
+
+    const sliderValueHtml = html` <div class="slider-value">
+      ${percentage}%
+    </div>`;
+
     return html`
       <div class="slider">
-        <round-slider
-          value=${percentage}
-          step=${percentage_step}
-          ?disabled="${disabled}"
-          @value-changed=${(e) => this.handlePercentage(e)}
-        >
-        </round-slider>
+        ${percentage !== undefined ? sliderHtml : ''}
         <div class="slider-center image ${stateClass}">
           <div class="slider-content">
             ${this.renderAQI()}
           </div>
-          <div class="slider-value">
-            ${percentage}%<!-- @todo hide if perecentage is undefined -->
-          </div>
+          ${percentage !== undefined ? sliderValueHtml : ''}
         </div>
       </div>
     `;

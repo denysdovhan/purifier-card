@@ -57,6 +57,7 @@ export default css`
     position: relative;
     max-width: 250px;
     min-width: 100px;
+    min-height: 180px;
   }
 
   .slider-center {
