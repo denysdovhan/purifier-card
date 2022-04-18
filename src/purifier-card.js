@@ -115,17 +115,24 @@ class PurifierCard extends LitElement {
     return 2;
   }
 
+  speedEntityConfigured() {
+    return (
+      this.config.speed !== undefined &&
+      this.config.speed.entity_id !== undefined
+    );
+  }
+
   shouldUpdate(changedProps) {
     if (hasConfigOrEntityChanged(this, changedProps)) {
       return true;
     }
 
-    if (this.config.speed_entity !== undefined) {
+    if (this.speedEntityConfigured()) {
       const oldHass = changedProps.get('hass');
       if (oldHass) {
         return (
-          oldHass.states[this.config.speed_entity] !==
-          this.hass.states[this.config.speed_entity]
+          oldHass.states[this.config.speed.entity_id] !==
+          this.hass.states[this.config.speed.entity_id]
         );
       }
     }
@@ -148,9 +155,9 @@ class PurifierCard extends LitElement {
     }
 
     if (
-      this.config.speed_entity !== undefined &&
-      oldHass.states[this.config.speed_entity] !==
-        this.hass.states[this.config.speed_entity]
+      this.speedEntityConfigured() &&
+      oldHass.states[this.config.speed.entity_id] !==
+        this.hass.states[this.config.speed.entity_id]
     ) {
       this.requestInProgress = false;
     }
@@ -180,8 +187,8 @@ class PurifierCard extends LitElement {
   }
 
   setPercentage(percentage) {
-    if (this.config.speed_entity !== undefined) {
-      const entity_id = this.config.speed_entity;
+    if (this.speedEntityConfigured()) {
+      const { entity_id } = this.config.speed;
       const {
         attributes: { min, max, step },
       } = this.hass.states[entity_id];
@@ -208,12 +215,12 @@ class PurifierCard extends LitElement {
   }
 
   getPercentageFromRPM() {
-    if (this.config.speed_entity === undefined) return undefined;
+    if (!this.speedEntityConfigured()) return undefined;
 
     const {
       attributes: { min, max },
-    } = this.hass.states[this.config.speed_entity];
-    const rpm_state = this.hass.states[this.config.speed_entity].state;
+    } = this.hass.states[this.config.speed.entity_id];
+    const rpm_state = this.hass.states[this.config.speed.entity_id].state;
     return ((rpm_state - min) / (max - min)) * 100;
   }
 
@@ -283,10 +290,10 @@ class PurifierCard extends LitElement {
     const { state } = this.entity;
 
     let percentage, percentage_step;
-    if (this.config.speed_entity !== undefined) {
+    if (this.speedEntityConfigured()) {
       const {
         attributes: { min, max, step },
-      } = this.hass.states[this.config.speed_entity];
+      } = this.hass.states[this.config.speed.entity_id];
       percentage = Math.round(this.getPercentageFromRPM());
       percentage_step = ((max - min) / step) * 0.01;
     } else {
