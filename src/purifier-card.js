@@ -116,16 +116,41 @@ class PurifierCard extends LitElement {
   }
 
   shouldUpdate(changedProps) {
-    // @todo add check of this.config.speed_entity
-    return hasConfigOrEntityChanged(this, changedProps);
+    if (hasConfigOrEntityChanged(this, changedProps)) {
+      return true;
+    }
+
+    if (this.config.speed_entity !== undefined) {
+      const oldHass = changedProps.get('hass');
+      if (oldHass) {
+        return (
+          oldHass.states[this.config.speed_entity] !==
+          this.hass.states[this.config.speed_entity]
+        );
+      }
+    }
+
+    return false;
   }
 
   updated(changedProps) {
+    const oldHass = changedProps.get('hass');
+    if (!oldHass) {
+      return;
+    }
+
     if (
-      changedProps.get('hass') &&
-      changedProps.get('hass').states[this.config.entity] !==
-        this.hass.states[this.config.entity]
-      // @todo add check of this.config.speed_entity
+      oldHass.states[this.config.entity] !==
+      this.hass.states[this.config.entity]
+    ) {
+      this.requestInProgress = false;
+      return;
+    }
+
+    if (
+      this.config.speed_entity !== undefined &&
+      oldHass.states[this.config.speed_entity] !==
+        this.hass.states[this.config.speed_entity]
     ) {
       this.requestInProgress = false;
     }
