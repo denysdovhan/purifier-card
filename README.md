@@ -157,8 +157,9 @@ The card will automatically try to figure out which one of shortcuts is currentl
 
 You can define number entity to be used instead of `fan.set_percentage` if [fan speed does not work](#why-cant-i-see-nor-set-fan-speed).
 | Name | Type | Default | Description |
-| ----------- | :------: | -------- | --------------------------------------------------------------------------------|
-| `entity_id` | `string` | Optional | An entity_id with state, i.e. `number.mi_air_purifier_3c_favorite_motor_speed`. |
+| ------------------ | :------: | -------- | ------------------------------------------------------------------------------------------------- |
+| `entity_id` | `string` | Optional | An `number` entity_id with favorite speed, i.e. `number.mi_air_purifier_3c_favorite_motor_speed`. |
+| `sensor_entity_id` | `string` | Optional | An `sensor` entity_id with rpm state, i.e. `sensor.mi_air_purifier_3c_motor_speed`. |
 
 ## Animations
 

@@ -217,10 +217,17 @@ class PurifierCard extends LitElement {
   getPercentageFromRPM() {
     if (!this.speedEntityConfigured()) return undefined;
 
+    let rpm_state;
+    if (
+      this.entity.attributes.preset_mode != 'Favorite' &&
+      this.config.speed.sensor_entity_id !== undefined
+    )
+      rpm_state = this.hass.states[this.config.speed.sensor_entity_id].state;
+    else rpm_state = this.hass.states[this.config.speed.entity_id].state;
+
     const {
       attributes: { min, max },
     } = this.hass.states[this.config.speed.entity_id];
-    const rpm_state = this.hass.states[this.config.speed.entity_id].state;
     return ((rpm_state - min) / (max - min)) * 100;
   }
 
