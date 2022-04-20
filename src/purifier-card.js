@@ -198,13 +198,15 @@ class PurifierCard extends LitElement {
 
           ${preset_modes.map(
             (item, index) =>
-              html`<mwc-list-item
-                ?activated=${selected === index}
-                value=${item}
-                @click=${(e) => this.handlePresetMode(e)}
-              >
-                ${localize(`preset_mode.${item}`) || item}
-              </mwc-list-item>`
+              html`
+                <mwc-list-item
+                  ?activated=${selected === index}
+                  value=${item}
+                  @click=${(e) => this.handlePresetMode(e)}
+                >
+                  ${localize(`preset_mode.${item}`) || item}
+                </mwc-list-item>
+              `
           )}
         </ha-button-menu>
       </div>
