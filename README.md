@@ -235,6 +235,7 @@ This card supports translations. Please, help to add more translations and impro
 - Русский (Russian)
 - Italiano (Italian)
 - 繁體中文 (Traditional Chinese)
+- Čeština (Czech)
 - [_Your language?_][add-translation]
 
 ## Supported models
