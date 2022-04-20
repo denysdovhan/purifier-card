@@ -4,6 +4,8 @@ import './purifier-card-editor';
 import localize from './localize';
 import styles from './styles';
 import { version } from '../package.json';
+import workingImg from './images/purifier-working.gif';
+import standbyImg from './images/purifier-standby.png';
 
 console.info(
   `%c PURIFIER-CARD %c ${version} `,
@@ -235,7 +237,7 @@ class PurifierCard extends LitElement {
     } = this.entity;
 
     const disabled = state !== 'on';
-    const stateClass = !disabled ? 'working' : 'standby';
+    const image = !disabled ? workingImg : standbyImg;
 
     return html`
       <div class="slider">
@@ -246,7 +248,8 @@ class PurifierCard extends LitElement {
           @value-changed=${(e) => this.handlePercentage(e)}
         >
         </round-slider>
-        <div class="slider-center image ${stateClass}">
+        <img src=${image} alt="purifier is ${state}" class="image" />
+        <div class="slider-center">
           <div class="slider-content">
             ${this.renderAQI()}
           </div>
