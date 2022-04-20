@@ -24,7 +24,7 @@
   "license": "MIT",
   "dependencies": {
     "custom-card-helpers": "^1.6.4",
-    "ha-template": "^1.0.2",
+    "ha-template": "^1.0.3",
     "lit": "^2.2.2"
   },
   "devDependencies": {
