@@ -251,6 +251,7 @@ If this card works with your air purifier, please open a PR and your model to th
 - Winix AM90 Wi-Fi Air Purifier
 - Philips AirPurifier AC3858/50 (partially)
 - SmartMI Air Purifier
+- Ikea Starkvind
 - [_Your purifier?_][edit-readme]
 
 ## Development
