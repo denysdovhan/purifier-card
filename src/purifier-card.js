@@ -261,7 +261,7 @@ class PurifierCard extends LitElement {
             ${this.renderAQI()}
           </div>
           <div class="slider-value">
-            ${percentage}%
+            ${percentage ? `${percentage}%` : nothing}
           </div>
         </div>
       </div>
