@@ -23,7 +23,6 @@ ha-card {
   flex: 1;
   position: relative;
   padding: 0px;
-  overflow: hidden;
 }
 
 .fill-gap {
@@ -32,7 +31,6 @@ ha-card {
 
 .preview {
   background-color: var(--pc-background);
-  overflow: hidden;
   position: relative;
 }
 
