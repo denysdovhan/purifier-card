@@ -73,8 +73,8 @@ stats:
   - attribute: motor_speed
     unit: RPM
     subtitle: Motor Speed
-  - value_template: >-
-      {{ (states('sensor.purifier_filter_life') | float(0) / 3600) | round(1) }}
+  - entity_id: sensor.purifier_filter_life
+    value_template: '{{ (value | float(0) / 3600) | round(1) }}'
     unit: hours
     subtitle: Filter Life
 shortcuts:
@@ -130,13 +130,13 @@ Here is what every option means:
 
 You can use any attribute of purifier or even any entity by `entity_id` to display by stats section:
 
-| Name             |   Type   | Default  | Description                                          |
-| ---------------- | :------: | -------- | ---------------------------------------------------- |
-| `entity_id`      | `string` | Optional | An entity_id with state, i.e. `sensor.purifier_aqi`. |
-| `attribute`      | `string` | Optional | Attribute name of the stat, i.e. `filter_left`.      |
-| `value_template` | `string` | Optional | Jinja2 template returning a value.                   |
-| `unit`           | `string` | Optional | Unit of measure, i.e. `hours`.                       |
-| `subtitle`       | `string` | Optional | Friendly name of the stat, i.e. `Filter`.            |
+| Name             |   Type   | Default  | Description                                                                                          |
+| ---------------- | :------: | -------- | ---------------------------------------------------------------------------------------------------- |
+| `entity_id`      | `string` | Optional | An entity_id with state, i.e. `sensor.purifier_aqi`.                                                 |
+| `attribute`      | `string` | Optional | Attribute name of the stat, i.e. `filter_left`.                                                      |
+| `value_template` | `string` | Optional | Jinja2 template returning a value. `value` variable represents the `entity_id` or `attribute` state. |
+| `unit`           | `string` | Optional | Unit of measure, i.e. `hours`.                                                                       |
+| `subtitle`       | `string` | Optional | Friendly name of the stat, i.e. `Filter`.                                                            |
 
 ### `shortcuts` object
 

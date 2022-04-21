@@ -325,6 +325,7 @@ class PurifierCard extends LitElement {
             hass=${this.hass}
             template=${value_template}
             value=${state}
+            variables=${{ value: state }}
           ></ha-template>
         `;
 
