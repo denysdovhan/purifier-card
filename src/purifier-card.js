@@ -228,7 +228,8 @@ class PurifierCard extends LitElement {
     const {
       attributes: { min, max },
     } = this.hass.states[this.config.speed.entity_id];
-    return ((rpm_state - min) / (max - min)) * 100;
+    const percentage = ((rpm_state - min) / (max - min)) * 100;
+    return Math.min(100, Math.max(0, percentage));
   }
 
   renderPresetMode() {
