@@ -1,9 +1,14 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html, nothing } from 'lit';
 import { hasConfigOrEntityChanged, fireEvent } from 'custom-card-helpers';
-import './purifier-card-editor';
+import registerTemplates from 'ha-template';
 import localize from './localize';
-import styles from './styles';
+import styles from './styles.css';
 import { version } from '../package.json';
+import workingImg from './images/purifier-working.gif';
+import standbyImg from './images/purifier-standby.png';
+import './purifier-card-editor';
+
+registerTemplates();
 
 console.info(
   `%c PURIFIER-CARD %c ${version} `,
@@ -163,15 +168,15 @@ class PurifierCard extends LitElement {
     }
   }
 
-  handleMore() {
+  handleMore(entityId = this.entity.entity_id) {
     fireEvent(
       this,
       'hass-more-info',
       {
-        entityId: this.entity.entity_id,
+        entityId,
       },
       {
-        bubbles: true,
+        bubbles: false,
         composed: true,
       }
     );
@@ -242,31 +247,35 @@ class PurifierCard extends LitElement {
       !preset_modes ||
       !(supported_features & SUPPORT_PRESET_MODE)
     ) {
-      return html``;
+      return nothing;
     }
 
     const selected = preset_modes.indexOf(preset_mode);
 
     return html`
-      <ha-button-menu @click="${(e) => e.stopPropagation()}">
-        <mmp-icon-button slot="trigger">
-          <ha-icon icon="mdi:fan"></ha-icon>
-          <span>
-            ${localize(`preset_mode.${preset_mode}`) || preset_mode}
-          </span>
-        </mmp-icon-button>
+      <div class="preset-mode">
+        <ha-button-menu @click="${(e) => e.stopPropagation()}">
+          <mmp-icon-button slot="trigger">
+            <ha-icon icon="mdi:fan"></ha-icon>
+            <span>
+              ${localize(`preset_mode.${preset_mode}`) || preset_mode}
+            </span>
+          </mmp-icon-button>
 
-        ${preset_modes.map(
-          (item, index) =>
-            html`<mwc-list-item
-              ?activated=${selected === index}
-              value=${item}
-              @click=${(e) => this.handlePresetMode(e)}
-            >
-              ${localize(`preset_mode.${item}`) || item}
-            </mwc-list-item>`
-        )}
-      </ha-button-menu>
+          ${preset_modes.map(
+            (item, index) =>
+              html`
+                <mwc-list-item
+                  ?activated=${selected === index}
+                  value=${item}
+                  @click=${(e) => this.handlePresetMode(e)}
+                >
+                  ${localize(`preset_mode.${item}`) || item}
+                </mwc-list-item>
+              `
+          )}
+        </ha-button-menu>
+      </div>
     `;
   }
 
@@ -310,28 +319,23 @@ class PurifierCard extends LitElement {
     }
 
     const disabled = state !== 'on';
-    const stateClass = !disabled ? 'working' : 'standby';
-
-    const sliderHtml = html` <round-slider
-      value=${percentage}
-      step=${percentage_step}
-      ?disabled="${disabled}"
-      @value-changed=${(e) => this.handlePercentage(e)}
-    >
-    </round-slider>`;
-
-    const sliderValueHtml = html` <div class="slider-value">
-      ${percentage}%
-    </div>`;
+    const image = !disabled ? workingImg : standbyImg;
 
     return html`
       <div class="slider">
-        ${percentage !== undefined ? sliderHtml : ''}
-        <div class="slider-center image ${stateClass}">
-          <div class="slider-content">
-            ${this.renderAQI()}
+        <round-slider
+          value=${percentage}
+          step=${percentage_step}
+          ?disabled="${disabled}"
+          @value-changed=${(e) => this.handlePercentage(e)}
+        >
+        </round-slider>
+        <img src=${image} alt="purifier is ${state}" class="image" />
+        <div class="slider-center">
+          <div class="slider-content">${this.renderAQI()}</div>
+          <div class="slider-value">
+            ${percentage ? `${percentage}%` : nothing}
           </div>
-          ${percentage !== undefined ? sliderValueHtml : ''}
         </div>
       </div>
     `;
@@ -347,7 +351,7 @@ class PurifierCard extends LitElement {
     } = this.entity;
 
     if (!this.showName) {
-      return html``;
+      return nothing;
     }
 
     return html` <div class="friendly-name">${friendly_name}</div> `;
@@ -358,7 +362,7 @@ class PurifierCard extends LitElement {
     const localizedState = localize(`state.${state}`) || state;
 
     if (!this.showState) {
-      return html``;
+      return nothing;
     }
 
     return html`
@@ -366,10 +370,10 @@ class PurifierCard extends LitElement {
         <span class="state-text" alt=${localizedState}>
           ${localizedState}
         </span>
-        <ha-circular-progress
-          .active=${this.requestInProgress}
-          size="small"
-        ></ha-circular-progress>
+        <mwc-circular-progress
+          .indeterminate=${this.requestInProgress}
+          density="-5"
+        ></mwc-circular-progress>
       </div>
     `;
   }
@@ -379,23 +383,34 @@ class PurifierCard extends LitElement {
 
     const statsList = stats || [];
 
-    return statsList.map(({ entity_id, attribute, unit, subtitle }) => {
-      if (!entity_id && !attribute) {
-        return html``;
+    return statsList.map(
+      ({ entity_id, attribute, value_template, unit, subtitle }) => {
+        if (!entity_id && !attribute && !value_template) {
+          return nothing;
+        }
+
+        const state = entity_id
+          ? this.hass.states[entity_id].state
+          : this.entity.attributes[attribute];
+
+        const value = html`
+          <ha-template
+            hass=${this.hass}
+            template=${value_template}
+            value=${state}
+            variables=${{ value: state }}
+          ></ha-template>
+        `;
+
+        return html`
+          <div class="stats-block" @click="${() => this.handleMore(entity_id)}">
+            <span class="stats-value">${value}</span>
+            ${unit}
+            <div class="stats-subtitle">${subtitle}</div>
+          </div>
+        `;
       }
-
-      const value = entity_id
-        ? this.hass.states[entity_id].state
-        : this.entity.attributes[attribute];
-
-      return html`
-        <div class="stats-block">
-          <span class="stats-value">${value}</span>
-          ${unit}
-          <div class="stats-subtitle">${subtitle}</div>
-        </div>
-      `;
-    });
+    );
   }
 
   renderToolbar() {
@@ -403,7 +418,7 @@ class PurifierCard extends LitElement {
     const { state, attributes } = this.entity;
 
     if (!this.showToolbar) {
-      return html``;
+      return nothing;
     }
 
     const buttons = shortcuts.map(
@@ -480,9 +495,7 @@ class PurifierCard extends LitElement {
       <ha-card>
         <div class="preview">
           <div class="header">
-            <div class="preset-mode">
-              ${this.renderPresetMode()}
-            </div>
+            <div class="tips">${this.renderPresetMode()}</div>
             <ha-icon-button
               class="more-info"
               icon="mdi:dots-vertical"

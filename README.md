@@ -73,6 +73,10 @@ stats:
   - attribute: motor_speed
     unit: RPM
     subtitle: Motor Speed
+  - entity_id: sensor.purifier_filter_life
+    value_template: '{{ (value | float(0) / 3600) | round(1) }}'
+    unit: hours
+    subtitle: Filter Life
 shortcuts:
   - name: Silent
     icon: 'mdi:weather-night'
@@ -85,7 +89,7 @@ shortcuts:
     percentage: 50
   - name: 75%
     icon: 'mdi:circle-slice-6'
-    percentage: 50
+    percentage: 75
   - name: 100%
     icon: 'mdi:circle-slice-8'
     percentage: 100
@@ -127,12 +131,13 @@ Here is what every option means:
 
 You can use any attribute of purifier or even any entity by `entity_id` to display by stats section:
 
-| Name        |   Type   | Default  | Description                                          |
-| ----------- | :------: | -------- | ---------------------------------------------------- |
-| `entity_id` | `string` | Optional | An entity_id with state, i.e. `sensor.purifier_aqi`. |
-| `attribute` | `string` | Optional | Attribute name of the stat, i.e. `filter_left`.      |
-| `unit`      | `string` | Optional | Unit of measure, i.e. `hours`.                       |
-| `subtitle`  | `string` | Optional | Friendly name of the stat, i.e. `Filter`.            |
+| Name             |   Type   | Default  | Description                                                                                          |
+| ---------------- | :------: | -------- | ---------------------------------------------------------------------------------------------------- |
+| `entity_id`      | `string` | Optional | An entity_id with state, i.e. `sensor.purifier_aqi`.                                                 |
+| `attribute`      | `string` | Optional | Attribute name of the stat, i.e. `filter_left`.                                                      |
+| `value_template` | `string` | Optional | Jinja2 template returning a value. `value` variable represents the `entity_id` or `attribute` state. |
+| `unit`           | `string` | Optional | Unit of measure, i.e. `hours`.                                                                       |
+| `subtitle`       | `string` | Optional | Friendly name of the stat, i.e. `Filter`.                                                            |
 
 ### `shortcuts` object
 
@@ -160,6 +165,48 @@ You can define number entity to be used instead of `fan.set_percentage` if [fan 
 | ------------------ | :------: | -------- | ------------------------------------------------------------------------------------------------- |
 | `entity_id` | `string` | Optional | An `number` entity_id with favorite speed, i.e. `number.mi_air_purifier_3c_favorite_motor_speed`. |
 | `sensor_entity_id` | `string` | Optional | An `sensor` entity_id with rpm state, i.e. `sensor.mi_air_purifier_3c_motor_speed`. |
+
+## Theming
+
+This card can be styled by changing the values of these CSS properties (globally or per-card via [`card-mod`][card-mod]):
+
+| Variable                    | Default value                                                    | Description                          |
+| --------------------------- | ---------------------------------------------------------------- | ------------------------------------ |
+| `--pc-background`           | `var(--ha-card-background, var(--card-background-color, white))` | Background of the card               |
+| `--pc-primary-text-color`   | `var(--primary-text-color)`                                      | Vacuum name, stats values, etc       |
+| `--pc-secondary-text-color` | `var(--secondary-text-color)`                                    | Status, stats units and titles, etc  |
+| `--pc-icon-color`           | `var(--secondary-text-color)`                                    | Colors of icons                      |
+| `--pc-slider-path-color`    | `var(--round-slider-path-color)`                                 | Color of the slider path             |
+| `--pc-slider-bar-color`     | `var(--round-slider-bar-color)`                                  | Color of the slider bar              |
+| `--pc-toolbar-background`   | `var(--vc-background)`                                           | Background of the toolbar            |
+| `--pc-toolbar-text-color`   | `var(--secondary-text-color)`                                    | Color of the toolbar texts           |
+| `--pc-toolbar-icon-color`   | `var(--secondary-text-color)`                                    | Color of the toolbar icons           |
+| `--pc-divider-color`        | `var(--entities-divider-color, var(--divider-color))`            | Color of dividers                    |
+| `--pc-spacing`              | `10px`                                                           | Paddings and margins inside the card |
+
+### Styling via theme
+
+Here is an example of customization via theme. Read more in the [Frontend documentation](https://www.home-assistant.io/integrations/frontend/).
+
+```yaml
+my-custom-theme:
+  pc-background: '#17A8F4'
+  pc-spacing: 5px
+```
+
+### Styling via card-mod
+
+You can use [`card-mod`][card-mod] to customize the card on per-card basis, like this:
+
+```yaml
+type: 'custom:purifier-card'
+style: |
+  ha-card {
+    --pc-background: #17A8F4;
+    --pc-spacing: 5px;
+  }
+  ...
+```
 
 ## Animations
 
@@ -197,6 +244,7 @@ This card supports translations. Please, help to add more translations and impro
 - Русский (Russian)
 - Italiano (Italian)
 - 繁體中文 (Traditional Chinese)
+- Čeština (Czech)
 - [_Your language?_][add-translation]
 
 ## Supported models
@@ -208,11 +256,13 @@ If this card works with your air purifier, please open a PR and your model to th
 - Air Purifier 3/3H/3C
 - Air Purifier 2/2H/2S
 - Air Purifier Pro
+- Blueair Classic 480i/680i
 - Coway Airmega 300S/400S ([using IoCare custom component](https://github.com/sarahhenkens/home-assistant-iocare))
 - Dyson Pure Humidify+Cool ([using Dyson integration](https://www.home-assistant.io/integrations/dyson/))
 - Winix AM90 Wi-Fi Air Purifier
 - Philips AirPurifier AC3858/50 (partially)
 - SmartMI Air Purifier
+- Ikea Starkvind
 - [_Your purifier?_][edit-readme]
 
 ## Development
@@ -257,7 +307,7 @@ MIT © [Denys Dovhan][denysdovhan]
 
 [home-assistant]: https://www.home-assistant.io/
 [hacs]: https://hacs.xyz
-[preview-image]: https://user-images.githubusercontent.com/3459374/144429511-23d91a48-e296-4d68-a46c-48f3649bdcda.png
+[preview-image]: https://user-images.githubusercontent.com/3459374/164275676-504d92aa-2c61-4451-ae9b-23dad113ce14.png
 [latest-release]: https://github.com/denysdovhan/purifier-card/releases/latest
 [ha-scripts]: https://www.home-assistant.io/docs/scripts/
 [xiaomi-miio-favorite-levels]: https://www.home-assistant.io/integrations/xiaomi_miio/#service-xiaomi_miiofan_set_favorite_level-air-purifiers-only

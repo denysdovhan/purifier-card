@@ -1,4 +1,4 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html, css, nothing } from 'lit';
 import { fireEvent } from 'custom-card-helpers';
 import localize from './localize';
 
@@ -68,7 +68,7 @@ export class PurifierCardEditor extends LitElement {
 
   render() {
     if (!this.hass) {
-      return html``;
+      return nothing;
     }
 
     const fanEntities = this.getEntitiesByType('fan');
@@ -150,9 +150,7 @@ export class PurifierCardEditor extends LitElement {
           ${localize('editor.show_toolbar')}
         </p>
 
-        <strong>
-          ${localize('editor.code_only_note')}
-        </strong>
+        <strong> ${localize('editor.code_only_note')} </strong>
       </div>
     `;
   }
