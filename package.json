@@ -42,7 +42,7 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.20.2",
     "husky": "^8.0.1",
-    "lint-staged": "^12.4.1",
+    "lint-staged": "^13.0.0",
     "postcss-preset-env": "^7.4.3",
     "prettier": "^2.0.5",
     "rollup": "^2.7.6",
