@@ -11,6 +11,7 @@
   --pc-toolbar-background: var(--vc-background);
   --pc-toolbar-icon-color: var(--secondary-text-color);
   --pc-divider-color: var(--entities-divider-color, var(--divider-color));
+  --pc-switch-checked-button-color:var(--switch-checked-button-color);
   --pc-spacing: 10px;
 
   display: flex;
@@ -232,6 +233,10 @@ ha-icon {
 
 .toolbar ha-icon-button.active {
   opacity: 1;
+}
+
+.toolbar ha-icon-button.active > ha-icon{
+  color: var(--pc-switch-checked-button-color);
 }
 
 .toolbar paper-button {
