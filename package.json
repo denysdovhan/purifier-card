@@ -1,6 +1,6 @@
 {
   "name": "purifier-card",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "description": "Air Purifier card for Home Assistant Lovelace UI",
   "main": "dist/purifier-card.js",
   "scripts": {
@@ -38,11 +38,13 @@
     "@rollup/plugin-json": "^4.0.3",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@semantic-release/git": "^10.0.1",
+    "core-js": "^3.25.5",
     "eslint": "^8.14.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.20.2",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.0",
+    "postcss": "^8.4.18",
     "postcss-preset-env": "^7.4.3",
     "prettier": "^2.0.5",
     "rollup": "^2.7.6",
