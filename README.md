@@ -126,6 +126,16 @@ Here is what every option means:
 | `attribute` | `string` | Optional | An attribute which should be used to get AQI value. |
 | `unit`      | `string` | Optional | An unit of measurement to display.                  |
 
+### `slider` object
+
+| Name     |   Type   | Default  | Description                                                              |
+|----------| :------: | -------- |--------------------------------------------------------------------------|
+| `entity` | `string` | Optional | A number entity id with speed value, i.e. `number.favorite_motor_speed`. |
+| `min`    | `string` | Optional | Min value for slider. Default use min attributre from number entity      |
+| `max`    | `string` | Optional | Max value for slider. Default use max attributre from number entity      |
+| `step`   | `string` | Optional | Step value for slider. Default use step attributre from number entity    |
+| `unit`   | `string` | Optional | An unit of measurement to display.                                       |
+
 ### `stats` object
 
 You can use any attribute of purifier or even any entity by `entity_id` to display by stats section:
@@ -142,14 +152,15 @@ You can use any attribute of purifier or even any entity by `entity_id` to displ
 
 You can define [custom scripts][ha-scripts] for custom actions or add shortcuts for switching presets and percentages via `shortcuts` option.
 
-| Name           |   Type   | Default  | Description                                                                                     |
-| -------------- | :------: | -------- | ----------------------------------------------------------------------------------------------- |
-| `name`         | `string` | Optional | Friendly name of the shortcut, i.e. `Switch to Auto`.                                           |
-| `icon`         | `string` | Optional | Any icon for shortcut button.                                                                   |
-| `service`      | `string` | Optional | A service to call, i.e. `script.clean_air`.                                                     |
-| `service_data` | `object` | Optional | `service_data` for `service` call                                                               |
-| `percentage`   | `object` | Optional | A `percentage` to switch to, i.e. `27`, etc. See `entity`'s `percentage_step` for valid values. |
-| `preset_mode`  | `object` | Optional | A `speed` to switch to, i.e. `Auto`, etc                                                        |
+| Name           |   Type    | Default  | Description                                                                                     |
+|----------------|:---------:| -------- |-------------------------------------------------------------------------------------------------|
+| `name`         | `string`  | Optional | Friendly name of the shortcut, i.e. `Switch to Auto`.                                           |
+| `icon`         | `string`  | Optional | Any icon for shortcut button.                                                                   |
+| `service`      | `string`  | Optional | A service to call, i.e. `script.clean_air`.                                                     |
+| `service_data` | `object`  | Optional | `service_data` for `service` call                                                               |
+| `percentage`   | `object`  | Optional | A `percentage` to switch to, i.e. `27`, etc. See `entity`'s `percentage_step` for valid values. |
+| `preset_mode`  | `object`  | Optional | A `speed` to switch to, i.e. `Auto`, etc                                                        |
+| `entity`       | `string`  | Optional | Entity ID for switch. Current implemtation only support switches                                |
 
 The card will automatically try to figure out which one of shortcuts is currently active. The shortcut will be highlighted when:
 

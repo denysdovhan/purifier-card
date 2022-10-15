@@ -121,16 +121,32 @@ class PurifierCard extends LitElement {
   }
 
   shouldUpdate(changedProps) {
-    return hasConfigOrEntityChanged(this, changedProps);
+    const { aqi = {}, shortcuts = [] } = this.config;
+    for (const shortcut of shortcuts) {
+        if(hasConfigOrEntityChanged({config: shortcut, hass: this.hass}, changedProps)){
+          return true;
+        }
+    }
+    return hasConfigOrEntityChanged({config: this.config.slider, hass: this.hass}, changedProps)
+        || hasConfigOrEntityChanged({config: {entity: aqi.entity_id }, hass: this.hass}, changedProps)
+        || hasConfigOrEntityChanged(this, changedProps);
   }
 
   updated(changedProps) {
-    if (
-      changedProps.get('hass') &&
-      changedProps.get('hass').states[this.config.entity] !==
-        this.hass.states[this.config.entity]
-    ) {
-      this.requestInProgress = false;
+    if(changedProps.get('hass')) {
+      const {slider = {}, shortcuts = []} = this.config;
+      var shortcutsChanged = false
+      for (const shortcut of shortcuts) {
+        if (changedProps.get('hass') && shortcut.entity && changedProps.get('hass').states[shortcut.entity] !== this.hass.states[shortcut.entity]) {
+          shortcutsChanged = true;
+          break;
+        }
+      }
+      const sliderUpdated = (slider.entity && changedProps.get('hass').states[slider.entity] !== this.hass.states[slider.entity]);
+      const mainUpdated = (changedProps.get('hass').states[this.config.entity] !== this.hass.states[this.config.entity]);
+      if (shortcutsChanged || sliderUpdated || mainUpdated) {
+        this.requestInProgress = false;
+      }
     }
   }
 
@@ -154,8 +170,20 @@ class PurifierCard extends LitElement {
   }
 
   handlePercentage(e) {
+    const { slider = {} } = this.config;
+    const {entity} = slider
     const percentage = e.detail.value;
-    this.callService('fan.set_percentage', { percentage });
+    if(entity) {
+      this.hass.callService('number', 'set_value', {
+        entity_id: entity,
+        value: percentage,
+      });
+      this.requestInProgress = true;
+      this.requestUpdate();
+    }
+    else {
+      this.callService('fan.set_percentage', {percentage});
+    }
   }
 
   callService(service, options = {}, isRequest = true) {
@@ -238,19 +266,39 @@ class PurifierCard extends LitElement {
   }
 
   renderSlider() {
-    const {
-      state,
-      attributes: { percentage, percentage_step },
-    } = this.entity;
+
+    const { slider = {} } = this.config;
+    const {entity} = slider
+    const state = this.entity.state;
+
+    let min, max, step, unit, value;
+
+    if(entity) {
+      min = slider.min ?? this.hass.states[entity].attributes.min;
+      max = slider.max ?? this.hass.states[entity].attributes.max;
+      step = slider.step ?? this.hass.states[entity].attributes.step;
+      unit = slider.unit ?? (' '+this.hass.states[entity].attributes.unit_of_measurement)
+      value = this.hass.states[entity].state;
+    }
+    else {
+      min=0;
+      max=100;
+      step=this.entity.attributes.percentage_step;
+      unit = '%';
+      value=this.entity.attributes.percentage;
+    }
 
     const disabled = state !== 'on';
+
     const image = !disabled ? workingImg : standbyImg;
 
     return html`
       <div class="slider">
         <round-slider
-          value=${percentage}
-          step=${percentage_step}
+          value=${value}
+          step=${step}
+          min=${min}
+          max=${max}
           ?disabled="${disabled}"
           @value-changed=${(e) => this.handlePercentage(e)}
         >
@@ -261,7 +309,7 @@ class PurifierCard extends LitElement {
             ${this.renderAQI()}
           </div>
           <div class="slider-value">
-            ${percentage ? `${percentage}%` : nothing}
+            ${value ? `${value}${unit}` : nothing}
           </div>
         </div>
       </div>
@@ -349,7 +397,7 @@ class PurifierCard extends LitElement {
     }
 
     const buttons = shortcuts.map(
-      ({ name, icon, service, service_data, preset_mode, percentage }) => {
+      ({ name, icon, service, service_data, preset_mode, percentage, entity}) => {
         const execute = () => {
           if (service) {
             this.callService(service, service_data);
@@ -360,14 +408,52 @@ class PurifierCard extends LitElement {
           }
 
           if (percentage) {
-            this.callService('fan.set_percentage', { percentage });
+            const { slider = {} } = this.config;
+            const {entity} = slider
+            if(entity) {
+              this.hass.callService('number', 'set_value', {
+                entity_id: entity,
+                value: percentage,
+              });
+              this.requestInProgress = true;
+              this.requestUpdate();
+            }
+            else {
+              this.callService('fan.set_percentage', {percentage});
+            }
+          }
+          if(entity) {
+            this.hass.callService('switch', 'toggle', {
+              entity_id: entity,
+            });
+            this.requestInProgress = true;
+            this.requestUpdate();
           }
         };
 
-        const isActive =
-          service ||
-          percentage === attributes.percentage ||
-          preset_mode === attributes.preset_mode;
+        if(entity) {
+          name = name ?? this.hass.states[entity].attributes.friendly_name;
+          icon = icon ?? this.hass.states[entity].attributes.icon
+        }
+
+        var isActive = false;
+        if(entity){
+          isActive = this.hass.states[entity].state === 'on'
+        }
+        if (service){
+          isActive = true;
+        }
+        if (percentage) {
+          const { slider = {} } = this.config;
+          const {entity} = slider
+          isActive = (preset_mode ? preset_mode === attributes.preset_mode : true)
+              && (parseInt(percentage) === (
+                  entity ? parseInt(this.hass.states[entity].state) : parseInt(attributes.percentage)
+              ));
+        }
+        if (!percentage && preset_mode === attributes.preset_mode) {
+          isActive = true;
+        }
 
         const className = isActive ? 'active' : '';
 
