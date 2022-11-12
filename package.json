@@ -35,7 +35,7 @@
     "@rollup/plugin-babel": "^5.0.0",
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-image": "^2.0.4",
-    "@rollup/plugin-json": "^4.0.3",
+    "@rollup/plugin-json": "^5.0.1",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@semantic-release/git": "^10.0.1",
     "eslint": "^8.14.0",
