@@ -1,0 +1,40 @@
+{
+  "common": {
+    "name": "Luchtververser Card",
+    "description": "Luchtververser card stelt je in staat je smart purifier te bedienen.",
+    "not_available": "Entity is niet beschikbaar",
+    "toggle_power": "Zet aan/uit"
+  },
+  "state": {
+    "on": "Aan",
+    "off": "Uit"
+  },
+  "preset_mode": {
+    "Auto": "Auto",
+    "Silent": "Stil",
+    "Favorite": "Favoriet",
+    "Fan": "Ventilator"
+  },
+  "error": {
+    "missing_entity": "Instellen van entity is verplicht!"
+  },
+  "warning": {
+    "actions_array": "WARNING: 'actions' is hernoemd naar 'shortcuts'"
+  },
+  "editor": {
+    "entity": "Entity (Verplicht)",
+    "compact_view": "Compact View",
+    "compact_view_aria_label_on": "Schakel compact view in",
+    "compact_view_aria_label_off": "Schakel compact view uit",
+    "show_name": "Toon Naam",
+    "show_name_aria_label_on": "Schakel display name in",
+    "show_name_aria_label_off": "Schakel display name uit",
+    "show_state": "Toon State",
+    "show_state_aria_label_on": "Schakel display state in",
+    "show_state_aria_label_off": "Schakel display state uit",
+    "show_toolbar": "Toon Toolbar",
+    "show_toolbar_aria_label_on": "Schakel display toolbar in",
+    "show_toolbar_aria_label_off": "Schakel display toolbar uit",
+    "code_only_note": "Let op: Setting actions en stats opties zijn alleen beschikbaar bij het gebruik van de Code Editor."
+  }
+}
