@@ -254,6 +254,7 @@ If this card works with your air purifier, please open a PR and your model to th
 - Philips AirPurifier AC3858/50 (partially)
 - SmartMI Air Purifier
 - Ikea Starkvind
+- Levoit Air Purifier (Core 400S)
 - [_Your purifier?_][edit-readme]
 
 ## Development
