@@ -29,6 +29,7 @@ export default {
     dir: 'dist',
     format: 'es',
   },
+  context: 'window',
   plugins: [
     nodeResolve(),
     commonjs(),
