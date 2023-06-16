@@ -18,9 +18,6 @@
   "error": {
     "missing_entity": "Instellen van entity is verplicht!"
   },
-  "warning": {
-    "actions_array": "WARNING: 'actions' is hernoemd naar 'shortcuts'"
-  },
   "editor": {
     "entity": "Entity (Verplicht)",
     "compact_view": "Compact View",

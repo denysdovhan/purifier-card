@@ -66,7 +66,7 @@ const plugins = [
 ];
 
 export default {
-  input: 'src/purifier-card.js',
+  input: 'src/purifier-card.ts',
   output: {
     dir: 'dist',
     format: 'es',

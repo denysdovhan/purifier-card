@@ -18,9 +18,6 @@
   "error": {
     "missing_entity": "Specifying entity is required!"
   },
-  "warning": {
-    "actions_array": "WARNING: 'actions' is renamed to 'shortcuts'"
-  },
   "editor": {
     "entity": "Entity (Required)",
     "compact_view": "Compact View",

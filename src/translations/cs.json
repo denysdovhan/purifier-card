@@ -18,9 +18,6 @@
   "error": {
     "missing_entity": "Je vyžadováno specifikování entity!"
   },
-  "warning": {
-    "actions_array": "VAROVÁNÍ: 'actions' je přejmenováno na 'shortcuts'"
-  },
   "editor": {
     "entity": "Entity (povinné)",
     "compact_view": "Kompaktní zobrazení",

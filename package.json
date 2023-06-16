@@ -24,10 +24,12 @@
   "author": "Denys Dovhan <denysdovhan@gmail.com> (http://denysdovhan.com/)",
   "license": "MIT",
   "dependencies": {
+    "@types/lodash": "^4.14.195",
     "custom-card-helpers": "^1.6.4",
     "ha-template": "^1.2.0",
     "home-assistant-js-websocket": "^8.0.1",
-    "lit": "^2.2.2"
+    "lit": "^2.2.2",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
