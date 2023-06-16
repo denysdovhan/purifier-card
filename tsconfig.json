@@ -9,13 +9,13 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "strict": true,
-    "noImplicitAny": false, // TODO: Fix later
+    "noImplicitAny": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "allowJs": true, // TODO: Remove upon migration
+    "allowJs": false,
     "typeRoots": ["./node_modules/@types", "./src/declarations.d.ts"]
   }
 }

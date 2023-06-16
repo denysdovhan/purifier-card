@@ -181,16 +181,24 @@ export class PurifierCard extends LitElement {
     const { aqi = {} } = this.config;
     const { entity_id, attribute = 'aqi', unit = 'AQI' } = aqi;
 
-    // TODO: Use get for entity_id and attribute at the same time
-    const value = entity_id
-      ? this.hass.states[entity_id].state
-      : this.entity.attributes[attribute];
+    let value = '';
+
+    if (entity_id && attribute) {
+      value = get(this.hass.states[entity_id].attributes, attribute);
+    } else if (attribute) {
+      value = get(this.entity.attributes, attribute);
+    } else if (entity_id) {
+      value = this.hass.states[entity_id].state;
+    } else {
+      return nothing;
+    }
 
     let prefix: Template = nothing;
+    const numericValue = Number(value);
 
-    if (value < 10) {
+    if (numericValue < 10) {
       prefix = html`<span class="number-off">00</span>`;
-    } else if (value < 100) {
+    } else if (numericValue < 100) {
       prefix = html`<span class="number-off">0</span>`;
     }
 
@@ -278,9 +286,17 @@ export class PurifierCard extends LitElement {
           return nothing;
         }
 
-        const state = entity_id
-          ? this.hass.states[entity_id].state
-          : get(this.entity.attributes, attribute ?? '');
+        let state = '';
+
+        if (entity_id && attribute) {
+          state = get(this.hass.states[entity_id].attributes, attribute);
+        } else if (attribute) {
+          state = get(this.entity.attributes, attribute);
+        } else if (entity_id) {
+          state = this.hass.states[entity_id].state;
+        } else {
+          return nothing;
+        }
 
         const value = html`
           <ha-template
