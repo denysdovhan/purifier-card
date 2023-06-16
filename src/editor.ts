@@ -10,7 +10,7 @@ import localize from './localize';
 import styles from './editor.css';
 
 type ConfigElement = HTMLInputElement & {
-  configValue?: string;
+  configValue?: keyof PurifierCardConfig;
 };
 
 @customElement('purifier-card-editor')
@@ -140,7 +140,10 @@ export class PurifierCardEditor extends LitElement {
       return;
     }
     const target = event.target as ConfigElement;
-    if (!target.configValue || this[target.configValue] === target?.value) {
+    if (
+      !target.configValue ||
+      this.config[target.configValue] === target?.value
+    ) {
       return;
     }
     if (target.configValue) {

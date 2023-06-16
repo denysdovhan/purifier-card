@@ -17,7 +17,13 @@ import * as it from './translations/it.json';
 import * as cs from './translations/cs.json';
 import * as nl from './translations/nl.json';
 
-const languages = {
+type Translations = {
+  [key: string]: {
+    [key: string]: string;
+  };
+};
+
+const languages: Record<string, Translations> = {
   en,
   uk,
   fr,
