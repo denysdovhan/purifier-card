@@ -58,7 +58,6 @@ export interface PurifierCardConfig {
   aqi: PurifierAQI;
   stats: PurifierCardStat[];
   shortcuts: PurifierCardShortcut[];
-  platform: string;
 }
 
 export interface SliderValue {

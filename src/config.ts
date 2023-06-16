@@ -22,6 +22,5 @@ export default function buildConfig(
     aqi: config.aqi ?? {},
     stats: config.stats ?? [],
     shortcuts: config.shortcuts ?? [],
-    platform: config.platform ?? 'xiaomi_miio_airpurifier',
   };
 }

@@ -114,9 +114,8 @@ Here is what every option means:
 | `show_toolbar`     | `boolean` | `true`       | Show toolbar with shortcuts.                     |
 | `compact_view`     | `boolean` | `false`      | Compact view without image.                      |
 | `aqi`              | `object`  | Optional     | Custom entity or attribute for AQI value.        |
-| `stats`            | `object`  | Optional     | Custom per state stats for your purifier cleaner |
+| `stats`            |  `array`  | Optional     | Custom per state stats for your purifier cleaner |
 | `shortcuts`        | `object`  | Optional     | Custom shortcuts for your purifier cleaner.      |
-| `platform`         | `string`  | Optional     | Default `xiaomi_miio_airpurifier`                |
 
 ### `aqi` object
 
