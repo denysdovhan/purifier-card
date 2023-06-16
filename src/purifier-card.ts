@@ -52,7 +52,7 @@ export class PurifierCard extends LitElement {
   }
 
   public static async getConfigElement() {
-    import('./purifier-card-editor');
+    import('./editor');
     return document.createElement('purifier-card-editor');
   }
 
