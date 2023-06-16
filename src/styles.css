@@ -23,6 +23,7 @@ ha-card {
   flex: 1;
   position: relative;
   padding: 0px;
+  overflow: hidden;
 }
 
 .fill-gap {
@@ -189,7 +190,7 @@ ha-card {
 
 .stats-block {
   cursor: pointer;
-  margin: var(--pc-spacing) 0px;
+  padding: var(--pc-spacing) 0px;
   text-align: center;
   border-right: 1px solid var(--pc-divider-color);
   flex-grow: 1;

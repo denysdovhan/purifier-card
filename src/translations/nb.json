@@ -10,10 +10,10 @@
     "off": "Av"
   },
   "preset_mode": {
-    "Auto": "Auto",
-    "Silent": "Stille",
-    "Favorite": "Favoritt",
-    "Fan": "Vifte"
+    "auto": "Auto",
+    "silent": "Stille",
+    "favorite": "Favoritt",
+    "fan": "Vifte"
   },
   "error": {
     "missing_entity": "Spesifiserende enhet kreves!"

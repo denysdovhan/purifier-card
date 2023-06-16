@@ -10,16 +10,13 @@
     "off": "Uit"
   },
   "preset_mode": {
-    "Auto": "Auto",
-    "Silent": "Stil",
-    "Favorite": "Favoriet",
-    "Fan": "Ventilator"
+    "auto": "Auto",
+    "silent": "Stil",
+    "favorite": "Favoriet",
+    "fan": "Ventilator"
   },
   "error": {
     "missing_entity": "Instellen van entity is verplicht!"
-  },
-  "warning": {
-    "actions_array": "WARNING: 'actions' is hernoemd naar 'shortcuts'"
   },
   "editor": {
     "entity": "Entity (Verplicht)",

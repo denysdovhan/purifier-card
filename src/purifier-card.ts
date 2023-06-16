@@ -1,17 +1,33 @@
-import { LitElement, html, nothing } from 'lit';
-import { hasConfigOrEntityChanged, fireEvent } from 'custom-card-helpers';
+import { CSSResultGroup, LitElement, PropertyValues, html, nothing } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
+import {
+  hasConfigOrEntityChanged,
+  fireEvent,
+  HomeAssistant,
+  ServiceCallRequest,
+} from 'custom-card-helpers';
 import registerTemplates from 'ha-template';
+import get from 'lodash/get';
 import localize from './localize';
 import styles from './styles.css';
-import { version } from '../package.json';
 import workingImg from './images/purifier-working.gif';
 import standbyImg from './images/purifier-standby.png';
-import './purifier-card-editor';
+
+import {
+  PurifierCardConfig,
+  PurifierEntity,
+  SliderValue,
+  Template,
+} from './types';
+import buildConfig from './config';
 
 registerTemplates();
 
+// String in the right side will be replaced by Rollup
+const PKG_VERSION = 'PKG_VERSION_VALUE';
+
 console.info(
-  `%c PURIFIER-CARD %c ${version} `,
+  `%c PURIFIER-CARD %c ${PKG_VERSION} `,
   'color: white; background: blue; font-weight: 700;',
   'color: blue; background: white; font-weight: 700;'
 );
@@ -19,112 +35,55 @@ console.info(
 if (!customElements.get('ha-icon-button')) {
   customElements.define(
     'ha-icon-button',
-    class extends customElements.get('paper-icon-button') {}
+    class extends (customElements.get('paper-icon-button') ?? HTMLElement) {}
   );
 }
 
 const SUPPORT_PRESET_MODE = 8;
-class PurifierCard extends LitElement {
-  static get properties() {
-    return {
-      hass: Object,
-      config: Object,
-      requestInProgress: Boolean,
-    };
-  }
+@customElement('purifier-card')
+export class PurifierCard extends LitElement {
+  @property({ attribute: false }) public hass!: HomeAssistant;
 
-  static get styles() {
+  @state() private config!: PurifierCardConfig;
+  @state() private requestInProgress = false;
+
+  public static get styles(): CSSResultGroup {
     return styles;
   }
 
-  static async getConfigElement() {
+  public static async getConfigElement() {
+    import('./editor');
     return document.createElement('purifier-card-editor');
   }
 
-  static getStubConfig(hass, entities) {
-    const [purifierEntity] = entities.filter(
-      (eid) => eid.substr(0, eid.indexOf('.')) === 'fan'
-    );
+  public static getStubConfig(
+    _: unknown,
+    entities: string[]
+  ): Partial<PurifierCardConfig> {
+    const [purifierEntity] = entities.filter((eid) => eid.startsWith('fan'));
 
     return {
-      entity: purifierEntity || '',
+      entity: purifierEntity ?? '',
     };
   }
 
-  get platform() {
-    if (this.config.platform === undefined) {
-      return 'xiaomi_miio_airpurifier';
-    }
-
-    return this.config.platform;
+  public setConfig(config: Partial<PurifierCardConfig>) {
+    this.config = buildConfig(config);
   }
 
-  get entity() {
-    return this.hass.states[this.config.entity];
+  get entity(): PurifierEntity {
+    return this.hass.states[this.config.entity] as PurifierEntity;
   }
 
-  get showPresetMode() {
-    if (this.config.show_preset_mode === undefined) {
-      return true;
-    }
-
-    return this.config.show_preset_mode;
-  }
-
-  get showName() {
-    if (this.config.show_name === undefined) {
-      return true;
-    }
-
-    return this.config.show_name;
-  }
-
-  get showState() {
-    if (this.config.show_state === undefined) {
-      return true;
-    }
-
-    return this.config.show_state;
-  }
-
-  get showToolbar() {
-    if (this.config.show_toolbar === undefined) {
-      return true;
-    }
-
-    return this.config.show_toolbar;
-  }
-
-  get compactView() {
-    if (this.config.compact_view === undefined) {
-      return false;
-    }
-
-    return this.config.compact_view;
-  }
-
-  setConfig(config) {
-    if (!config.entity) {
-      throw new Error(localize('error.missing_entity'));
-    }
-
-    const actions = config.actions;
-    if (actions && Array.isArray(actions)) {
-      console.warn(localize('warning.actions_array'));
-    }
-
-    this.config = config;
-  }
-
-  getCardSize() {
+  public getCardSize() {
     return 2;
   }
 
-  shouldUpdate(changedProps) {
-    return hasConfigOrEntityChanged(this, changedProps);
+  protected shouldUpdate(changedProps: PropertyValues) {
+    return hasConfigOrEntityChanged(this, changedProps, false);
   }
 
-  updated(changedProps) {
+  protected updated(changedProps: PropertyValues) {
     if (
       changedProps.get('hass') &&
       changedProps.get('hass').states[this.config.entity] !==
@@ -134,7 +93,7 @@ class PurifierCard extends LitElement {
     }
   }
 
-  handleMore(entityId = this.entity.entity_id) {
+  private handleMore(entityId: string = this.entity.entity_id) {
     fireEvent(
       this,
       'hass-more-info',
@@ -148,36 +107,41 @@ class PurifierCard extends LitElement {
     );
   }
 
-  handlePresetMode(e) {
-    const preset_mode = e.target.getAttribute('value');
-    this.callService('fan.set_preset_mode', { preset_mode });
-  }
-
-  handlePercentage(e) {
-    const percentage = e.detail.value;
-    this.callService('fan.set_percentage', { percentage });
-  }
-
-  callService(service, options = {}, isRequest = true) {
+  private callService(
+    service: ServiceCallRequest['service'],
+    options: ServiceCallRequest['serviceData'] = {},
+    request = true
+  ) {
     const [domain, name] = service.split('.');
     this.hass.callService(domain, name, {
       entity_id: this.config.entity,
       ...options,
     });
 
-    if (isRequest) {
+    if (request) {
       this.requestInProgress = true;
       this.requestUpdate();
     }
   }
 
-  renderPresetMode() {
+  private handlePresetMode(event: PointerEvent) {
+    const preset_mode = (<HTMLDivElement>event.target).getAttribute('value');
+    this.callService('fan.set_preset_mode', { preset_mode });
+  }
+
+  private handlePercentage(event: CustomEvent<SliderValue>) {
+    const percentage = event.detail.value;
+    this.callService('fan.set_percentage', { percentage });
+  }
+
+  private renderPresetMode(): Template {
     const {
-      attributes: { preset_mode, preset_modes, supported_features },
+      attributes: { preset_mode, preset_modes, supported_features = 0 },
     } = this.entity;
 
     if (
-      !this.showPresetMode ||
+      !preset_mode ||
+      !this.config.show_preset_mode ||
       !preset_modes ||
       !(supported_features & SUPPORT_PRESET_MODE)
     ) {
@@ -188,7 +152,7 @@ class PurifierCard extends LitElement {
 
     return html`
       <div class="preset-mode">
-        <ha-button-menu @click="${(e) => e.stopPropagation()}">
+        <ha-button-menu @click="${(e: PointerEvent) => e.stopPropagation()}">
           <mmp-icon-button slot="trigger">
             <ha-icon icon="mdi:fan"></ha-icon>
             <span>
@@ -202,9 +166,9 @@ class PurifierCard extends LitElement {
                 <mwc-list-item
                   ?activated=${selected === index}
                   value=${item}
-                  @click=${(e) => this.handlePresetMode(e)}
+                  @click=${(e: PointerEvent) => this.handlePresetMode(e)}
                 >
-                  ${localize(`preset_mode.${item}`) || item}
+                  ${localize(`preset_mode.${item.toLowerCase()}`) || item}
                 </mwc-list-item>
               `
           )}
@@ -213,19 +177,28 @@ class PurifierCard extends LitElement {
     `;
   }
 
-  renderAQI() {
+  private renderAQI(): Template {
     const { aqi = {} } = this.config;
-    const { entity_id, attribute = 'aqi', unit = 'AQI' } = aqi;
+    const { entity_id, attribute, unit = 'AQI' } = aqi;
 
-    const value = entity_id
-      ? this.hass.states[entity_id].state
-      : this.entity.attributes[attribute];
+    let value = '';
 
-    let prefix = '';
+    if (entity_id && attribute) {
+      value = get(this.hass.states[entity_id].attributes, attribute);
+    } else if (attribute) {
+      value = get(this.entity.attributes, attribute);
+    } else if (entity_id) {
+      value = this.hass.states[entity_id].state;
+    } else {
+      return nothing;
+    }
 
-    if (value < 10) {
+    let prefix: Template = nothing;
+    const numericValue = Number(value);
+
+    if (numericValue < 10) {
       prefix = html`<span class="number-off">00</span>`;
-    } else if (value < 100) {
+    } else if (numericValue < 100) {
       prefix = html`<span class="number-off">0</span>`;
     }
 
@@ -237,7 +210,7 @@ class PurifierCard extends LitElement {
     `;
   }
 
-  renderSlider() {
+  private renderSlider(): Template {
     const {
       state,
       attributes: { percentage, percentage_step },
@@ -252,7 +225,8 @@ class PurifierCard extends LitElement {
           value=${percentage}
           step=${percentage_step}
           ?disabled="${disabled}"
-          @value-changed=${(e) => this.handlePercentage(e)}
+          @value-changed=${(e: CustomEvent<SliderValue>) =>
+            this.handlePercentage(e)}
         >
         </round-slider>
         <img src=${image} alt="purifier is ${state}" class="image" />
@@ -266,27 +240,27 @@ class PurifierCard extends LitElement {
     `;
   }
 
-  renderControls() {
-    return this.compactView ? this.renderAQI() : this.renderSlider();
+  private renderControls(): Template {
+    return this.config.compact_view ? this.renderAQI() : this.renderSlider();
   }
 
-  renderName() {
+  private renderName(): Template {
     const {
       attributes: { friendly_name },
     } = this.entity;
 
-    if (!this.showName) {
+    if (!this.config.show_name) {
       return nothing;
     }
 
     return html` <div class="friendly-name">${friendly_name}</div> `;
   }
 
-  renderState() {
+  private renderState(): Template {
     const { state } = this.entity;
     const localizedState = localize(`state.${state}`) || state;
 
-    if (!this.showState) {
+    if (!this.config.show_state) {
       return nothing;
     }
 
@@ -303,20 +277,26 @@ class PurifierCard extends LitElement {
     `;
   }
 
-  renderStats() {
-    const { stats = [] } = this.config;
+  private renderStats(): Template {
+    const statsList = this.config.stats || [];
 
-    const statsList = stats || [];
-
-    return statsList.map(
+    const stats = statsList.map(
       ({ entity_id, attribute, value_template, unit, subtitle }) => {
-        if (!entity_id && !attribute && !value_template) {
+        if (!entity_id && !attribute) {
           return nothing;
         }
 
-        const state = entity_id
-          ? this.hass.states[entity_id].state
-          : this.entity.attributes[attribute];
+        let state = '';
+
+        if (entity_id && attribute) {
+          state = get(this.hass.states[entity_id].attributes, attribute);
+        } else if (attribute) {
+          state = get(this.entity.attributes, attribute);
+        } else if (entity_id) {
+          state = this.hass.states[entity_id].state;
+        } else {
+          return nothing;
+        }
 
         const value = html`
           <ha-template
@@ -336,13 +316,15 @@ class PurifierCard extends LitElement {
         `;
       }
     );
+
+    return stats.length ? html`<div class="stats">${stats}</div>` : nothing;
   }
 
-  renderToolbar() {
+  private renderToolbar(): Template {
     const { shortcuts = [] } = this.config;
     const { state, attributes } = this.entity;
 
-    if (!this.showToolbar) {
+    if (!this.config.show_toolbar) {
       return nothing;
     }
 
@@ -398,19 +380,23 @@ class PurifierCard extends LitElement {
     `;
   }
 
-  render() {
+  private renderUnavailable(): Template {
+    return html`
+      <ha-card>
+        <div class="preview not-available">
+          <div class="metadata">
+            <div class="not-available">
+              ${localize('common.not_available')}
+            </div>
+          <div>
+        </div>
+      </ha-card>
+    `;
+  }
+
+  protected render() {
     if (!this.entity) {
-      return html`
-        <ha-card>
-          <div class="preview not-available">
-            <div class="metadata">
-              <div class="not-available">
-                ${localize('common.not_available')}
-              </div>
-            <div>
-          </div>
-        </ha-card>
-      `;
+      return this.renderUnavailable();
     }
 
     return html`
@@ -431,7 +417,7 @@ class PurifierCard extends LitElement {
 
           <div class="metadata">${this.renderName()} ${this.renderState()}</div>
 
-          <div class="stats">${this.renderStats()}</div>
+          ${this.renderStats()}
         </div>
 
         ${this.renderToolbar()}
@@ -440,7 +426,11 @@ class PurifierCard extends LitElement {
   }
 }
 
-customElements.define('purifier-card', PurifierCard);
+declare global {
+  interface Window {
+    customCards?: unknown[];
+  }
+}
 
 window.customCards = window.customCards || [];
 window.customCards.push({

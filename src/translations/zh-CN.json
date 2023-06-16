@@ -10,10 +10,10 @@
     "off": "关"
   },
   "preset_mode": {
-    "Auto": "自动",
-    "Silent": "睡眠",
-    "Favorite": "最爱",
-    "Fan": "风扇"
+    "auto": "自动",
+    "silent": "睡眠",
+    "favorite": "最爱",
+    "fan": "风扇"
   },
   "error": {
     "missing_entity": "必须指定实体"

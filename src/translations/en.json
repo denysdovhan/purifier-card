@@ -10,16 +10,13 @@
     "off": "Off"
   },
   "preset_mode": {
-    "Auto": "Auto",
-    "Silent": "Silent",
-    "Favorite": "Favorite",
-    "Fan": "Fan"
+    "auto": "Auto",
+    "silent": "Silent",
+    "favorite": "Favorite",
+    "fan": "Fan"
   },
   "error": {
     "missing_entity": "Specifying entity is required!"
-  },
-  "warning": {
-    "actions_array": "WARNING: 'actions' is renamed to 'shortcuts'"
   },
   "editor": {
     "entity": "Entity (Required)",

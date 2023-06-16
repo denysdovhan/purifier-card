@@ -4,6 +4,7 @@
 
 [![npm version][npm-image]][npm-url]
 [![hacs][hacs-image]][hacs-url]
+[![GitHub Sponsors][gh-sponsors-image]][gh-sponsors-url]
 [![Patreon][patreon-image]][patreon-url]
 [![Buy Me A Coffee][buymeacoffee-image]][buymeacoffee-url]
 [![Twitter][twitter-image]][twitter-url]
@@ -16,13 +17,7 @@ By default, the Home Assistant does not provide any card for controlling air pur
 
 ## Installing
 
-**💡 Tip:** If you like this project ~~and want to get some stickers and postcards~~, consider becoming a patron:
-
-<a href="https://patreon.com/denysdovhan">
-  <img alt="Become a patron" src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="150px">
-</a>
-
-or just buy me a cup of ☕️ or 🥤:
+**💡 Tip:** If you like this project ~~and want to get some stickers and postcards~~, consider giving me a tip for the time I spent building this project:
 
 <a href="https://www.buymeacoffee.com/denysdovhan" target="_blank">
   <img src="https://cdn.buymeacoffee.com/buttons/default-black.png" alt="Buy Me A Coffee" width="150px">
@@ -39,13 +34,16 @@ Just search for `Purifier Card` in the plugins tab.
 1. Download `purifier-card.js` file from the [latest-release].
 2. Put `purifier-card.js` file into your `config/www` folder.
 3. Add a reference to `purifier-card.js` in Lovelace. There's two way to do that:
+
    1. **Using UI:** _Configuration_ → _Lovelace Dashboards_ → _Resources_ → Click Plus button → Set _Url_ as `/local/purifier-card.js` → Set _Resource type_ as `JavaScript Module`.
    2. **Using YAML:** Add the following code to `lovelace` section.
+
       ```yaml
       resources:
         - url: /local/purifier-card.js
           type: module
       ```
+
 4. Add `custom:purifier-card` to Lovelace UI as any other card (using either editor or YAML configuration).
 
 ## Using the card
@@ -114,9 +112,8 @@ Here is what every option means:
 | `show_toolbar`     | `boolean` | `true`       | Show toolbar with shortcuts.                     |
 | `compact_view`     | `boolean` | `false`      | Compact view without image.                      |
 | `aqi`              | `object`  | Optional     | Custom entity or attribute for AQI value.        |
-| `stats`            | `object`  | Optional     | Custom per state stats for your purifier cleaner |
+| `stats`            |  `array`  | Optional     | Custom per state stats for your purifier cleaner |
 | `shortcuts`        | `object`  | Optional     | Custom shortcuts for your purifier cleaner.      |
-| `platform`         | `string`  | Optional     | Default `xiaomi_miio_airpurifier`                |
 
 ### `aqi` object
 
@@ -126,9 +123,11 @@ Here is what every option means:
 | `attribute` | `string` | Optional | An attribute which should be used to get AQI value. |
 | `unit`      | `string` | Optional | An unit of measurement to display.                  |
 
+You can also combine `attribute` with `entity_id` to extract an attribute value of specific entity.
+
 ### `stats` object
 
-You can use any attribute of purifier or even any entity by `entity_id` to display by stats section:
+You can use any attribute of purifier or even any entity by `entity_id` to display by stats section. Not only that, but you can also combine `attribute` with `entity_id` to extract an attribute value of specific entity:
 
 | Name             |   Type   | Default  | Description                                                                                          |
 | ---------------- | :------: | -------- | ---------------------------------------------------------------------------------------------------- |
@@ -282,6 +281,8 @@ MIT © [Denys Dovhan][denysdovhan]
 [npm-image]: https://img.shields.io/npm/v/purifier-card.svg?style=flat-square
 [hacs-url]: https://github.com/hacs/integration
 [hacs-image]: https://img.shields.io/badge/hacs-default-orange.svg?style=flat-square
+[gh-sponsors-url]: https://github.com/sponsors/denysdovhan
+[gh-sponsors-image]: https://img.shields.io/github/sponsors/denysdovhan?style=flat-square
 [patreon-url]: https://patreon.com/denysdovhan
 [patreon-image]: https://img.shields.io/badge/support-patreon-F96854.svg?style=flat-square
 [buymeacoffee-url]: https://patreon.com/denysdovhan

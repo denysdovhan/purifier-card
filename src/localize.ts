@@ -17,7 +17,13 @@ import * as it from './translations/it.json';
 import * as cs from './translations/cs.json';
 import * as nl from './translations/nl.json';
 
-var languages = {
+type Translations = {
+  [key: string]: {
+    [key: string]: string;
+  };
+};
+
+const languages: Record<string, Translations> = {
   en,
   uk,
   fr,
@@ -37,13 +43,17 @@ var languages = {
 
 const DEFAULT_LANG = 'en';
 
-export default function localize(string, search, replace) {
-  const [section, key] = string.split('.');
+export default function localize(
+  str: string,
+  search?: string,
+  replace?: string
+): string | undefined {
+  const [section, key] = str.toLowerCase().split('.');
 
-  let langStored;
+  let langStored: string | null = null;
 
   try {
-    langStored = JSON.parse(localStorage.getItem('selectedLanguage'));
+    langStored = JSON.parse(localStorage.getItem('selectedLanguage') ?? '');
   } catch (e) {
     langStored = localStorage.getItem('selectedLanguage');
   }
@@ -57,23 +67,17 @@ export default function localize(string, search, replace) {
   try {
     translated = languages[lang][section][key];
   } catch (e) {
-    /**/
+    translated = languages[DEFAULT_LANG][section][key];
   }
-
   if (translated === undefined) {
-    try {
-      translated = languages[DEFAULT_LANG][section][key];
-    } catch (e) {
-      /**/
-    }
+    translated = languages[DEFAULT_LANG][section][key];
   }
-
   if (translated === undefined) {
     return;
   }
 
-  if (search !== '' && replace !== '') {
-    translated = translated.replace(search, replace);
+  if (search && replace) {
+    translated = translated?.replace(search, replace);
   }
 
   return translated;

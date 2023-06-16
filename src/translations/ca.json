@@ -10,10 +10,10 @@
     "off": "Apagat"
   },
   "preset_mode": {
-    "Auto": "Auto",
-    "Silent": "Silenciós",
-    "Favorite": "Favorit",
-    "Fan": "Ventilador"
+    "auto": "Auto",
+    "silent": "Silenciós",
+    "favorite": "Favorit",
+    "fan": "Ventilador"
   },
   "error": {
     "missing_entity": "Cal especificar una entitat."
