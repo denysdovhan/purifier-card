@@ -5,11 +5,11 @@
   "main": "dist/purifier-card.js",
   "scripts": {
     "start": "rollup -c --watch",
-    "compile": "rollup -c",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "format": "prettier --write .",
-    "build": "npm run lint && npm run compile",
+    "build": "rollup -c",
+    "test": "npm run lint && npm run build",
     "prepare": "husky install"
   },
   "keywords": [
