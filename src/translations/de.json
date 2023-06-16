@@ -10,10 +10,10 @@
     "off": "Aus"
   },
   "preset_mode": {
-    "Auto": "Auto",
-    "Silent": "Leise",
-    "Favorite": "Favorit",
-    "Fan": "Lüfter"
+    "auto": "Auto",
+    "silent": "Leise",
+    "favorite": "Favorit",
+    "fan": "Lüfter"
   },
   "error": {
     "missing_entity": "Es muss eine Entity definiert werden!"

@@ -10,10 +10,10 @@
     "off": "Vypnuto"
   },
   "preset_mode": {
-    "Auto": "Automatický",
-    "Silent": "Noční",
-    "Favorite": "Manuální",
-    "Fan": "Větrák"
+    "auto": "Automatický",
+    "silent": "Noční",
+    "favorite": "Manuální",
+    "fan": "Větrák"
   },
   "error": {
     "missing_entity": "Je vyžadováno specifikování entity!"

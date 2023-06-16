@@ -10,11 +10,11 @@
     "off": "Wyłączony"
   },
   "preset_mode": {
-    "Auto": "Auto",
-    "Silent": "Cichy",
-    "Favorite": "Ulubiony",
-    "Fan": "Wentylator",
-    "Idle": "Bezczynny"
+    "auto": "Auto",
+    "silent": "Cichy",
+    "favorite": "Ulubiony",
+    "fan": "Wentylator",
+    "idle": "Bezczynny"
   },
   "error": {
     "missing_entity": "Wymagane jest zadeklarowanie encji!"

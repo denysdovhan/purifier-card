@@ -168,7 +168,7 @@ export class PurifierCard extends LitElement {
                   value=${item}
                   @click=${(e: PointerEvent) => this.handlePresetMode(e)}
                 >
-                  ${localize(`preset_mode.${item}`) || item}
+                  ${localize(`preset_mode.${item.toLowerCase()}`) || item}
                 </mwc-list-item>
               `
           )}
@@ -179,7 +179,7 @@ export class PurifierCard extends LitElement {
 
   private renderAQI(): Template {
     const { aqi = {} } = this.config;
-    const { entity_id, attribute = 'aqi', unit = 'AQI' } = aqi;
+    const { entity_id, attribute, unit = 'AQI' } = aqi;
 
     let value = '';
 

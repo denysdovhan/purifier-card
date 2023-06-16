@@ -10,10 +10,10 @@
     "off": "Spento"
   },
   "preset_mode": {
-    "Auto": "Auto",
-    "Silent": "Silenzioso",
-    "Favorite": "Preferito",
-    "Fan": "Ventola"
+    "auto": "Auto",
+    "silent": "Silenzioso",
+    "favorite": "Preferito",
+    "fan": "Ventola"
   },
   "error": {
     "missing_entity": "É necessario specificare l'entità"

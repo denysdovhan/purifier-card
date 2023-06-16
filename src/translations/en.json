@@ -10,10 +10,10 @@
     "off": "Off"
   },
   "preset_mode": {
-    "Auto": "Auto",
-    "Silent": "Silent",
-    "Favorite": "Favorite",
-    "Fan": "Fan"
+    "auto": "Auto",
+    "silent": "Silent",
+    "favorite": "Favorite",
+    "fan": "Fan"
   },
   "error": {
     "missing_entity": "Specifying entity is required!"

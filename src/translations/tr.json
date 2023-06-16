@@ -10,10 +10,10 @@
     "off": "Kapalı"
   },
   "preset_mode": {
-    "Auto": "Otomatik",
-    "Silent": "Sessiz",
-    "Favorite": "Favori",
-    "Fan": "Fan"
+    "auto": "Otomatik",
+    "silent": "Sessiz",
+    "favorite": "Favori",
+    "fan": "Fan"
   },
   "error": {
     "missing_entity": "Varlığı belirtmeniz gereklidir!"

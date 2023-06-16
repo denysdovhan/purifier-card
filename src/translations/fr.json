@@ -10,10 +10,10 @@
     "off": "Éteint"
   },
   "preset_mode": {
-    "Auto": "Auto",
-    "Silent": "Nuit",
-    "Favorite": "Favori",
-    "Fan": "Manuel"
+    "auto": "Auto",
+    "silent": "Nuit",
+    "favorite": "Favori",
+    "fan": "Manuel"
   },
   "error": {
     "missing_entity": "Il est obligatoire de spécifier une entité!"
