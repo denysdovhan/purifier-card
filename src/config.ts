@@ -22,5 +22,9 @@ export default function buildConfig(
     aqi: config.aqi ?? {},
     stats: config.stats ?? [],
     shortcuts: config.shortcuts ?? [],
+
+    // Support for card-mod styling
+    style: config.style,
+    card_mod: config.card_mod,
   };
 }
