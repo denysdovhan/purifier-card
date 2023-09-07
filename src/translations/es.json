@@ -11,8 +11,8 @@
     },
     "preset_mode": {
         "auto": "Automático",
-        "silent": "Silencioso",
-        "favorite": "Favorito",
+        "silent": "Nocturno",
+        "favorite": "Manual",
         "fan": "Ventilador"
     },
     "error": {
