@@ -236,6 +236,7 @@ This card supports translations. Please, help to add more translations and impro
 - 繁體中文 (Traditional Chinese)
 - Čeština (Czech)
 - Dutch (Netherlands)
+- Español (Spanish)
 - [_Your language?_][add-translation]
 
 ## Supported models
