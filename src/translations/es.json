@@ -1,0 +1,37 @@
+{
+    "common": {
+        "name": "Tarjeta Purificadora",
+        "description": "La tarjeta purificadora te permite controlar tu purificador inteligente.",
+        "not_available": "La entidad no está disponible",
+        "toggle_power": "Encender/Apagar"
+    },
+    "state": {
+        "on": "Encendido",
+        "off": "Apagado"
+    },
+    "preset_mode": {
+        "auto": "Automático",
+        "silent": "Nocturno",
+        "favorite": "Manual",
+        "fan": "Ventilador"
+    },
+    "error": {
+        "missing_entity": "¡Se requiere especificar la entidad!"
+    },
+    "editor": {
+        "entity": "Entidad (Requerido)",
+        "compact_view": "Vista Compacta",
+        "compact_view_aria_label_on": "Activar vista compacta",
+        "compact_view_aria_label_off": "Desactivar vista compacta",
+        "show_name": "Mostrar Nombre",
+        "show_name_aria_label_on": "Activar mostrar nombre",
+        "show_name_aria_label_off": "Desactivar mostrar nombre",
+        "show_state": "Mostrar Estado",
+        "show_state_aria_label_on": "Activar mostrar estado",
+        "show_state_aria_label_off": "Desactivar mostrar estado",
+        "show_toolbar": "Mostrar Barra de Herramientas",
+        "show_toolbar_aria_label_on": "Activar mostrar barra de herramientas",
+        "show_toolbar_aria_label_off": "Desactivar mostrar barra de herramientas",
+        "code_only_note": "Nota: La configuración de acciones y opciones de estadísticas solo está disponible mediante el Editor de Código."
+    }
+}
