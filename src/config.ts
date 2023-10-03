@@ -25,6 +25,6 @@ export default function buildConfig(
 
     // Support for card-mod styling
     style: config.style,
-    card_mod: config.card_mod,
+    ...config
   };
 }
