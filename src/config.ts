@@ -23,8 +23,7 @@ export default function buildConfig(
     stats: config.stats ?? [],
     shortcuts: config.shortcuts ?? [],
 
-    // Support for card-mod styling
-    style: config.style,
-    ...config
+    // Pass other config properties
+    ...config,
   };
 }

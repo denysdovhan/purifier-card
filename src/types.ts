@@ -58,11 +58,6 @@ export interface PurifierCardConfig {
   aqi: PurifierAQI;
   stats: PurifierCardStat[];
   shortcuts: PurifierCardShortcut[];
-
-  /** Support for card-mod styling */
-  style?: unknown;
-  /** Support for card-mod styling */
-  card_mod?: unknown;
 }
 
 export interface SliderValue {
