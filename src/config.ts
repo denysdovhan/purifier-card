@@ -13,6 +13,7 @@ export default function buildConfig(
   }
 
   return {
+    ...config, // pass all unlisted properties
     entity: config.entity,
     show_name: config.show_name ?? true,
     show_state: config.show_state ?? true,
@@ -22,8 +23,5 @@ export default function buildConfig(
     aqi: config.aqi ?? {},
     stats: config.stats ?? [],
     shortcuts: config.shortcuts ?? [],
-
-    // Pass other config properties
-    ...config,
   };
 }
