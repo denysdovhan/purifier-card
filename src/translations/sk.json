@@ -1,0 +1,37 @@
+{
+  "common": {
+    "name": "Karta čističky",
+    "description": "Karta čističky vám umožňuje ovládať vašu inteligentnú čističku.",
+    "not_available": "Entita nie je k dispozícii",
+    "toggle_power": "Zapnúť/vypnúť"
+  },
+  "state": {
+    "on": "Zapnúť",
+    "off": "Vypnúť"
+  },
+  "preset_mode": {
+    "auto": "Auto",
+    "silent": "Tichý",
+    "favorite": "Obľúbené",
+    "fan": "Ventilátor"
+  },
+  "error": {
+    "missing_entity": "Je potrebné zadať entitu!"
+  },
+  "editor": {
+    "entity": "Entita (požadované)",
+    "compact_view": "Kompaktný pohľad",
+    "compact_view_aria_label_on": "Zapnite kompaktné zobrazenie",
+    "compact_view_aria_label_off": "Vypnite kompaktné zobrazenie",
+    "show_name": "Show Name",
+    "show_name_aria_label_on": "Zapnite zobrazované meno",
+    "show_name_aria_label_off": "Vypnite zobrazované meno",
+    "show_state": "Show State",
+    "show_state_aria_label_on": "Zapnite stav zobrazenia",
+    "show_state_aria_label_off": "Vypnite stav zobrazenia",
+    "show_toolbar": "Show Toolbar",
+    "show_toolbar_aria_label_on": "Zapnúť panel s nástrojmi zobrazenia",
+    "show_toolbar_aria_label_off": "Vypnúť panel s nástrojmi zobrazenia",
+    "code_only_note": "Poznámka: Možnosti nastavenia akcií a štatistík sú dostupné výlučne pomocou Editora kódu."
+  }
+}
