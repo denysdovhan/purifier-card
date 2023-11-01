@@ -27,7 +27,7 @@
     "@types/lodash": "^4.14.195",
     "custom-card-helpers": "^1.6.4",
     "ha-template": "^1.2.2",
-    "home-assistant-js-websocket": "^8.0.1",
+    "home-assistant-js-websocket": "^9.1.0",
     "lit": "^2.2.2",
     "lodash": "^4.17.21"
   },
