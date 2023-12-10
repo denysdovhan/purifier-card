@@ -269,10 +269,10 @@ export class PurifierCard extends LitElement {
         <span class="state-text" alt=${localizedState}>
           ${localizedState}
         </span>
-        <mwc-circular-progress
+        <ha-circular-progress
           .indeterminate=${this.requestInProgress}
-          density="-5"
-        ></mwc-circular-progress>
+          size="small"
+        ></ha-circular-progress>
       </div>
     `;
   }
