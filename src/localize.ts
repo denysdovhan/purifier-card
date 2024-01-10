@@ -60,9 +60,17 @@ export default function localize(
     langStored = localStorage.getItem('selectedLanguage');
   }
 
-  const lang = (langStored || navigator.language.split('-')[0] || DEFAULT_LANG)
+  let lang = (langStored || navigator.language.split('-')[0] || DEFAULT_LANG)
     .replace(/['"]+/g, '')
     .replace('-', '_');
+
+  if (lang === 'zh_Hans') {
+    lang = 'zh_CN';
+  }
+
+  if (lang === 'zh_Hant') {
+    lang = 'zh_TW';
+  }
 
   let translated;
 
