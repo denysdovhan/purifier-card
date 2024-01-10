@@ -12,8 +12,10 @@
   "preset_mode": {
     "auto": "自動",
     "silent": "靜音",
+    "sleep": "睡眠",
     "favorite": "最愛",
-    "fan": "送風"
+    "fan": "送風",
+    "none": "手動"
   },
   "error": {
     "missing_entity": "必須指定實體名稱！"

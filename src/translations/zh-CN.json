@@ -12,8 +12,10 @@
   "preset_mode": {
     "auto": "自动",
     "silent": "睡眠",
+    "sleep": "睡眠",
     "favorite": "最爱",
-    "fan": "风扇"
+    "fan": "风扇",
+    "none": "手动"
   },
   "error": {
     "missing_entity": "必须指定实体"
