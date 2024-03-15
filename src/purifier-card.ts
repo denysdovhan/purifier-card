@@ -293,19 +293,21 @@ export class PurifierCard extends LitElement {
         } else if (attribute) {
           state = get(this.entity.attributes, attribute);
         } else if (entity_id) {
-          state = this.hass.states[entity_id].state;
+          state = this.hass.states[entity_id]?.state;
         } else {
           return nothing;
         }
 
-        const value = html`
-          <ha-template
-            hass=${this.hass}
-            template=${value_template}
-            value=${state}
-            variables=${{ value: state }}
-          ></ha-template>
-        `;
+        const value = state
+          ? html`
+              <ha-template
+                hass=${this.hass}
+                template=${value_template}
+                value=${state}
+                variables=${{ value: state }}
+              ></ha-template>
+            `
+          : nothing;
 
         return html`
           <div class="stats-block" @click="${() => this.handleMore(entity_id)}">
