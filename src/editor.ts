@@ -63,9 +63,8 @@ export class PurifierCardEditor extends LitElement {
             validationMessage=${localize('error.missing_entity')}
           >
             ${fanEntities.map(
-              (entity) => html`<mwc-list-item .value=${entity}
-                >${entity}</mwc-list-item
-              >`
+              (entity) =>
+                html`<mwc-list-item .value=${entity}>${entity}</mwc-list-item>`,
             )}
           </ha-select>
         </div>
@@ -75,7 +74,7 @@ export class PurifierCardEditor extends LitElement {
             aria-label=${localize(
               this.compact_view
                 ? 'editor.compact_view_aria_label_off'
-                : 'editor.compact_view_aria_label_on'
+                : 'editor.compact_view_aria_label_on',
             )}
             .checked=${this.compact_view}
             .configValue=${'compact_view'}
@@ -90,7 +89,7 @@ export class PurifierCardEditor extends LitElement {
             aria-label=${localize(
               this.show_name
                 ? 'editor.show_name_aria_label_off'
-                : 'editor.show_name_aria_label_on'
+                : 'editor.show_name_aria_label_on',
             )}
             .checked=${this.show_name}
             .configValue=${'show_name'}
@@ -105,7 +104,7 @@ export class PurifierCardEditor extends LitElement {
             aria-label=${localize(
               this.show_state
                 ? 'editor.show_state_aria_label_off'
-                : 'editor.show_state_aria_label_on'
+                : 'editor.show_state_aria_label_on',
             )}
             .checked=${this.show_state}
             .configValue=${'show_state'}
@@ -120,7 +119,7 @@ export class PurifierCardEditor extends LitElement {
             aria-label=${localize(
               this.show_name
                 ? 'editor.show_toolbar_aria_label_off'
-                : 'editor.show_toolbar_aria_label_on'
+                : 'editor.show_toolbar_aria_label_on',
             )}
             .checked=${this.show_toolbar}
             .configValue=${'show_toolbar'}
