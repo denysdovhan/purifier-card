@@ -110,13 +110,19 @@ export class PurifierCard extends LitElement {
   private callService(
     service: ServiceCallRequest['service'],
     options: ServiceCallRequest['serviceData'] = {},
+    target?: ServiceCallRequest['target'],
     request = true,
   ) {
     const [domain, name] = service.split('.');
-    this.hass.callService(domain, name, {
-      entity_id: this.config.entity,
-      ...options,
-    });
+    this.hass.callService(
+      domain,
+      name,
+      {
+        entity_id: this.config.entity,
+        ...options,
+      },
+      target,
+    );
 
     if (request) {
       this.requestInProgress = true;
@@ -330,10 +336,18 @@ export class PurifierCard extends LitElement {
     }
 
     const buttons = shortcuts.map(
-      ({ name, icon, service, service_data, preset_mode, percentage }) => {
+      ({
+        name,
+        icon,
+        service,
+        service_data,
+        target,
+        preset_mode,
+        percentage,
+      }) => {
         const execute = () => {
           if (service) {
-            this.callService(service, service_data);
+            this.callService(service, target, service_data);
           }
 
           if (preset_mode) {
