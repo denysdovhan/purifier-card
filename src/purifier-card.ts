@@ -23,19 +23,19 @@ import buildConfig from './config';
 
 registerTemplates();
 
-// String in the right side will be replaced by Rollup
+// String on the right side will be replaced by Rollup
 const PKG_VERSION = 'PKG_VERSION_VALUE';
 
 console.info(
   `%c PURIFIER-CARD %c ${PKG_VERSION} `,
   'color: white; background: blue; font-weight: 700;',
-  'color: blue; background: white; font-weight: 700;'
+  'color: blue; background: white; font-weight: 700;',
 );
 
 if (!customElements.get('ha-icon-button')) {
   customElements.define(
     'ha-icon-button',
-    class extends (customElements.get('paper-icon-button') ?? HTMLElement) {}
+    class extends (customElements.get('paper-icon-button') ?? HTMLElement) {},
   );
 }
 
@@ -58,7 +58,7 @@ export class PurifierCard extends LitElement {
 
   public static getStubConfig(
     _: unknown,
-    entities: string[]
+    entities: string[],
   ): Partial<PurifierCardConfig> {
     const [purifierEntity] = entities.filter((eid) => eid.startsWith('fan'));
 
@@ -103,14 +103,14 @@ export class PurifierCard extends LitElement {
       {
         bubbles: false,
         composed: true,
-      }
+      },
     );
   }
 
   private callService(
     service: ServiceCallRequest['service'],
     options: ServiceCallRequest['serviceData'] = {},
-    request = true
+    request = true,
   ) {
     const [domain, name] = service.split('.');
     this.hass.callService(domain, name, {
@@ -161,16 +161,15 @@ export class PurifierCard extends LitElement {
           </mmp-icon-button>
 
           ${preset_modes.map(
-            (item, index) =>
-              html`
-                <mwc-list-item
-                  ?activated=${selected === index}
-                  value=${item}
-                  @click=${(e: PointerEvent) => this.handlePresetMode(e)}
-                >
-                  ${localize(`preset_mode.${item.toLowerCase()}`) || item}
-                </mwc-list-item>
-              `
+            (item, index) => html`
+              <mwc-list-item
+                ?activated=${selected === index}
+                value=${item}
+                @click=${(e: PointerEvent) => this.handlePresetMode(e)}
+              >
+                ${localize(`preset_mode.${item.toLowerCase()}`) || item}
+              </mwc-list-item>
+            `,
           )}
         </ha-button-menu>
       </div>
@@ -316,7 +315,7 @@ export class PurifierCard extends LitElement {
             <div class="stats-subtitle">${subtitle}</div>
           </div>
         `;
-      }
+      },
     );
 
     return stats.length ? html`<div class="stats">${stats}</div>` : nothing;
@@ -362,7 +361,7 @@ export class PurifierCard extends LitElement {
             ><ha-icon icon="${icon}"></ha-icon
           ></ha-icon-button>
         `;
-      }
+      },
     );
 
     return html`
