@@ -1,6 +1,7 @@
 import {
   HassEntityAttributeBase,
   HassEntityBase,
+  HassServiceTarget,
 } from 'home-assistant-js-websocket';
 import { TemplateResult, nothing } from 'lit';
 
@@ -44,6 +45,7 @@ export interface PurifierCardShortcut {
   icon?: string;
   service?: string;
   service_data?: Record<string, unknown>;
+  target?: HassServiceTarget;
   percentage?: number;
   preset_mode?: string;
 }

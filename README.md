@@ -146,6 +146,7 @@ You can define [custom scripts][ha-scripts] for custom actions or add shortcuts 
 | `name`         | `string` | Optional | Friendly name of the shortcut, i.e. `Switch to Auto`.                                           |
 | `icon`         | `string` | Optional | Any icon for shortcut button.                                                                   |
 | `service`      | `string` | Optional | A service to call, i.e. `script.clean_air`.                                                     |
+| `target`       | `object` | Optional | A `HassServiceTarget`, to define a target for the current service call.                         |
 | `service_data` | `object` | Optional | `service_data` for `service` call                                                               |
 | `percentage`   | `object` | Optional | A `percentage` to switch to, i.e. `27`, etc. See `entity`'s `percentage_step` for valid values. |
 | `preset_mode`  | `object` | Optional | A `speed` to switch to, i.e. `Auto`, etc                                                        |

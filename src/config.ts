@@ -2,7 +2,7 @@ import { PurifierCardConfig } from './types';
 import localize from './localize';
 
 export default function buildConfig(
-  config?: Partial<PurifierCardConfig>
+  config?: Partial<PurifierCardConfig>,
 ): PurifierCardConfig {
   if (!config) {
     throw new Error(localize('error.invalid_config'));

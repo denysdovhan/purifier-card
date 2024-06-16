@@ -48,7 +48,7 @@ const DEFAULT_LANG = 'en';
 export default function localize(
   str: string,
   search?: string,
-  replace?: string
+  replace?: string,
 ): string | undefined {
   const [section, key] = str.toLowerCase().split('.');
 
