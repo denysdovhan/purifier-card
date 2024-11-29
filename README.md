@@ -255,6 +255,7 @@ If this card works with your air purifier, please open a PR and your model to th
 - Dyson Pure Humidify+Cool ([using Dyson custom integration](https://github.com/libdyson-wg/ha-dyson))
 - Winix AM90 Wi-Fi Air Purifier
 - Philips AirPurifier AC3858/50 (partially)
+- Philips AirPurifier AC4221/11 ([using philips-airpurifier-coap cutom component](https://github.com/kongo09/philips-airpurifier-coap))
 - SmartMI Air Purifier
 - Ikea Starkvind
 - Levoit Air Purifier (Core 400S)
