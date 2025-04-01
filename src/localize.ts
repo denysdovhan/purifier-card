@@ -17,6 +17,7 @@ import * as it from './translations/it.json';
 import * as cs from './translations/cs.json';
 import * as nl from './translations/nl.json';
 import * as es from './translations/es.json';
+import * as sk from './translations/sk.json';
 
 type Translations = {
   [key: string]: {
@@ -41,6 +42,7 @@ const languages: Record<string, Translations> = {
   cs,
   nl,
   es,
+  sk,
 };
 
 const DEFAULT_LANG = 'en';
