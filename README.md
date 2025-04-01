@@ -259,6 +259,7 @@ If this card works with your air purifier, please open a PR and your model to th
 - Philips AirPurifier AC4221/11 ([using philips-airpurifier-coap cutom component](https://github.com/kongo09/philips-airpurifier-coap))
 - SmartMI Air Purifier
 - Ikea Starkvind
+- Levoit Air Purifier (Core 200S) (partially)
 - Levoit Air Purifier (Core 400S)
 - [_Your purifier?_][edit-readme]
 
