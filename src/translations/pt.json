@@ -1,0 +1,40 @@
+{
+  "common": {
+    "name": "Cartão Purificador",
+    "description": "O cartão purificador permite que controle o seu purificador inteligente.",
+    "not_available": "Entidade não disponível",
+    "toggle_power": "Ligar/Desligar"
+  },
+  "state": {
+    "on": "Ligado",
+    "off": "Desligado"
+  },
+  "preset_mode": {
+    "Auto": "Automático",
+    "Silent": "Silencioso",
+    "Favorite": "Favorito",
+    "Fan": "Ventilador"
+  },
+  "error": {
+    "missing_entity": "A especificação da entidade é necessária!"
+  },
+  "warning": {
+    "actions_array": "AVISO: 'actions' foi renomeado para 'shortcuts'"
+  },
+  "editor": {
+    "entity": "Entidade (obrigatório)",
+    "compact_view": "Vista compacta",
+    "compact_view_aria_label_on": "Ativar vista compacta",
+    "compact_view_aria_label_off": "Desativar vista compacta",
+    "show_name": "Mostrar nome",
+    "show_name_aria_label_on": "Ativar nome da exibição",
+    "show_name_aria_label_off": "Desativar nome da exibição",
+    "show_state": "Mostrar estado",
+    "show_state_aria_label_on": "Ativar exibição de estado",
+    "show_state_aria_label_off": "Desativar exibição de estado",
+    "show_toolbar": "Mostrar barra de ferramentas",
+    "show_toolbar_aria_label_on": "Ativar barra de ferramentas",
+    "show_toolbar_aria_label_off": "Desativar barra de ferramentas",
+    "code_only_note": "Nota: Definir opções de ações e estatísticas está disponível exclusivamente usando o Editor de Código."
+  }
+}
