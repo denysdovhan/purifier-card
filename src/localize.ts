@@ -8,8 +8,8 @@ import * as fr from './translations/fr.json';
 import * as nb from './translations/nb.json';
 import * as pl from './translations/pl.json';
 import * as bg from './translations/bg.json';
-import * as zh_CN from './translations/zh-CN.json';
-import * as zh_TW from './translations/zh-TW.json';
+import * as zh_Hans from './translations/zh-Hans.json';
+import * as zh_Hant from './translations/zh-Hant.json';
 import * as de from './translations/de.json';
 import * as ca from './translations/ca.json';
 import * as ru from './translations/ru.json';
@@ -32,8 +32,8 @@ const languages: Record<string, Translations> = {
   nb,
   pl,
   bg,
-  zh_CN,
-  zh_TW,
+  zh_Hans,
+  zh_Hant,
   de,
   ca,
   ru,
