@@ -238,13 +238,15 @@ This card supports translations. Please, help to add more translations and impro
 - Čeština (Czech)
 - Dutch (Netherlands)
 - Español (Spanish)
+- Slovenčina (Slovak)
+- Português (Portuguese)
 - [_Your language?_][add-translation]
 
 ## Supported models
 
 This card relies on basic fan services, like `toggle`, `turn_on`, `turn_off`, etc. It should work with any air purifier, however I can physically test it only with my own purifier.
 
-If this card works with your air purifier, please open a PR and your model to the list.
+If this card works with your air purifier, please open a PR and your model to the list (in alphabetical order).
 
 - Air Purifier 4 Pro
 - Air Purifier 3/3H
@@ -254,13 +256,15 @@ If this card works with your air purifier, please open a PR and your model to th
 - Coway Airmega 300S/400S ([using IoCare custom component](https://github.com/RobertD502/home-assistant-iocare))
 - Dyson Pure Cool/Cool Link/Cool Desk/Cool Link Desk ([using Dyson custom integration](https://github.com/libdyson-wg/ha-dyson))
 - Dyson Pure Humidify+Cool ([using Dyson custom integration](https://github.com/libdyson-wg/ha-dyson))
-- Winix AM90 Wi-Fi Air Purifier
-- Philips AirPurifier AC3858/50 (partially)
-- Philips AirPurifier AC4221/11 ([using philips-airpurifier-coap cutom component](https://github.com/kongo09/philips-airpurifier-coap))
-- SmartMI Air Purifier
+- Dyson Purifier Hot+Cool HP2 De-NOx ([using Dyson custom integration](https://github.com/libdyson-wg/ha-dyson))
+- Honeywell H-Cat Air Purifier ([using Local Tuya integration](https://github.com/xZetsubou/hass-localtuya))
 - Ikea Starkvind
 - Levoit Air Purifier (Core 200S) (partially)
 - Levoit Air Purifier (Core 400S)
+- Philips AirPurifier AC3858/50 (partially)
+- Philips AirPurifier AC4221/11 ([using philips-airpurifier-coap cutom component](https://github.com/kongo09/philips-airpurifier-coap))
+- SmartMI Air Purifier
+- Winix AM90 Wi-Fi Air Purifier
 - [_Your purifier?_][edit-readme]
 
 ## Development
