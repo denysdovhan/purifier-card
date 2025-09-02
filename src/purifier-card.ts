@@ -361,8 +361,12 @@ export class PurifierCard extends LitElement {
 
         const isActive =
           service ||
-          percentage === attributes.percentage ||
-          preset_mode === attributes.preset_mode;
+          (percentage === attributes.percentage &&
+            attributes.preset_mode == null) ||
+          (preset_mode === attributes.preset_mode &&
+            attributes.percentage == null) ||
+          (preset_mode === attributes.preset_mode &&
+            percentage === attributes.percentage);
 
         const className = isActive ? 'active' : '';
 
