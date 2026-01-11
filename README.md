@@ -258,6 +258,7 @@ If this card works with your air purifier, please open a PR and your model to th
 - SmartMI Air Purifier
 - Ikea Starkvind
 - Levoit Air Purifier (Core 400S)
+- Zedar L600 (ZDR-DN-905-L600)
 - [_Your purifier?_][edit-readme]
 
 ## Development
