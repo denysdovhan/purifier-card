@@ -157,7 +157,7 @@ export class PurifierCard extends LitElement {
     const selected = preset_modes.indexOf(preset_mode);
 
     return html`
-      <div class="preset-mode">
+      <div class="tip preset-mode">
         <ha-dropdown @click="${(e: PointerEvent) => e.stopPropagation()}">
           <mmp-icon-button slot="trigger">
             <ha-icon icon="mdi:fan"></ha-icon>
