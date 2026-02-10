@@ -168,13 +168,13 @@ export class PurifierCard extends LitElement {
 
           ${preset_modes.map(
             (item, index) => html`
-              <mwc-list-item
+              <ha-md-list-item
                 ?activated=${selected === index}
                 value=${item}
                 @click=${(e: PointerEvent) => this.handlePresetMode(e)}
               >
                 ${localize(`preset_mode.${item.toLowerCase()}`) || item}
-              </mwc-list-item>
+              </ha-md-list-item>
             `,
           )}
         </ha-button-menu>
