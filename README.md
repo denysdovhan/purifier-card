@@ -263,6 +263,7 @@ If this card works with your air purifier, please open a PR and your model to th
 - Levoit Air Purifier (Core 400S)
 - Philips AirPurifier AC3858/50 (partially)
 - Philips AirPurifier AC4221/11 ([using philips-airpurifier-coap cutom component](https://github.com/kongo09/philips-airpurifier-coap))
+- Philips AirPurifier AC3033/74 ([using philips-airpurifier-coap cutom component](https://github.com/kongo09/philips-airpurifier-coap))
 - SmartMI Air Purifier
 - Winix AM90 Wi-Fi Air Purifier
 - [_Your purifier?_][edit-readme]
