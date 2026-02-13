@@ -3,6 +3,7 @@
   "version": "2.6.3-bugfix",
   "description": "Air Purifier card for Home Assistant Lovelace UI",
   "main": "dist/purifier-card.js",
+  "private": true,
   "scripts": {
     "start": "rollup -c --watch",
     "lint": "eslint src",
