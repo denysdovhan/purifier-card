@@ -21,7 +21,15 @@
     "custom-cards",
     "purifier"
   ],
-  "author": "Denys Dovhan <denysdovhan@gmail.com> (http://denysdovhan.com/)",
+  "author": {
+    "name": "Denys Dovhan",
+    "email": "denysdovhan@gmail.com",
+    "url": "http://denysdovhan.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/denysdovhan/purifier-card.git"
+  },
   "license": "MIT",
   "dependencies": {
     "@types/lodash": "^4.14.195",
