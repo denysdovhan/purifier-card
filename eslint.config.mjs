@@ -2,6 +2,7 @@ import { defineConfig } from 'eslint/config';
 import globals from 'globals';
 import tsParser from '@typescript-eslint/parser';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
+import importPlugin from 'eslint-plugin-import';
 import js from '@eslint/js';
 
 export default defineConfig([
@@ -15,6 +16,7 @@ export default defineConfig([
     },
     plugins: {
       '@typescript-eslint': tsPlugin,
+      import: importPlugin,
     },
     rules: {
       ...js.configs.recommended.rules,
