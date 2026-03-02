@@ -1,14 +1,14 @@
 :host {
   --pc-background: var(
     --ha-card-background,
-    var(--card-background-color, white)
+    var(--card-background-color, transparent)
   );
   --pc-primary-text-color: var(--primary-text-color);
   --pc-secondary-text-color: var(--secondary-text-color);
   --pc-icon-color: var(--secondary-text-color);
   --pc-slider-path-color: var(--round-slider-path-color);
   --pc-slider-bar-color: var(--round-slider-bar-color);
-  --pc-toolbar-background: var(--vc-background);
+  --pc-toolbar-background: transparent;
   --pc-toolbar-icon-color: var(--secondary-text-color);
   --pc-divider-color: var(--entities-divider-color, var(--divider-color));
   --pc-spacing: 10px;
@@ -19,6 +19,7 @@
 }
 
 ha-card {
+  background: var(--pc-background);
   flex-direction: column;
   flex: 1;
   position: relative;
@@ -31,7 +32,6 @@ ha-card {
 }
 
 .preview {
-  background-color: var(--pc-background);
   position: relative;
 }
 
