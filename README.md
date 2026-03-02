@@ -37,6 +37,9 @@ Just search for `Purifier Card` in the plugins tab.
 
 ### Manual
 
+<details>
+<summary>Add manually to dashboard resources</summary>
+
 1. Download `purifier-card.js` file from the [latest-release].
 2. Put `purifier-card.js` file into your `config/www` folder.
 3. Add a reference to `purifier-card.js` in Lovelace. There's two way to do that:
@@ -50,6 +53,8 @@ Just search for `Purifier Card` in the plugins tab.
       ```
 
 4. Add `custom:purifier-card` to Lovelace UI as any other card (using either editor or YAML configuration).
+
+</details>
 
 ## Using the card
 
