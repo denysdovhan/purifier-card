@@ -3,7 +3,8 @@
     "name": "Purifier Card",
     "description": "Purifier kartı hava temizleyicinizi kontrol etmenize yardımcı olur.",
     "not_available": "Varlık müsait değil",
-    "toggle_power": "Kapat/Aç"
+    "toggle_power": "Kapat/Aç",
+    "preset_mode": "Ön ayar modu"
   },
   "state": {
     "on": "Açık",
@@ -13,10 +14,12 @@
     "auto": "Otomatik",
     "silent": "Sessiz",
     "favorite": "Favori",
-    "fan": "Fan"
+    "fan": "Fan",
+    "idle": "Boşta"
   },
   "error": {
-    "missing_entity": "Varlığı belirtmeniz gereklidir!"
+    "missing_entity": "Varlığı belirtmeniz gereklidir!",
+    "invalid_config": "Geçersiz kart yapılandırması!"
   },
   "editor": {
     "entity": "Varlık (Gerekli)",
@@ -33,5 +36,8 @@
     "show_toolbar_aria_label_on": "Araç çubuğu gösterimini aç",
     "show_toolbar_aria_label_off": "Araç çubuğu gösterimini kapat",
     "code_only_note": "Not: Aksiyon ataması ve istatistik seçenekleri şu anda Kod Editörü kullanımı ile mümkündür."
+  },
+  "warning": {
+    "actions_array": "UYARI: 'actions', 'shortcuts' olarak yeniden adlandırıldı"
   }
 }

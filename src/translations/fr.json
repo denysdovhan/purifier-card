@@ -3,7 +3,8 @@
     "name": "Carte purificateur",
     "description": "La carte purificateur vous permet de contrôler votre purificateur d'air intelligent.",
     "not_available": "Le purificateur n'est pas disponible",
-    "toggle_power": "Allumer/éteindre"
+    "toggle_power": "Allumer/éteindre",
+    "preset_mode": "Mode prédéfini"
   },
   "state": {
     "on": "Allumé",
@@ -13,10 +14,12 @@
     "auto": "Auto",
     "silent": "Nuit",
     "favorite": "Favori",
-    "fan": "Manuel"
+    "fan": "Manuel",
+    "idle": "Inactif"
   },
   "error": {
-    "missing_entity": "Il est obligatoire de spécifier une entité!"
+    "missing_entity": "Il est obligatoire de spécifier une entité!",
+    "invalid_config": "Configuration de carte invalide !"
   },
   "editor": {
     "entity": "Entité (obligatoire)",
@@ -33,5 +36,8 @@
     "show_toolbar_aria_label_on": "Activer l'affichage de la barre d'outils",
     "show_toolbar_aria_label_off": "Désactiver l'affichage de la barre d'outils",
     "code_only_note": "Remarque: Les options de réglage des actions et statistiques sont disponibles exclusivement en utilisant l'éditeur de code."
+  },
+  "warning": {
+    "actions_array": "AVERTISSEMENT : 'actions' a été renommé en 'shortcuts'"
   }
 }

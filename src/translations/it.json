@@ -3,7 +3,8 @@
     "name": "Card del purificatore",
     "description": "La card del purificatore ti permette di controllare il tuo purificatore intelligente.",
     "not_available": "L'entità non è disponibile",
-    "toggle_power": "Accendi/Spegni"
+    "toggle_power": "Accendi/Spegni",
+    "preset_mode": "Modalità preimpostata"
   },
   "state": {
     "on": "Acceso",
@@ -13,10 +14,12 @@
     "auto": "Auto",
     "silent": "Silenzioso",
     "favorite": "Preferito",
-    "fan": "Ventola"
+    "fan": "Ventola",
+    "idle": "Inattivo"
   },
   "error": {
-    "missing_entity": "É necessario specificare l'entità"
+    "missing_entity": "É necessario specificare l'entità",
+    "invalid_config": "Configurazione della card non valida!"
   },
   "editor": {
     "entity": "Entità (richiesto)",
@@ -33,5 +36,8 @@
     "show_toolbar_aria_label_on": "Visualizza barra degli strumenti",
     "show_toolbar_aria_label_off": "Non visualizzare la barra degli strumenti",
     "code_only_note": "Nota: le opzioni di impostazione delle azioni e delle statistiche sono disponibili esclusivamente utilizzando l'editor di codice."
+  },
+  "warning": {
+    "actions_array": "AVVISO: 'actions' è stato rinominato in 'shortcuts'"
   }
 }

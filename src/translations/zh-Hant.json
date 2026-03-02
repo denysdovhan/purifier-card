@@ -3,7 +3,8 @@
     "name": "Purifier Card",
     "description": "讓您用更輕鬆的方式控制智慧空氣清淨機的卡片。",
     "not_available": "實體無法使用",
-    "toggle_power": "開關"
+    "toggle_power": "開關",
+    "preset_mode": "預設模式"
   },
   "state": {
     "on": "開",
@@ -13,10 +14,12 @@
     "auto": "自動",
     "silent": "靜音",
     "favorite": "最愛",
-    "fan": "送風"
+    "fan": "送風",
+    "idle": "閒置"
   },
   "error": {
-    "missing_entity": "必須指定實體名稱！"
+    "missing_entity": "必須指定實體名稱！",
+    "invalid_config": "卡片設定無效！"
   },
   "editor": {
     "entity": "實體名稱（必填）",
@@ -33,5 +36,8 @@
     "show_toolbar_aria_label_on": "顯示工具列",
     "show_toolbar_aria_label_off": "隱藏工具列",
     "code_only_note": "註：必須使用編碼編輯器編輯 actions 與 stats 選項。"
+  },
+  "warning": {
+    "actions_array": "警告：'actions' 已重新命名為 'shortcuts'"
   }
 }

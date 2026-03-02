@@ -3,7 +3,8 @@
     "name": "Purifier Card",
     "description": "Purifier card 可以让你以更轻松的方式控制你的空气净化器",
     "not_available": "实体不可用",
-    "toggle_power": "开/关"
+    "toggle_power": "开/关",
+    "preset_mode": "预设模式"
   },
   "state": {
     "on": "开",
@@ -13,10 +14,12 @@
     "auto": "自动",
     "silent": "睡眠",
     "favorite": "最爱",
-    "fan": "风扇"
+    "fan": "风扇",
+    "idle": "空闲"
   },
   "error": {
-    "missing_entity": "必须指定实体"
+    "missing_entity": "必须指定实体",
+    "invalid_config": "卡片配置无效！"
   },
   "editor": {
     "entity": "实体 (必填)",
@@ -33,5 +36,8 @@
     "show_toolbar_aria_label_on": "打开工具栏显示",
     "show_toolbar_aria_label_off": "关闭工具栏显示",
     "code_only_note": "注意: 只有使用代码编辑器才能设置操作和统计选项。"
+  },
+  "warning": {
+    "actions_array": "警告：'actions' 已重命名为 'shortcuts'"
   }
 }

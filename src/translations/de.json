@@ -3,7 +3,8 @@
     "name": "Purifier Karte",
     "description": "Die Purifier Karte steuert deinen smarten Luftreiniger.",
     "not_available": "Entity nicht verfügbar",
-    "toggle_power": "an/aus"
+    "toggle_power": "an/aus",
+    "preset_mode": "Voreingestellter Modus"
   },
   "state": {
     "on": "An",
@@ -13,10 +14,12 @@
     "auto": "Auto",
     "silent": "Leise",
     "favorite": "Favorit",
-    "fan": "Lüfter"
+    "fan": "Lüfter",
+    "idle": "Leerlauf"
   },
   "error": {
-    "missing_entity": "Es muss eine Entity definiert werden!"
+    "missing_entity": "Es muss eine Entity definiert werden!",
+    "invalid_config": "Ungültige Kartenkonfiguration!"
   },
   "editor": {
     "entity": "Entity (Erforderlich)",
@@ -33,5 +36,8 @@
     "show_toolbar_aria_label_on": "Symbolleiste anzeigen anschalten",
     "show_toolbar_aria_label_off": "Symbolleiste anzeigen ausschalten",
     "code_only_note": "Bitte beachten: Aktionen und Status Optionen sind nur im Code Editor verfügbar."
+  },
+  "warning": {
+    "actions_array": "WARNUNG: 'actions' wurde in 'shortcuts' umbenannt"
   }
 }

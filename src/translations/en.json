@@ -3,7 +3,8 @@
     "name": "Purifier Card",
     "description": "Purifier card allows you to control your smart purifier.",
     "not_available": "Entity is not available",
-    "toggle_power": "Turn on/off"
+    "toggle_power": "Turn on/off",
+    "preset_mode": "Preset mode"
   },
   "state": {
     "on": "On",
@@ -13,10 +14,12 @@
     "auto": "Auto",
     "silent": "Silent",
     "favorite": "Favorite",
-    "fan": "Fan"
+    "fan": "Fan",
+    "idle": "Idle"
   },
   "error": {
-    "missing_entity": "Specifying entity is required!"
+    "missing_entity": "Specifying entity is required!",
+    "invalid_config": "Invalid card configuration!"
   },
   "editor": {
     "entity": "Entity (Required)",
@@ -33,5 +36,8 @@
     "show_toolbar_aria_label_on": "Toggle display toolbar on",
     "show_toolbar_aria_label_off": "Toggle display toolbar off",
     "code_only_note": "Note: Setting actions and stats options are available exclusively using Code Editor."
+  },
+  "warning": {
+    "actions_array": "WARNING: 'actions' has been renamed to 'shortcuts'"
   }
 }

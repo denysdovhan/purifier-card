@@ -3,7 +3,8 @@
     "name": "Karta čističky",
     "description": "Karta čističky vám umožňuje ovládať vašu inteligentnú čističku.",
     "not_available": "Entita nie je k dispozícii",
-    "toggle_power": "Zapnúť/vypnúť"
+    "toggle_power": "Zapnúť/vypnúť",
+    "preset_mode": "Predvolený režim"
   },
   "state": {
     "on": "Zapnúť",
@@ -13,10 +14,12 @@
     "auto": "Auto",
     "silent": "Tichý",
     "favorite": "Obľúbené",
-    "fan": "Ventilátor"
+    "fan": "Ventilátor",
+    "idle": "Nečinný"
   },
   "error": {
-    "missing_entity": "Je potrebné zadať entitu!"
+    "missing_entity": "Je potrebné zadať entitu!",
+    "invalid_config": "Neplatná konfigurácia karty!"
   },
   "editor": {
     "entity": "Entita (požadované)",
@@ -33,5 +36,8 @@
     "show_toolbar_aria_label_on": "Zapnúť panel s nástrojmi zobrazenia",
     "show_toolbar_aria_label_off": "Vypnúť panel s nástrojmi zobrazenia",
     "code_only_note": "Poznámka: Možnosti nastavenia akcií a štatistík sú dostupné výlučne pomocou Editora kódu."
+  },
+  "warning": {
+    "actions_array": "UPOZORNENIE: 'actions' bolo premenované na 'shortcuts'"
   }
 }

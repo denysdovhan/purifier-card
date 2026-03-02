@@ -3,7 +3,8 @@
     "name": "Purifier Card",
     "description": "Purifier card us permet controlar el purificador intel·ligent.",
     "not_available": "L'entitat no està disponible",
-    "toggle_power": "Encendre/apagar"
+    "toggle_power": "Encendre/apagar",
+    "preset_mode": "Mode predefinit"
   },
   "state": {
     "on": "Encès",
@@ -13,10 +14,12 @@
     "auto": "Auto",
     "silent": "Silenciós",
     "favorite": "Favorit",
-    "fan": "Ventilador"
+    "fan": "Ventilador",
+    "idle": "Inactiu"
   },
   "error": {
-    "missing_entity": "Cal especificar una entitat."
+    "missing_entity": "Cal especificar una entitat.",
+    "invalid_config": "Configuració de targeta no vàlida!"
   },
   "editor": {
     "entity": "Entitat (Requerit)",
@@ -33,5 +36,8 @@
     "show_toolbar_aria_label_on": "Mostra barra d'eines",
     "show_toolbar_aria_label_off": "Amaga barra d'eines",
     "code_only_note": "Nota: Configuració de les accions i estadístiques només disponible des de l'Editor de Codi."
+  },
+  "warning": {
+    "actions_array": "AVÍS: 'actions' s'ha reanomenat a 'shortcuts'"
   }
 }

@@ -3,20 +3,23 @@
     "name": "Cartão Purificador",
     "description": "O cartão purificador permite que controle o seu purificador inteligente.",
     "not_available": "Entidade não disponível",
-    "toggle_power": "Ligar/Desligar"
+    "toggle_power": "Ligar/Desligar",
+    "preset_mode": "Modo predefinido"
   },
   "state": {
     "on": "Ligado",
     "off": "Desligado"
   },
   "preset_mode": {
-    "Auto": "Automático",
-    "Silent": "Silencioso",
-    "Favorite": "Favorito",
-    "Fan": "Ventilador"
+    "auto": "Automático",
+    "silent": "Silencioso",
+    "favorite": "Favorito",
+    "fan": "Ventilador",
+    "idle": "Inativo"
   },
   "error": {
-    "missing_entity": "A especificação da entidade é necessária!"
+    "missing_entity": "A especificação da entidade é necessária!",
+    "invalid_config": "Configuração inválida do cartão!"
   },
   "warning": {
     "actions_array": "AVISO: 'actions' foi renomeado para 'shortcuts'"

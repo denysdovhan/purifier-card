@@ -3,7 +3,8 @@
     "name": "Tarjeta Purificadora",
     "description": "La tarjeta purificadora te permite controlar tu purificador inteligente.",
     "not_available": "La entidad no está disponible",
-    "toggle_power": "Encender/Apagar"
+    "toggle_power": "Encender/Apagar",
+    "preset_mode": "Modo preestablecido"
   },
   "state": {
     "on": "Encendido",
@@ -13,10 +14,12 @@
     "auto": "Automático",
     "silent": "Nocturno",
     "favorite": "Manual",
-    "fan": "Ventilador"
+    "fan": "Ventilador",
+    "idle": "Inactivo"
   },
   "error": {
-    "missing_entity": "¡Se requiere especificar la entidad!"
+    "missing_entity": "¡Se requiere especificar la entidad!",
+    "invalid_config": "¡Configuración de tarjeta inválida!"
   },
   "editor": {
     "entity": "Entidad (Requerido)",
@@ -33,5 +36,8 @@
     "show_toolbar_aria_label_on": "Activar mostrar barra de herramientas",
     "show_toolbar_aria_label_off": "Desactivar mostrar barra de herramientas",
     "code_only_note": "Nota: La configuración de acciones y opciones de estadísticas solo está disponible mediante el Editor de Código."
+  },
+  "warning": {
+    "actions_array": "ADVERTENCIA: 'actions' ha sido renombrado a 'shortcuts'"
   }
 }

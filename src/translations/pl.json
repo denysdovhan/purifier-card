@@ -3,7 +3,8 @@
     "name": "Karta oczyszczacza powietrza",
     "description": "Karta oczyszczacza powietrza pozwala na kontrolowanie Twojego urządzenia.",
     "not_available": "Encja jest niedostępna",
-    "toggle_power": "Włącz/wyłącz"
+    "toggle_power": "Włącz/wyłącz",
+    "preset_mode": "Tryb wstępny"
   },
   "state": {
     "on": "Włączony",
@@ -17,7 +18,8 @@
     "idle": "Bezczynny"
   },
   "error": {
-    "missing_entity": "Wymagane jest zadeklarowanie encji!"
+    "missing_entity": "Wymagane jest zadeklarowanie encji!",
+    "invalid_config": "Nieprawidłowa konfiguracja karty!"
   },
   "editor": {
     "entity": "Encja (wymagane)",
@@ -34,5 +36,8 @@
     "show_toolbar_aria_label_on": "Włącz wyświetlanie paska narzędzi",
     "show_toolbar_aria_label_off": "Wyłącz wyświetlanie paska narzędzi",
     "code_only_note": "Uwaga: Konfiguracja akcji i statystyk dostępna jest tylko w edytorze YAML karty."
+  },
+  "warning": {
+    "actions_array": "OSTRZEŻENIE: 'actions' zostało przemianowane na 'shortcuts'"
   }
 }

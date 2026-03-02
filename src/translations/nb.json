@@ -3,7 +3,8 @@
     "name": "Purifier Card",
     "description": "Purifier-kortet lar deg kontrollere din smarte purifier.",
     "not_available": "Enhet er ikke tilgjengelig",
-    "toggle_power": "Slå på/av"
+    "toggle_power": "Slå på/av",
+    "preset_mode": "Forhåndsinnstilt modus"
   },
   "state": {
     "on": "På",
@@ -13,10 +14,12 @@
     "auto": "Auto",
     "silent": "Stille",
     "favorite": "Favoritt",
-    "fan": "Vifte"
+    "fan": "Vifte",
+    "idle": "Inaktiv"
   },
   "error": {
-    "missing_entity": "Spesifiserende enhet kreves!"
+    "missing_entity": "Spesifiserende enhet kreves!",
+    "invalid_config": "Ugyldig kortkonfigurasjon!"
   },
   "editor": {
     "entity": "Enhet (påkrevd)",
@@ -33,5 +36,8 @@
     "show_toolbar_aria_label_on": "Slå skjermverktøylinjen på",
     "show_toolbar_aria_label_off": "Slå skjermverktøylinjen av",
     "code_only_note": "Merk: Innstillingshandlinger og statistikkalternativer er eksklusivt tilgjengelige ved hjelp av Code Editor."
+  },
+  "warning": {
+    "actions_array": "ADVARSEL: 'actions' har blitt omdøpt til 'shortcuts'"
   }
 }
