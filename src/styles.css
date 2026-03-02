@@ -186,6 +186,8 @@ ha-card {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: var(--pc-spacing);
+  direction: ltr;
 }
 
 .state-text {
@@ -193,12 +195,10 @@ ha-card {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  margin-left: calc(28px + var(--pc-spacing)); /* size + margin of spinner */
 }
 
-.state mwc-circular-progress {
-  --mdc-theme-primary: var(--pc-secondary-text-color) !important;
-  margin-left: var(--pc-spacing);
+.state .state-spinner {
+  --ha-spinner-color: var(--pc-secondary-text-color);
 }
 
 .friendly-name {

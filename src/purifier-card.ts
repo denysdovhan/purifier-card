@@ -303,13 +303,12 @@ export class PurifierCard extends LitElement {
 
     return html`
       <div class="state">
+        ${this.requestInProgress
+          ? html`<ha-spinner class="state-spinner" size="tiny"></ha-spinner>`
+          : nothing}
         <span class="state-text" alt=${localizedState}>
           ${localizedState}
         </span>
-        <ha-circular-progress
-          .indeterminate=${this.requestInProgress}
-          size="small"
-        ></ha-circular-progress>
       </div>
     `;
   }
