@@ -46,15 +46,53 @@ ha-card {
   gap: var(--pc-spacing);
   flex-grow: 1;
   flex-wrap: wrap;
+  align-items: center;
   padding: var(--pc-spacing);
 
   & .tip {
     cursor: pointer;
-  }
-}
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
 
-.preset-mode ha-icon {
-  display: inline-block;
+    & ha-icon {
+      --mdc-icon-size: 18px;
+    }
+  }
+
+  & .dropdown-tip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  & .dropdown-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: transparent;
+    border: 0;
+    color: var(--pc-secondary-text-color);
+    cursor: pointer;
+    font: inherit;
+    line-height: 1;
+    padding: 0;
+  }
+
+  & .dropdown-trigger:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+
+  & .dropdown-trigger-arrow {
+    --mdc-icon-size: 18px;
+  }
+
+  & .tip-title {
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+  }
 }
 
 .more-info {

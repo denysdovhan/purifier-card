@@ -1,5 +1,6 @@
 import { CSSResultGroup, LitElement, PropertyValues, html, nothing } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
+import { repeat } from 'lit/directives/repeat.js';
 import {
   hasConfigOrEntityChanged,
   fireEvent,
@@ -130,9 +131,57 @@ export class PurifierCard extends LitElement {
     }
   }
 
-  private handlePresetMode(event: PointerEvent) {
-    const preset_mode = (<HTMLDivElement>event.target).getAttribute('value');
+  private handlePresetMode(
+    e: CustomEvent<{ item?: { value?: string } }>,
+  ): void {
+    const preset_mode = e.detail.item?.value;
     this.callService('fan.set_preset_mode', { preset_mode });
+  }
+
+  private renderDropdown({
+    icon,
+    value,
+    options,
+    onSelect,
+    formatLabel,
+    ariaLabel,
+  }: {
+    icon: string;
+    value: string;
+    options: string[];
+    onSelect: (_e: CustomEvent<{ item?: { value?: string } }>) => void;
+    formatLabel: (_value: string) => string;
+    ariaLabel?: string;
+  }): Template {
+    const selectedLabel = formatLabel(value);
+
+    return html`
+      <div class="tip dropdown-tip" @click=${(e: Event) => e.stopPropagation()}>
+        <ha-dropdown placement="bottom" @wa-select=${onSelect}>
+          <button
+            class="dropdown-trigger"
+            slot="trigger"
+            aria-label=${ariaLabel ?? selectedLabel}
+          >
+            <ha-icon icon=${icon}></ha-icon>
+            <span class="tip-title">${selectedLabel}</span>
+            <ha-icon
+              class="dropdown-trigger-arrow"
+              icon="mdi:menu-down"
+            ></ha-icon>
+          </button>
+          ${repeat(
+            options,
+            (item) => item,
+            (item) => html`
+              <ha-dropdown-item .value=${item} ?checked=${item === value}>
+                ${formatLabel(item)}
+              </ha-dropdown-item>
+            `,
+          )}
+        </ha-dropdown>
+      </div>
+    `;
   }
 
   private handlePercentage(event: CustomEvent<SliderValue>) {
@@ -154,32 +203,15 @@ export class PurifierCard extends LitElement {
       return nothing;
     }
 
-    const selected = preset_modes.indexOf(preset_mode);
-
-    return html`
-      <div class="tip preset-mode">
-        <ha-dropdown @click="${(e: PointerEvent) => e.stopPropagation()}">
-          <mmp-icon-button slot="trigger">
-            <ha-icon icon="mdi:fan"></ha-icon>
-            <span>
-              ${localize(`preset_mode.${preset_mode}`) || preset_mode}
-            </span>
-          </mmp-icon-button>
-
-          ${preset_modes.map(
-            (item, index) => html`
-              <ha-dropdown-item
-                ?activated=${selected === index}
-                value=${item}
-                @click=${(e: PointerEvent) => this.handlePresetMode(e)}
-              >
-                ${localize(`preset_mode.${item.toLowerCase()}`) || item}
-              </ha-dropdown-item>
-            `,
-          )}
-        </ha-dropdown>
-      </div>
-    `;
+    return this.renderDropdown({
+      icon: 'mdi:fan',
+      value: preset_mode,
+      options: preset_modes,
+      onSelect: (e) => this.handlePresetMode(e),
+      formatLabel: (value: string) =>
+        localize(`preset_mode.${value.toLowerCase()}`) ?? value,
+      ariaLabel: localize('common.preset_mode') || 'Preset mode',
+    });
   }
 
   private renderAQI(): Template {
