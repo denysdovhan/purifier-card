@@ -10,7 +10,7 @@ import postcss from 'rollup-plugin-postcss';
 import postcssPresetEnv from 'postcss-preset-env';
 import postcssLit from 'rollup-plugin-postcss-lit';
 import terser from '@rollup/plugin-terser';
-import minifyLiterals from 'rollup-plugin-html-literals';
+import minifyLiterals from 'rollup-plugin-minify-html-literals-v3';
 import replace from '@rollup/plugin-replace';
 import serve from 'rollup-plugin-serve';
 
@@ -61,11 +61,12 @@ const plugins = [
   !IS_DEV && minifyLiterals(),
   !IS_DEV &&
     terser({
+      maxWorkers: 1,
       output: {
         comments: false,
       },
     }),
-];
+].filter(Boolean);
 
 export default {
   input: 'src/purifier-card.ts',
