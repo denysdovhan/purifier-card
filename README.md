@@ -9,23 +9,29 @@
 [![Buy Me A Coffee][buymeacoffee-image]][buymeacoffee-url]
 [![Twitter][twitter-image]][twitter-url]
 
+> [!NOTE]
 > Air Purifier card for [Home Assistant][home-assistant] Lovelace UI
 
 By default, the Home Assistant does not provide any card for controlling air purifiers. This card displays the state and allows to control your air purifier.
 
 ![Preview of purifier-card][preview-image]
 
+## Sponsorship
+
+Your generosity will help me maintain and develop more projects like this one.
+
+- 💖 [Sponsor on GitHub][gh-sponsors-url]
+- ☕️ [Buy Me A Coffee][buymeacoffee-url]
+- Bitcoin: `bc1q7lfx6de8jrqt8mcds974l6nrsguhd6u30c6sg8`
+- Ethereum: `0x6aF39C917359897ae6969Ad682C14110afe1a0a1`
+
 ## Installing
-
-**💡 Tip:** If you like this project ~~and want to get some stickers and postcards~~, consider giving me a tip for the time I spent building this project:
-
-<a href="https://www.buymeacoffee.com/denysdovhan" target="_blank">
-  <img src="https://cdn.buymeacoffee.com/buttons/default-black.png" alt="Buy Me A Coffee" width="150px">
-</a>
 
 ### HACS
 
 This card is available in [HACS][hacs] (Home Assistant Community Store).
+
+[![Add to HACS via My Home Assistant][hacs-install-image]][hacs-install-url]
 
 Just search for `Purifier Card` in the plugins tab.
 
@@ -303,10 +309,11 @@ MIT © [Denys Dovhan][denysdovhan]
 
 [home-assistant]: https://www.home-assistant.io/
 [hacs]: https://hacs.xyz
+[hacs-install-image]: https://my.home-assistant.io/badges/hacs_repository.svg
+[hacs-install-url]: https://my.home-assistant.io/redirect/hacs_repository/?owner=denysdovhan&repository=purifier-card&category=plugin
 [preview-image]: https://user-images.githubusercontent.com/3459374/164275676-504d92aa-2c61-4451-ae9b-23dad113ce14.png
 [latest-release]: https://github.com/denysdovhan/purifier-card/releases/latest
 [ha-scripts]: https://www.home-assistant.io/docs/scripts/
-[xiaomi-miio-favorite-levels]: https://www.home-assistant.io/integrations/xiaomi_miio/#service-xiaomi_miiofan_set_favorite_level-air-purifiers-only
 [original-gif]: https://github.com/macbury/SmartHouse/blob/master/home-assistant/www/custom-lovelace/air-purifier/standby.gif
 [edit-readme]: https://github.com/denysdovhan/purifier-card/edit/master/README.md
 [add-translation]: https://github.com/denysdovhan/purifier-card/blob/master/CONTRIBUTING.md#how-to-add-translation
