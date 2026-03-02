@@ -1,3 +1,11 @@
+> [!IMPORTANT]
+> 
+> I don't own an air purifier anymore.
+> 
+> I still maintain this card. I will be fixing bugs, maitaining dependencies and styles. However, new features won't be actively developed anymore.
+>
+> If you have an air purifier and are willing to contribute, you are welcome.
+
 [![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner-direct-single.svg)](https://stand-with-ukraine.pp.ua/)
 
 # Purifier Card
