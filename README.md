@@ -2,10 +2,10 @@
 
 # Purifier Card
 
-[![npm version][npm-image]][npm-url]
+[![GitHub Release][gh-release-image]][gh-release-url]
+[![GitHub Downloads][gh-downloads-image]][gh-downloads-url]
 [![hacs][hacs-image]][hacs-url]
 [![GitHub Sponsors][gh-sponsors-image]][gh-sponsors-url]
-[![Patreon][patreon-image]][patreon-url]
 [![Buy Me A Coffee][buymeacoffee-image]][buymeacoffee-url]
 [![Twitter][twitter-image]][twitter-url]
 
@@ -38,7 +38,7 @@ Just search for `Purifier Card` in the plugins tab.
 ### Manual
 
 <details>
-<summary>Add manually to dashboard resources</summary>
+<summary>Click to show how to manually add to dashboard resources</summary>
 
 1. Download `purifier-card.js` file from the [latest-release].
 2. Put `purifier-card.js` file into your `config/www` folder.
@@ -297,8 +297,10 @@ MIT © [Denys Dovhan][denysdovhan]
 
 <!-- Badges -->
 
-[npm-url]: https://npmjs.org/package/purifier-card
-[npm-image]: https://img.shields.io/npm/v/purifier-card.svg?style=flat-square
+[gh-release-url]: https://github.com/denysdovhan/purifier-card/releases/latest
+[gh-release-image]: https://img.shields.io/github/v/release/denysdovhan/purifier-card?style=flat-square
+[gh-downloads-url]: https://github.com/denysdovhan/purifier-card/releases
+[gh-downloads-image]: https://img.shields.io/github/downloads/denysdovhan/purifier-card/total?style=flat-square
 [hacs-url]: https://github.com/hacs/integration
 [hacs-image]: https://img.shields.io/badge/hacs-default-orange.svg?style=flat-square
 [gh-sponsors-url]: https://github.com/sponsors/denysdovhan
