@@ -15,7 +15,10 @@
     "silent": "Sessiz",
     "favorite": "Favori",
     "fan": "Fan",
-    "idle": "Boşta"
+    "idle": "Boşta",
+    "low": "Düşük",
+    "medium": "Orta",
+    "high": "Yüksek"
   },
   "error": {
     "missing_entity": "Varlığı belirtmeniz gereklidir!",

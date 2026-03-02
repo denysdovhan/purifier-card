@@ -15,7 +15,10 @@
     "silent": "Cichy",
     "favorite": "Ulubiony",
     "fan": "Wentylator",
-    "idle": "Bezczynny"
+    "idle": "Bezczynny",
+    "low": "Niski",
+    "medium": "Średni",
+    "high": "Wysoki"
   },
   "error": {
     "missing_entity": "Wymagane jest zadeklarowanie encji!",

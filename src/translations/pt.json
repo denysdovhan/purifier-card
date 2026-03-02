@@ -15,7 +15,10 @@
     "silent": "Silencioso",
     "favorite": "Favorito",
     "fan": "Ventilador",
-    "idle": "Inativo"
+    "idle": "Inativo",
+    "low": "Baixo",
+    "medium": "Médio",
+    "high": "Alto"
   },
   "error": {
     "missing_entity": "A especificação da entidade é necessária!",

@@ -15,7 +15,10 @@
     "silent": "Nocturno",
     "favorite": "Manual",
     "fan": "Ventilador",
-    "idle": "Inactivo"
+    "idle": "Inactivo",
+    "low": "Bajo",
+    "medium": "Medio",
+    "high": "Alto"
   },
   "error": {
     "missing_entity": "¡Se requiere especificar la entidad!",

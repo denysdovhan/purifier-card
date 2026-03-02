@@ -15,7 +15,10 @@
     "silent": "Stille",
     "favorite": "Favoritt",
     "fan": "Vifte",
-    "idle": "Inaktiv"
+    "idle": "Inaktiv",
+    "low": "Lav",
+    "medium": "Middels",
+    "high": "Høy"
   },
   "error": {
     "missing_entity": "Spesifiserende enhet kreves!",

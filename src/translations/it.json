@@ -15,7 +15,10 @@
     "silent": "Silenzioso",
     "favorite": "Preferito",
     "fan": "Ventola",
-    "idle": "Inattivo"
+    "idle": "Inattivo",
+    "low": "Basso",
+    "medium": "Medio",
+    "high": "Alto"
   },
   "error": {
     "missing_entity": "É necessario specificare l'entità",

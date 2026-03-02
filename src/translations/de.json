@@ -15,7 +15,10 @@
     "silent": "Leise",
     "favorite": "Favorit",
     "fan": "Lüfter",
-    "idle": "Leerlauf"
+    "idle": "Leerlauf",
+    "low": "Niedrig",
+    "medium": "Mittel",
+    "high": "Hoch"
   },
   "error": {
     "missing_entity": "Es muss eine Entity definiert werden!",

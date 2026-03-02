@@ -15,7 +15,10 @@
     "silent": "Noční",
     "favorite": "Manuální",
     "fan": "Větrák",
-    "idle": "Nečinný"
+    "idle": "Nečinný",
+    "low": "Nízký",
+    "medium": "Střední",
+    "high": "Vysoký"
   },
   "error": {
     "missing_entity": "Je vyžadováno specifikování entity!",
