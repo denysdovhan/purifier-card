@@ -157,8 +157,8 @@ export class PurifierCard extends LitElement {
     const selected = preset_modes.indexOf(preset_mode);
 
     return html`
-      <div class="preset-mode">
-        <ha-button-menu @click="${(e: PointerEvent) => e.stopPropagation()}">
+      <div class="tip preset-mode">
+        <ha-dropdown @click="${(e: PointerEvent) => e.stopPropagation()}">
           <mmp-icon-button slot="trigger">
             <ha-icon icon="mdi:fan"></ha-icon>
             <span>
@@ -168,16 +168,16 @@ export class PurifierCard extends LitElement {
 
           ${preset_modes.map(
             (item, index) => html`
-              <mwc-list-item
+              <ha-dropdown-item
                 ?activated=${selected === index}
                 value=${item}
                 @click=${(e: PointerEvent) => this.handlePresetMode(e)}
               >
                 ${localize(`preset_mode.${item.toLowerCase()}`) || item}
-              </mwc-list-item>
+              </ha-dropdown-item>
             `,
           )}
-        </ha-button-menu>
+        </ha-dropdown>
       </div>
     `;
   }
