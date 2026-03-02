@@ -15,7 +15,10 @@
     "silent": "Nuit",
     "favorite": "Favori",
     "fan": "Manuel",
-    "idle": "Inactif"
+    "idle": "Inactif",
+    "low": "Faible",
+    "medium": "Moyen",
+    "high": "Élevé"
   },
   "error": {
     "missing_entity": "Il est obligatoire de spécifier une entité!",

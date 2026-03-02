@@ -15,7 +15,10 @@
     "silent": "Tichý",
     "favorite": "Obľúbené",
     "fan": "Ventilátor",
-    "idle": "Nečinný"
+    "idle": "Nečinný",
+    "low": "Nízky",
+    "medium": "Stredný",
+    "high": "Vysoký"
   },
   "error": {
     "missing_entity": "Je potrebné zadať entitu!",

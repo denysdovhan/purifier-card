@@ -15,7 +15,10 @@
     "silent": "Silenciós",
     "favorite": "Favorit",
     "fan": "Ventilador",
-    "idle": "Inactiu"
+    "idle": "Inactiu",
+    "low": "Baix",
+    "medium": "Mitjà",
+    "high": "Alt"
   },
   "error": {
     "missing_entity": "Cal especificar una entitat.",

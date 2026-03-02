@@ -15,7 +15,10 @@
     "silent": "睡眠",
     "favorite": "最爱",
     "fan": "风扇",
-    "idle": "空闲"
+    "idle": "空闲",
+    "low": "低",
+    "medium": "中",
+    "high": "高"
   },
   "error": {
     "missing_entity": "必须指定实体",

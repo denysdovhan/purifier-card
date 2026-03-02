@@ -15,7 +15,10 @@
     "silent": "Silent",
     "favorite": "Favorite",
     "fan": "Fan",
-    "idle": "Idle"
+    "idle": "Idle",
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High"
   },
   "error": {
     "missing_entity": "Specifying entity is required!",
