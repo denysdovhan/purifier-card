@@ -13,6 +13,7 @@
   "preset_mode": {
     "auto": "Automatický",
     "silent": "Noční",
+    "sleep_wind": "Noční",
     "favorite": "Manuální",
     "fan": "Větrák",
     "idle": "Nečinný",

@@ -13,6 +13,7 @@
   "preset_mode": {
     "auto": "Auto",
     "silent": "Cichy",
+    "sleep_wind": "Cichy",
     "favorite": "Ulubiony",
     "fan": "Wentylator",
     "idle": "Bezczynny",

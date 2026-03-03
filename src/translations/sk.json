@@ -13,6 +13,7 @@
   "preset_mode": {
     "auto": "Auto",
     "silent": "Tichý",
+    "sleep_wind": "Tichý",
     "favorite": "Obľúbené",
     "fan": "Ventilátor",
     "idle": "Nečinný",
