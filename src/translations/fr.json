@@ -13,6 +13,7 @@
   "preset_mode": {
     "auto": "Auto",
     "silent": "Nuit",
+    "sleep_wind": "Nuit",
     "favorite": "Favori",
     "fan": "Manuel",
     "idle": "Inactif",

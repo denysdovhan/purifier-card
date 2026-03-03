@@ -13,6 +13,7 @@
   "preset_mode": {
     "auto": "Auto",
     "silent": "Silenciós",
+    "sleep_wind": "Silenciós",
     "favorite": "Favorit",
     "fan": "Ventilador",
     "idle": "Inactiu",

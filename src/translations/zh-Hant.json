@@ -13,6 +13,7 @@
   "preset_mode": {
     "auto": "自動",
     "silent": "靜音",
+    "sleep_wind": "靜音",
     "favorite": "最愛",
     "fan": "送風",
     "idle": "閒置",

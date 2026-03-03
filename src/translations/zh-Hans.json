@@ -13,6 +13,7 @@
   "preset_mode": {
     "auto": "自动",
     "silent": "睡眠",
+    "sleep_wind": "睡眠",
     "favorite": "最爱",
     "fan": "风扇",
     "idle": "空闲",
