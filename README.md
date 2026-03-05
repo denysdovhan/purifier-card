@@ -1,7 +1,7 @@
 > [!IMPORTANT]
-> 
+>
 > I don't own an air purifier anymore.
-> 
+>
 > I still maintain this card. I will be fixing bugs, maitaining dependencies and styles. However, new features won't be actively developed anymore.
 >
 > If you have an air purifier and are willing to contribute, you are welcome.
@@ -313,8 +313,6 @@ MIT © [Denys Dovhan][denysdovhan]
 [hacs-image]: https://img.shields.io/badge/hacs-default-orange.svg?style=flat-square
 [gh-sponsors-url]: https://github.com/sponsors/denysdovhan
 [gh-sponsors-image]: https://img.shields.io/github/sponsors/denysdovhan?style=flat-square
-[patreon-url]: https://patreon.com/denysdovhan
-[patreon-image]: https://img.shields.io/badge/support-patreon-F96854.svg?style=flat-square
 [buymeacoffee-url]: https://patreon.com/denysdovhan
 [buymeacoffee-image]: https://img.shields.io/badge/support-buymeacoffee-222222.svg?style=flat-square
 [twitter-url]: https://twitter.com/denysdovhan
