@@ -35,7 +35,7 @@
   "license": "MIT",
   "dependencies": {
     "custom-card-helpers": "^2.0.0",
-    "ha-template": "^1.4.0",
+    "ha-template": "^1.4.1",
     "home-assistant-js-websocket": "^9.6.0",
     "lit": "^3.3.2",
     "lodash": "^4.17.21"
