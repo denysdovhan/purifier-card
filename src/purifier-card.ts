@@ -217,15 +217,19 @@ export class PurifierCard extends LitElement {
   private renderAQI(): Template {
     const { aqi = {} } = this.config;
     const { entity_id, attribute, unit = 'AQI' } = aqi;
-
+    const entity = entity_id ? this.hass.states[entity_id] : undefined;
     let value = '';
 
-    if (entity_id && attribute) {
-      value = get(this.hass.states[entity_id].attributes, attribute);
+    if (entity_id && !entity) {
+      return nothing;
+    }
+
+    if (entity && attribute) {
+      value = get(entity.attributes, attribute);
     } else if (attribute) {
       value = get(this.entity.attributes, attribute);
-    } else if (entity_id) {
-      value = this.hass.states[entity_id].state;
+    } else if (entity) {
+      value = entity.state;
     } else {
       return nothing;
     }
@@ -334,7 +338,9 @@ export class PurifierCard extends LitElement {
           return nothing;
         }
 
-        const value = state
+        const hasValue = state !== undefined && state !== null && state !== '';
+
+        const value = hasValue
           ? html`
               <ha-template
                 hass=${this.hass}
