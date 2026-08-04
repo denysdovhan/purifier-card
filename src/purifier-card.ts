@@ -378,14 +378,14 @@ export class PurifierCard extends LitElement {
       }) => {
         const execute = () => {
           if (service) {
-            this.callService(service, target, service_data);
+            this.callService(service, service_data ?? {}, target);
           }
 
           if (preset_mode) {
             this.callService('fan.set_preset_mode', { preset_mode });
           }
 
-          if (percentage) {
+          if (percentage !== undefined) {
             this.callService('fan.set_percentage', { percentage });
           }
         };
