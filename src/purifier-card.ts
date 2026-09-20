@@ -221,11 +221,23 @@ export class PurifierCard extends LitElement {
     let value = '';
 
     if (entity_id && attribute) {
-      value = get(this.hass.states[entity_id].attributes, attribute);
+      const entity = this.hass.states[entity_id];
+
+      if (!entity) {
+        return nothing;
+      }
+
+      value = get(entity.attributes, attribute);
     } else if (attribute) {
       value = get(this.entity.attributes, attribute);
     } else if (entity_id) {
-      value = this.hass.states[entity_id].state;
+      const entity = this.hass.states[entity_id];
+
+      if (!entity) {
+        return nothing;
+      }
+
+      value = entity.state;
     } else {
       return nothing;
     }
@@ -325,7 +337,13 @@ export class PurifierCard extends LitElement {
         let state = '';
 
         if (entity_id && attribute) {
-          state = get(this.hass.states[entity_id].attributes, attribute);
+          const entity = this.hass.states[entity_id];
+
+          if (!entity) {
+            return nothing;
+          }
+
+          state = get(entity.attributes, attribute);
         } else if (attribute) {
           state = get(this.entity.attributes, attribute);
         } else if (entity_id) {
