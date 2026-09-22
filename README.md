@@ -258,6 +258,7 @@ This card supports translations. Please, help to add more translations and impro
 - Español (Spanish)
 - Slovenčina (Slovak)
 - Português (Portuguese)
+- Ελληνικά (Greek)
 - [_Your language?_][add-translation]
 
 ## Supported models
