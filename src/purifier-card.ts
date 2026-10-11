@@ -378,7 +378,7 @@ export class PurifierCard extends LitElement {
       }) => {
         const execute = () => {
           if (service) {
-            this.callService(service, target, service_data);
+            this.callService(service, service_data ?? {}, target);
           }
 
           if (preset_mode) {
