@@ -82,7 +82,26 @@ export class PurifierCard extends LitElement {
   }
 
   protected shouldUpdate(changedProps: PropertyValues) {
-    return hasConfigOrEntityChanged(this, changedProps, false);
+    if (hasConfigOrEntityChanged(this, changedProps, false)) {
+      return true;
+    }
+
+    const oldHass = changedProps.get('hass') as HomeAssistant | undefined;
+
+    if (!oldHass || !this.hass || !this.config) {
+      return false;
+    }
+
+    const entityIds = [
+      this.config.aqi?.entity_id,
+      ...(this.config.stats || []).map((stat) => stat.entity_id),
+    ];
+
+    return entityIds.some(
+      (entityId) =>
+        entityId &&
+        oldHass.states[entityId] !== this.hass.states[entityId],
+    );
   }
 
   protected updated(changedProps: PropertyValues) {
