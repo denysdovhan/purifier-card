@@ -8,6 +8,7 @@ import {
   ServiceCallRequest,
 } from 'custom-card-helpers';
 import registerTemplates from 'ha-template';
+import '@thomasloven/round-slider';
 import get from 'lodash/get';
 import localize from './localize';
 import styles from './styles.css';
@@ -258,14 +259,14 @@ export class PurifierCard extends LitElement {
 
     return html`
       <div class="slider">
-        <round-slider
-          value=${percentage}
-          step=${percentage_step}
-          ?disabled="${disabled}"
+        <purifier-round-slider
+          .value=${percentage ?? 0}
+          .step=${percentage_step ?? 1}
+          .disabled=${disabled}
           @value-changed=${(e: CustomEvent<SliderValue>) =>
             this.handlePercentage(e)}
         >
-        </round-slider>
+        </purifier-round-slider>
         <img src=${image} alt="purifier is ${state}" class="image" />
         <div class="slider-center">
           <div class="slider-content">${this.renderAQI()}</div>
@@ -303,9 +304,11 @@ export class PurifierCard extends LitElement {
 
     return html`
       <div class="state">
-        ${this.requestInProgress
-          ? html`<ha-spinner class="state-spinner" size="tiny"></ha-spinner>`
-          : nothing}
+        ${
+          this.requestInProgress
+            ? html`<ha-spinner class="state-spinner" size="tiny"></ha-spinner>`
+            : nothing
+        }
         <span class="state-text" alt=${localizedState}>
           ${localizedState}
         </span>
