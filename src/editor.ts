@@ -27,6 +27,11 @@ export class PurifierCardEditor extends LitElement {
   public setConfig(config: LovelaceCardConfig & PurifierCardConfig) {
     this.config = config;
 
+    this.compact_view = config.compact_view ?? false;
+    this.show_name = config.show_name ?? true;
+    this.show_state = config.show_state ?? true;
+    this.show_toolbar = config.show_toolbar ?? true;
+
     if (!this.config.entity) {
       this.config.entity = this.getEntitiesByType('fan')[0] || '';
       fireEvent(this, 'config-changed', { config: this.config });
@@ -117,7 +122,7 @@ export class PurifierCardEditor extends LitElement {
         <div class="option">
           <ha-switch
             aria-label=${localize(
-              this.show_name
+              this.show_toolbar
                 ? 'editor.show_toolbar_aria_label_off'
                 : 'editor.show_toolbar_aria_label_on',
             )}
