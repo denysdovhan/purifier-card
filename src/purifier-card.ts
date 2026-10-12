@@ -7,7 +7,6 @@ import {
   HomeAssistant,
   ServiceCallRequest,
 } from 'custom-card-helpers';
-import registerTemplates from 'ha-template';
 import '@thomasloven/round-slider';
 import get from 'lodash/get';
 import localize from './localize';
@@ -22,8 +21,7 @@ import {
   Template,
 } from './types';
 import buildConfig from './config';
-
-registerTemplates('purifier-card-template');
+import './stat-template';
 
 // String on the right side will be replaced by Rollup
 const PKG_VERSION = 'PKG_VERSION_VALUE';
@@ -361,12 +359,11 @@ export class PurifierCard extends LitElement {
             ? nothing
             : value_template
               ? html`
-                  <purifier-card-template
+                  <purifier-stat-template
                     .hass=${this.hass}
                     .template=${value_template}
                     .value=${state}
-                    .variables=${{ value: state }}
-                  ></purifier-card-template>
+                  ></purifier-stat-template>
                 `
               : state;
 
