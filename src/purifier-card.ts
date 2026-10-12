@@ -23,7 +23,7 @@ import {
 } from './types';
 import buildConfig from './config';
 
-registerTemplates();
+registerTemplates('purifier-card-template');
 
 // String on the right side will be replaced by Rollup
 const PKG_VERSION = 'PKG_VERSION_VALUE';
@@ -356,16 +356,19 @@ export class PurifierCard extends LitElement {
           return nothing;
         }
 
-        const value = state
-          ? html`
-              <ha-template
-                hass=${this.hass}
-                template=${value_template}
-                value=${state}
-                variables=${{ value: state }}
-              ></ha-template>
-            `
-          : nothing;
+        const value =
+          state === undefined || state === null || state === ''
+            ? nothing
+            : value_template
+              ? html`
+                  <purifier-card-template
+                    .hass=${this.hass}
+                    .template=${value_template}
+                    .value=${state}
+                    .variables=${{ value: state }}
+                  ></purifier-card-template>
+                `
+              : state;
 
         return html`
           <div class="stats-block" @click="${() => this.handleMore(entity_id)}">
