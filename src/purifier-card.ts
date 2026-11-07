@@ -7,7 +7,7 @@ import {
   HomeAssistant,
   ServiceCallRequest,
 } from 'custom-card-helpers';
-import registerTemplates from 'ha-template';
+import '@thomasloven/round-slider';
 import get from 'lodash/get';
 import localize from './localize';
 import styles from './styles.css';
@@ -21,8 +21,7 @@ import {
   Template,
 } from './types';
 import buildConfig from './config';
-
-registerTemplates();
+import './stat-template';
 
 // String on the right side will be replaced by Rollup
 const PKG_VERSION = 'PKG_VERSION_VALUE';
@@ -81,7 +80,26 @@ export class PurifierCard extends LitElement {
   }
 
   protected shouldUpdate(changedProps: PropertyValues) {
-    return hasConfigOrEntityChanged(this, changedProps, false);
+    if (hasConfigOrEntityChanged(this, changedProps, false)) {
+      return true;
+    }
+
+    const oldHass = changedProps.get('hass') as HomeAssistant | undefined;
+
+    if (!oldHass || !this.hass || !this.config) {
+      return false;
+    }
+
+    const entityIds = [
+      this.config.aqi?.entity_id,
+      ...(this.config.stats || []).map((stat) => stat.entity_id),
+    ];
+
+    return entityIds.some(
+      (entityId) =>
+        entityId &&
+        oldHass.states[entityId] !== this.hass.states[entityId],
+    );
   }
 
   protected updated(changedProps: PropertyValues) {
@@ -258,14 +276,14 @@ export class PurifierCard extends LitElement {
 
     return html`
       <div class="slider">
-        <round-slider
-          value=${percentage}
-          step=${percentage_step}
-          ?disabled="${disabled}"
+        <purifier-round-slider
+          .value=${percentage ?? 0}
+          .step=${percentage_step ?? 1}
+          .disabled=${disabled}
           @value-changed=${(e: CustomEvent<SliderValue>) =>
             this.handlePercentage(e)}
         >
-        </round-slider>
+        </purifier-round-slider>
         <img src=${image} alt="purifier is ${state}" class="image" />
         <div class="slider-center">
           <div class="slider-content">${this.renderAQI()}</div>
@@ -303,9 +321,11 @@ export class PurifierCard extends LitElement {
 
     return html`
       <div class="state">
-        ${this.requestInProgress
-          ? html`<ha-spinner class="state-spinner" size="tiny"></ha-spinner>`
-          : nothing}
+        ${
+          this.requestInProgress
+            ? html`<ha-spinner class="state-spinner" size="tiny"></ha-spinner>`
+            : nothing
+        }
         <span class="state-text" alt=${localizedState}>
           ${localizedState}
         </span>
@@ -334,16 +354,18 @@ export class PurifierCard extends LitElement {
           return nothing;
         }
 
-        const value = state
-          ? html`
-              <ha-template
-                hass=${this.hass}
-                template=${value_template}
-                value=${state}
-                variables=${{ value: state }}
-              ></ha-template>
-            `
-          : nothing;
+        const value =
+          state === undefined || state === null || state === ''
+            ? nothing
+            : value_template
+              ? html`
+                  <purifier-stat-template
+                    .hass=${this.hass}
+                    .template=${value_template}
+                    .value=${state}
+                  ></purifier-stat-template>
+                `
+              : state;
 
         return html`
           <div class="stats-block" @click="${() => this.handleMore(entity_id)}">

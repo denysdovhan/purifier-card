@@ -22,6 +22,8 @@
 
 By default, the Home Assistant does not provide any card for controlling air purifiers. This card displays the state and allows to control your air purifier.
 
+It includes fixes for current Home Assistant controls and for automatic updates of separate statistics and AQI sensors. The statistics update fix has been tested with a Levoit Vital 100S connected through ESPHome.
+
 ![Preview of purifier-card][preview-image]
 
 ## Sponsorship
@@ -264,7 +266,7 @@ This card supports translations. Please, help to add more translations and impro
 
 This card relies on basic fan services, like `toggle`, `turn_on`, `turn_off`, etc. It should work with any air purifier, however I can physically test it only with my own purifier.
 
-If this card works with your air purifier, please open a PR and your model to the list (in alphabetical order).
+If this card works with your air purifier, please open a PR and add your model to the list (in alphabetical order).
 
 - Air Purifier 4 Pro
 - Air Purifier 3/3H
@@ -279,6 +281,7 @@ If this card works with your air purifier, please open a PR and your model to th
 - Ikea Starkvind
 - Levoit Air Purifier (Core 200S) (partially)
 - Levoit Air Purifier (Core 400S)
+- Levoit Vital 100S (tested with ESPHome)
 - Philips AirPurifier AC3858/50 (partially)
 - Philips AirPurifier AC4221/11 ([using philips-airpurifier-coap cutom component](https://github.com/kongo09/philips-airpurifier-coap))
 - SmartMI Air Purifier

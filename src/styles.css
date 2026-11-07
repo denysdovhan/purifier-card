@@ -6,8 +6,8 @@
   --pc-primary-text-color: var(--primary-text-color);
   --pc-secondary-text-color: var(--secondary-text-color);
   --pc-icon-color: var(--secondary-text-color);
-  --pc-slider-path-color: var(--round-slider-path-color);
-  --pc-slider-bar-color: var(--round-slider-bar-color);
+  --pc-slider-path-color: var(--round-slider-path-color, var(--divider-color));
+  --pc-slider-bar-color: var(--round-slider-bar-color, var(--primary-color));
   --pc-toolbar-background: transparent;
   --pc-toolbar-icon-color: var(--secondary-text-color);
   --pc-divider-color: var(--entities-divider-color, var(--divider-color));
@@ -105,14 +105,17 @@ ha-card {
 }
 
 .slider {
-  height: 100%;
+  height: auto;
+  aspect-ratio: 1;
   width: 100%;
   position: relative;
   max-width: 250px;
   min-width: 100px;
 }
 
-.slider round-slider {
+.slider purifier-round-slider {
+  display: block;
+  width: 100%;
   --round-slider-path-color: var(--pc-slider-path-color);
   --round-slider-bar-color: var(--pc-slider-bar-color);
 }
